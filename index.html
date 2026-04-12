@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TradeRunners V6</title>
+
+
+
+<style>
+
+body{
+
+  margin:0;
+
+  font-family:Arial,sans-serif;
+
+  background:#f4f7fb;
+
+  color:#0f172a;
+
+}
+
+.header{
+
+  background:linear-gradient(135deg,#0f172a,#2563eb);
+
+  color:white;
+
+  padding:20px;
+
+  border-bottom-left-radius:20px;
+
+  border-bottom-right-radius:20px;
+
+}
+
+.header h1{margin:0}
+
+.slogan{
+
+  margin-top:10px;
+
+  background:rgba(255,255,255,0.1);
+
+  padding:10px 12px;
+
+  border-radius:20px;
+
+  display:inline-block;
+
+  font-size:13px;
+
+  font-weight:bold;
+
+}
+
+.container{
+
+  padding:15px;
+
+  max-width:520px;
+
+  margin:auto;
+
+}
+
+.card{
+
+  background:white;
+
+  padding:15px;
+
+  border-radius:15px;
+
+  margin-bottom:15px;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+}
+
+input, select, textarea{
+
+  width:100%;
+
+  padding:12px;
+
+  margin:6px 0;
+
+  border-radius:10px;
+
+  border:1px solid #ccc;
+
+  box-sizing:border-box;
+
+}
+
+textarea{
+
+  min-height:70px;
+
+  resize:vertical;
+
+}
+
+button{
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#2563eb;
+
+  color:white;
+
+  font-weight:bold;
+
+  margin-top:10px;
+
+  cursor:pointer;
+
+}
+
+button.secondary{background:#111827}
+
+button.success{background:#16a34a}
+
+button.warning{background:#f59e0b}
+
+button.soft{
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  border:1px solid #bfdbfe;
+
+}
+
+.tabs{
+
+  display:grid;
+
+  grid-template-columns:repeat(5,1fr);
+
+  gap:6px;
+
+  margin-bottom:15px;
+
+}
+
+.tab{
+
+  padding:10px;
+
+  border-radius:10px;
+
+  background:#e2e8f0;
+
+  text-align:center;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  font-size:12px;
+
+}
+
+.active{
+
+  background:#2563eb;
+
+  color:white;
+
+}
+
+.screen{
+
+  display:none;
+
+}
+
+.show{
+
+  display:block;
+
+}
+
+.map{
+
+  height:200px;
+
+  background:
+
+    linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px),
+
+    linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+
+    linear-gradient(135deg,#dbeafe,#f8fbff);
+
+  background-size:40px 40px,40px 40px,cover;
+
+  border-radius:15px;
+
+  border:1px solid #cfe0ff;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-weight:bold;
+
+  color:#2563eb;
+
+}
+
+.job{
+
+  border:1px solid #ddd;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  margin-top:10px;
+
+}
+
+.badge{
+
+  display:inline-block;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  font-size:12px;
+
+  font-weight:bold;
+
+  margin-bottom:8px;
+
+}
+
+.tradepro{
+
+  background:#ede9fe;
+
+  color:#6d28d9;
+
+}
+
+.price{
+
+  font-size:30px;
+
+  font-weight:bold;
+
+  color:#2563eb;
+
+  margin:6px 0;
+
+}
+
+.grid2{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+
+}
+
+.kpis{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+
+}
+
+.kpi{
+
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:12px;
+
+  padding:14px;
+
+  text-align:center;
+
+}
+
+.kpi small{
+
+  display:block;
+
+  color:#64748b;
+
+  margin-bottom:6px;
+
+}
+
+.kpi strong{
+
+  font-size:22px;
+
+  color:#2563eb;
+
+}
+
+.timeline{
+
+  padding-left:0;
+
+  margin:10px 0 0;
+
+}
+
+.timeline li{
+
+  list-style:none;
+
+  padding:10px;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:10px;
+
+  margin-bottom:8px;
+
+  background:#fafcff;
+
+}
+
+.timeline li.on{
+
+  background:#eff6ff;
+
+  border-color:#bfdbfe;
+
+  color:#2563eb;
+
+  font-weight:bold;
+
+}
+
+.small{
+
+  font-size:12px;
+
+  color:#64748b;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="header">
+
+  <h1>🚐 TradeRunners</h1>
+
+  <div>Trade delivery made simple</div>
+
+  <div class="slogan">Saving you time and money on every delivery</div>
+
+</div>
+
+
+
+<div class="container">
+
+
+
+  <div class="tabs">
+
+    <div class="tab active" onclick="showScreen('home',this)">Home</div>
+
+    <div class="tab" onclick="showScreen('book',this)">Book</div>
+
+    <div class="tab" onclick="showScreen('track',this)">Track</div>
+
+    <div class="tab" onclick="showScreen('driver',this)">Driver</div>
+
+    <div class="tab" onclick="showScreen('history',this)">History</div>
+
+  </div>
+
+
+
+  <div id="home" class="screen show">
+
+    <div class="card">
+
+      <h2>Login</h2>
+
+
+
+      <select id="role">
+
+        <option>Customer</option>
+
+        <option>Trade</option>
+
+        <option>Driver</option>
+
+      </select>
+
+
+
+      <input id="name" placeholder="Your name">
+
+
+
+      <button onclick="login()">Enter App</button>
+
+
+
+      <div id="userBox" style="margin-top:12px;"></div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h3>Trade Pro</h3>
+
+      <div class="badge tradepro">Subscription</div>
+
+      <p>Priority matching, cheaper deliveries, better rates for repeat trade customers.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="book" class="screen">
+
+    <div class="card">
+
+      <h2>Book Job</h2>
+
+
+
+      <div class="grid2">
+
+        <div>
+
+          <label>Customer type</label>
+
+          <select id="customerType">
+
+            <option value="Customer">Customer</option>
+
+            <option value="Trade">Trade</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>Plan</label>
+
+          <select id="plan">
+
+            <option value="0">Standard</option>
+
+            <option value="-8">Trade Pro</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+
+      <input id="pickup" placeholder="Pickup (e.g. B&Q Leeds)">
+
+      <input id="drop" placeholder="Drop (postcode or area)">
+
+
+
+      <div class="grid2">
+
+        <div>
+
+          <label>Vehicle needed</label>
+
+          <select id="vehicle">
+
+            <option value="10">Car</option>
+
+            <option value="20">Estate</option>
+
+            <option value="30">Van</option>
+
+            <option value="40">Pickup / Trailer</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>Weight</label>
+
+          <select id="weight">
+
+            <option value="0">Light</option>
+
+            <option value="10">Medium</option>
+
+            <option value="20">Heavy</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="grid2">
+
+        <div>
+
+          <label>Length</label>
+
+          <select id="length">
+
+            <option value="0">Under 1m</option>
+
+            <option value="5">1m - 2.4m</option>
+
+            <option value="10">2.4m - 3.6m</option>
+
+            <option value="15">Over 3.6m</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>Priority</label>
+
+          <select id="priority">
+
+            <option value="0">Standard</option>
+
+            <option value="8">Priority</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+
+      <textarea id="notes" placeholder="Notes"></textarea>
+
+
+
+      <button onclick="getQuote()">Get Quote</button>
+
+
+
+      <div id="quoteBox" class="card" style="display:none; margin-top:12px; background:#f8fbff;">
+
+        <div id="planBadge" class="badge">Standard</div>
+
+        <div id="price" class="price">£0</div>
+
+        <div id="quoteText" class="small"></div>
+
+        <button class="success" onclick="bookJob()">Book Job</button>
+
+        <button class="soft" onclick="openMaps()">Open in Google Maps</button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h3>Route Preview</h3>
+
+      <div class="map">Map Preview</div>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="track" class="screen">
+
+    <div class="card">
+
+      <h2>Tracking</h2>
+
+      <p id="trackText">No job yet</p>
+
+      <ul class="timeline">
+
+        <li id="step1">Job created</li>
+
+        <li id="step2">Accepted</li>
+
+        <li id="step3">On the way to pickup</li>
+
+        <li id="step4">Picked up</li>
+
+        <li id="step5">On the way to customer</li>
+
+        <li id="step6">Delivered</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="driver" class="screen">
+
+    <div class="card">
+
+      <h2>Driver Dashboard</h2>
+
+
+
+      <label>Your vehicle</label>
+
+      <select id="driverVehicle" onchange="renderJobs()">
+
+        <option value="10">Car</option>
+
+        <option value="20">Estate</option>
+
+        <option value="30">Van</option>
+
+        <option value="40">Pickup / Trailer</option>
+
+      </select>
+
+
+
+      <div class="kpis">
+
+        <div class="kpi">
+
+          <small>Driver earnings</small>
+
+          <strong id="earnings">£0</strong>
+
+        </div>
+
+        <div class="kpi">
+
+          <small>Completed jobs</small>
+
+          <strong id="completedCount">0</strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h3>Available Jobs</h3>
+
+      <div id="jobs"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="history" class="screen">
+
+    <div class="card">
+
+      <h2>Job History</h2>
+
+      <div id="historyList"></div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+
+<script>
+
+let currentUser = "";
+
+let currentRole = "Customer";
+
+let jobs = [];
+
+let completedJobs = [];
+
+let driverEarnings = 0;
+
+let quoteTotal = 0;
+
+let orderCounter = 1000;
+
+
+
+function showScreen(id, el){
+
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("show"));
+
+  document.getElementById(id).classList.add("show");
+
+
+
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+
+  el.classList.add("active");
+
+}
+
+
+
+function login(){
+
+  currentUser = document.getElementById("name").value || "Guest";
+
+  currentRole = document.getElementById("role").value;
+
+
+
+  document.getElementById("userBox").innerHTML =
+
+    "<div class='badge'>" + currentRole + "</div><br>Logged in as <strong>" + currentUser + "</strong>";
+
+
+
+  if(currentRole === "Trade"){
+
+    document.getElementById("customerType").value = "Trade";
+
+    document.getElementById("plan").value = "-8";
+
+  }
+
+}
+
+
+
+function getDistanceCharge(drop){
+
+  drop = (drop || "").toUpperCase();
+
+
+
+  if(drop.startsWith("LS")) return 10;
+
+  if(drop.startsWith("WF") || drop.startsWith("BD") || drop.startsWith("HD") || drop.startsWith("YO")) return 18;
+
+  if(drop.startsWith("M") || drop.startsWith("L") || drop.startsWith("B")) return 28;
+
+  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return 40;
+
+
+
+  return 15;
+
+}
+
+
+
+function getQuote(){
+
+  let base = 12;
+
+  let distance = getDistanceCharge(document.getElementById("drop").value);
+
+  let vehicle = Number(document.getElementById("vehicle").value);
+
+  let weight = Number(document.getElementById("weight").value);
+
+  let length = Number(document.getElementById("length").value);
+
+  let priority = Number(document.getElementById("priority").value);
+
+  let plan = Number(document.getElementById("plan").value);
+
+
+
+  quoteTotal = base + distance + vehicle + weight + length + priority + plan;
+
+  if(quoteTotal < 15) quoteTotal = 15;
+
+
+
+  document.getElementById("quoteBox").style.display = "block";
+
+  document.getElementById("price").innerText = "£" + quoteTotal;
+
+  document.getElementById("planBadge").innerText = plan < 0 ? "Trade Pro" : "Standard";
+
+  document.getElementById("planBadge").className = plan < 0 ? "badge tradepro" : "badge";
+
+  document.getElementById("quoteText").innerText =
+
+    plan < 0
+
+      ? "Trade Pro discount applied. Priority trade pricing included."
+
+      : "Standard price based on vehicle, load and distance feel.";
+
+}
+
+
+
+function bookJob(){
+
+  let pickup = document.getElementById("pickup").value;
+
+  let drop = document.getElementById("drop").value;
+
+
+
+  if(!pickup || !drop){
+
+    alert("Please fill in pickup and drop.");
+
+    return;
+
+  }
+
+
+
+  let job = {
+
+    id: orderCounter++,
+
+    orderId: "TR-" + orderCounter,
+
+    customer: currentUser,
+
+    pickup,
+
+    drop,
+
+    price: quoteTotal,
+
+    status: "Open",
+
+    vehicleNeed: Number(document.getElementById("vehicle").value)
+
+  };
+
+
+
+  jobs.unshift(job);
+
+  updateTracking(job);
+
+  renderJobs();
+
+}
+
+
+
+function updateTracking(job){
+
+  document.getElementById("trackText").innerText =
+
+    job.pickup + " → " + job.drop + " | £" + job.price + " | " + job.status;
+
+
+
+  document.querySelectorAll(".timeline li").forEach(li => li.classList.remove("on"));
+
+
+
+  if(job.status === "Open") document.getElementById("step1").classList.add("on");
+
+  if(job.status === "Accepted") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+  }
+
+  if(job.status === "On the way to pickup") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+  }
+
+  if(job.status === "Picked up") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+    document.getElementById("step4").classList.add("on");
+
+  }
+
+  if(job.status === "On the way to customer") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+    document.getElementById("step4").classList.add("on");
+
+    document.getElementById("step5").classList.add("on");
+
+  }
+
+  if(job.status === "Delivered") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+    document.getElementById("step4").classList.add("on");
+
+    document.getElementById("step5").classList.add("on");
+
+    document.getElementById("step6").classList.add("on");
+
+  }
+
+}
+
+
+
+function nextStatus(i){
+
+  let steps = ["Open","Accepted","On the way to pickup","Picked up","On the way to customer","Delivered"];
+
+  let current = jobs[i].status;
+
+  let index = steps.indexOf(current);
+
+
+
+  if(index < steps.length - 1){
+
+    jobs[i].status = steps[index + 1];
+
+  }
+
+
+
+  if(jobs[i].status === "Delivered" && !jobs[i].counted){
+
+    jobs[i].counted = true;
+
+    driverEarnings += Number(jobs[i].price);
+
+    completedJobs.unshift(jobs[i]);
+
+  }
+
+
+
+  renderJobs();
+
+  renderHistory();
+
+  renderStats();
+
+  updateTracking(jobs[i]);
+
+}
+
+
+
+function renderJobs(){
+
+  let box = document.getElementById("jobs");
+
+  box.innerHTML = "";
+
+
+
+  let driverVehicle = Number(document.getElementById("driverVehicle").value);
+
+
+
+  jobs.forEach((job,i) => {
+
+    let suitable = driverVehicle >= job.vehicleNeed;
+
+
+
+    box.innerHTML += `
+
+      <div class="job">
+
+        <div class="badge">${job.status}</div><br>
+
+        <strong>${job.orderId}</strong><br>
+
+        ${job.pickup} → ${job.drop}<br>
+
+        £${job.price}<br>
+
+        ${ suitable ? '<span class="good">Suitable vehicle</span>' : '<span class="bad">Vehicle too small</span>' }<br>
+
+        ${
+
+          job.status !== "Delivered"
+
+            ? `<button onclick="nextStatus(${i})" ${!suitable ? "disabled" : ""}>Next Step</button>`
+
+            : `<button class="secondary" disabled>Completed</button>`
+
+        }
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+
+function renderHistory(){
+
+  let box = document.getElementById("historyList");
+
+  box.innerHTML = "";
+
+
+
+  if(completedJobs.length === 0){
+
+    box.innerHTML = "<div class='small'>No completed jobs yet.</div>";
+
+    return;
+
+  }
+
+
+
+  completedJobs.forEach(job => {
+
+    box.innerHTML += `
+
+      <div class="job">
+
+        <div class="badge">Delivered</div><br>
+
+        <strong>${job.orderId}</strong><br>
+
+        ${job.pickup} → ${job.drop}<br>
+
+        Earned £${job.price}
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+
+function renderStats(){
+
+  document.getElementById("earnings").innerText = "£" + driverEarnings;
+
+  document.getElementById("completedCount").innerText = completedJobs.length;
+
+}
+
+
+
+function openMaps(){
+
+  let p = encodeURIComponent(document.getElementById("pickup").value);
+
+  let d = encodeURIComponent(document.getElementById("drop").value);
+
+
+
+  window.open(
+
+    "https://www.google.com/maps/dir/?api=1&origin=" + p + "&destination=" + d,
+
+    "_blank"
+
+  );
+
+}
+
+
+
+renderJobs();
+
+renderHistory();
+
+renderStats();
+
+</script>
+
+
+
+</body>
+
+</html>
+
