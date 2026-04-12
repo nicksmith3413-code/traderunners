@@ -8,8 +8,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
 <title>TradeRunners</title>
 
 
@@ -17,8 +15,6 @@
 <link rel="apple-touch-icon" href="icon.png">
 
 <link rel="icon" href="icon.png">
-
-
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -30,161 +26,393 @@
 
 <style>
 
-body {
+body{
 
-    margin: 0;
+  margin:0;
 
-    font-family: Arial, sans-serif;
+  font-family:Arial,sans-serif;
 
-    background: #f4f6f9;
+  background:#f4f7fb;
 
-}
-
-
-
-/* SPLASH SCREEN */
-
-#splash {
-
-    position: fixed;
-
-    width: 100%;
-
-    height: 100%;
-
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-direction: column;
-
-    z-index: 9999;
+  color:#0f172a;
 
 }
 
+.header{
 
+  background:linear-gradient(135deg,#0f172a,#2563eb);
 
-#splash h1 {
+  color:white;
 
-    font-size: 28px;
+  padding:20px;
 
-    margin-top: 10px;
+  border-bottom-left-radius:20px;
 
-}
-
-
-
-/* MAIN APP */
-
-#app {
-
-    display: none;
+  border-bottom-right-radius:20px;
 
 }
 
+.header h1{margin:0}
 
+.slogan{
 
-.header {
+  margin-top:10px;
 
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
+  background:rgba(255,255,255,0.1);
 
-    color: white;
+  padding:10px 12px;
 
-    padding: 20px;
+  border-radius:20px;
 
-    border-bottom-left-radius: 20px;
+  display:inline-block;
 
-    border-bottom-right-radius: 20px;
+  font-size:13px;
 
-}
-
-
-
-.container {
-
-    padding: 20px;
+  font-weight:bold;
 
 }
 
+.container{
 
+  padding:15px;
 
-.card {
+  max-width:520px;
 
-    background: white;
-
-    padding: 15px;
-
-    border-radius: 15px;
-
-    margin-bottom: 15px;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin:auto;
 
 }
 
+.card{
 
+  background:white;
 
-button {
+  padding:15px;
 
-    width: 100%;
+  border-radius:15px;
 
-    padding: 15px;
+  margin-bottom:15px;
 
-    border-radius: 10px;
-
-    border: none;
-
-    background: #2a5298;
-
-    color: white;
-
-    font-weight: bold;
-
-    margin-top: 10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 
 }
 
+input, select, textarea{
 
+  width:100%;
 
-input, select {
+  padding:12px;
 
-    width: 100%;
+  margin:6px 0;
 
-    padding: 10px;
+  border-radius:10px;
 
-    margin-top: 10px;
+  border:1px solid #ccc;
 
-    border-radius: 8px;
-
-    border: 1px solid #ccc;
-
-}
-
-
-
-.role-btn {
-
-    background: #eaeaea;
-
-    color: #333;
+  box-sizing:border-box;
 
 }
 
+textarea{
 
+  min-height:70px;
 
-.active {
-
-    background: #2a5298;
-
-    color: white;
+  resize:vertical;
 
 }
+
+button{
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#2563eb;
+
+  color:white;
+
+  font-weight:bold;
+
+  margin-top:10px;
+
+  cursor:pointer;
+
+}
+
+button.secondary{background:#111827}
+
+button.success{background:#16a34a}
+
+button.warning{background:#f59e0b}
+
+button.soft{
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  border:1px solid #bfdbfe;
+
+}
+
+.tabs{
+
+  display:grid;
+
+  grid-template-columns:repeat(6,1fr);
+
+  gap:6px;
+
+  margin-bottom:15px;
+
+}
+
+.tab{
+
+  padding:10px;
+
+  border-radius:10px;
+
+  background:#e2e8f0;
+
+  text-align:center;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  font-size:12px;
+
+}
+
+.active{
+
+  background:#2563eb;
+
+  color:white;
+
+}
+
+.screen{
+
+  display:none;
+
+}
+
+.show{
+
+  display:block;
+
+}
+
+.badge{
+
+  display:inline-block;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  font-size:12px;
+
+  font-weight:bold;
+
+  margin-bottom:8px;
+
+}
+
+.tradepro{
+
+  background:#ede9fe;
+
+  color:#6d28d9;
+
+}
+
+.pending{
+
+  background:#fef3c7;
+
+  color:#92400e;
+
+}
+
+.approved{
+
+  background:#dcfce7;
+
+  color:#166534;
+
+}
+
+.rejected{
+
+  background:#fee2e2;
+
+  color:#991b1b;
+
+}
+
+.price{
+
+  font-size:30px;
+
+  font-weight:bold;
+
+  color:#2563eb;
+
+  margin:6px 0;
+
+}
+
+.grid2{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+
+}
+
+.kpis{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+
+}
+
+.kpi{
+
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:12px;
+
+  padding:14px;
+
+  text-align:center;
+
+}
+
+.kpi small{
+
+  display:block;
+
+  color:#64748b;
+
+  margin-bottom:6px;
+
+}
+
+.kpi strong{
+
+  font-size:22px;
+
+  color:#2563eb;
+
+}
+
+.timeline{
+
+  padding-left:0;
+
+  margin:10px 0 0;
+
+}
+
+.timeline li{
+
+  list-style:none;
+
+  padding:10px;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:10px;
+
+  margin-bottom:8px;
+
+  background:#fafcff;
+
+}
+
+.timeline li.on{
+
+  background:#eff6ff;
+
+  border-color:#bfdbfe;
+
+  color:#2563eb;
+
+  font-weight:bold;
+
+}
+
+.job{
+
+  border:1px solid #ddd;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  margin-top:10px;
+
+  background:#fff;
+
+}
+
+.good{color:#16a34a;font-weight:bold}
+
+.bad{color:#dc2626;font-weight:bold}
+
+.small{font-size:12px;color:#64748b}
+
+.roles{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:8px;
+
+}
+
+.roles button{
+
+  margin-top:0;
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  border:1px solid #bfdbfe;
+
+}
+
+.roles button.activeRole{
+
+  background:#2563eb;
+
+  color:#fff;
+
+  border-color:#2563eb;
+
+}
+
+.hidden{display:none}
 
 </style>
 
@@ -196,31 +424,13 @@ input, select {
 
 
 
-<!-- SPLASH -->
-
-<div id="splash">
-
-    <img src="icon.png" width="80">
-
-    <h1>TradeRunners</h1>
-
-    <p>Loading...</p>
-
-</div>
-
-
-
-<!-- APP -->
-
-<div id="app">
-
-
-
 <div class="header">
 
-    <h2>🚐 TradeRunners</h2>
+  <h1>🚐 TradeRunners</h1>
 
-    <p>Saving you time and money on every delivery</p>
+  <div>Trade delivery made simple</div>
+
+  <div class="slogan">Saving you time and money on every delivery</div>
 
 </div>
 
@@ -230,85 +440,429 @@ input, select {
 
 
 
-<div class="card">
+  <div class="tabs">
 
-<h3>Select Role</h3>
+    <div class="tab active" onclick="showScreen('home',this)">Home</div>
 
-<button class="role-btn active" onclick="setRole('customer')">Customer</button>
+    <div class="tab" onclick="showScreen('book',this)">Book</div>
 
-<button class="role-btn" onclick="setRole('driver')">Driver</button>
+    <div class="tab" onclick="showScreen('track',this)">Track</div>
 
-</div>
+    <div class="tab" onclick="showScreen('driver',this)">Driver</div>
 
+    <div class="tab" onclick="showScreen('verify',this)">Verify</div>
 
+    <div class="tab" onclick="showScreen('tradepro',this)">Pro</div>
 
-<div id="customerSection" class="card">
-
-<h3>Book Delivery</h3>
-
-
-
-<input id="pickup" placeholder="Pickup postcode">
-
-<input id="dropoff" placeholder="Dropoff postcode">
+  </div>
 
 
 
-<select id="size">
+  <div id="home" class="screen show">
 
-<option>Small Items</option>
+    <div class="card">
 
-<option>Medium Items</option>
-
-<option>Large Items</option>
-
-</select>
+      <h2>Login</h2>
 
 
 
-<button onclick="getQuote()">Get Quote</button>
+      <div class="roles">
+
+        <button id="roleCustomer" class="activeRole" onclick="setRole('Customer')">Customer</button>
+
+        <button id="roleTrade" onclick="setRole('Trade')">Trade</button>
+
+        <button id="roleDriver" onclick="setRole('Driver')">Driver</button>
+
+      </div>
 
 
 
-<h2 id="price"></h2>
+      <input id="name" placeholder="Your name">
 
 
 
-<button onclick="bookJob()">Book Job</button>
-
-</div>
+      <button onclick="login()">Enter App</button>
 
 
 
-<div id="driverSection" class="card" style="display:none;">
+      <div id="userBox" style="margin-top:12px;"></div>
 
-<h3>Driver Dashboard</h3>
-
-
-
-<select>
-
-<option>Car</option>
-
-<option>Van</option>
-
-<option>Trailer</option>
-
-</select>
+    </div>
 
 
 
-<button onclick="loadJobs()">Load Jobs</button>
+    <div class="card">
+
+      <h3>Account status</h3>
+
+      <p><strong>Current role:</strong> <span id="currentRoleText">Customer</span></p>
+
+      <p><strong>Verification:</strong> <span id="homeVerificationText">Not submitted</span></p>
+
+    </div>
+
+  </div>
 
 
 
-<div id="jobs"></div>
+  <div id="book" class="screen">
 
-</div>
+    <div class="card">
+
+      <h2>Book Job</h2>
 
 
 
-</div>
+      <div class="grid2">
+
+        <div>
+
+          <label>Customer type</label>
+
+          <select id="customerType">
+
+            <option value="Customer">Customer</option>
+
+            <option value="Trade">Trade</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>Plan</label>
+
+          <select id="plan">
+
+            <option value="0">Standard</option>
+
+            <option value="-8">Trade Pro</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+
+      <input id="pickup" placeholder="Pickup (e.g. B&Q Leeds)">
+
+      <input id="drop" placeholder="Drop (postcode or area)">
+
+
+
+      <div class="grid2">
+
+        <div>
+
+          <label>Vehicle needed</label>
+
+          <select id="vehicle">
+
+            <option value="10">Car</option>
+
+            <option value="20">Estate</option>
+
+            <option value="30">Van</option>
+
+            <option value="40">Pickup / Trailer</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>Weight</label>
+
+          <select id="weight">
+
+            <option value="0">Light</option>
+
+            <option value="10">Medium</option>
+
+            <option value="20">Heavy</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="grid2">
+
+        <div>
+
+          <label>Length</label>
+
+          <select id="length">
+
+            <option value="0">Under 1m</option>
+
+            <option value="5">1m - 2.4m</option>
+
+            <option value="10">2.4m - 3.6m</option>
+
+            <option value="15">Over 3.6m</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>Priority</label>
+
+          <select id="priority">
+
+            <option value="0">Standard</option>
+
+            <option value="8">Priority</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+
+      <textarea id="notes" placeholder="Notes"></textarea>
+
+
+
+      <button onclick="getQuote()">Get Quote</button>
+
+
+
+      <div id="quoteBox" class="card hidden" style="margin-top:12px; background:#f8fbff;">
+
+        <div id="planBadge" class="badge">Standard</div>
+
+        <div id="price" class="price">£0</div>
+
+        <div id="quoteText" class="small"></div>
+
+        <button class="success" onclick="bookJob()">Book Job</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="track" class="screen">
+
+    <div class="card">
+
+      <h2>Tracking</h2>
+
+      <p id="trackText">No job yet</p>
+
+      <ul class="timeline">
+
+        <li id="step1">Job created</li>
+
+        <li id="step2">Accepted</li>
+
+        <li id="step3">On the way to pickup</li>
+
+        <li id="step4">Picked up</li>
+
+        <li id="step5">On the way to customer</li>
+
+        <li id="step6">Delivered</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="driver" class="screen">
+
+    <div class="card">
+
+      <h2>Driver Dashboard</h2>
+
+
+
+      <label>Your vehicle</label>
+
+      <select id="driverVehicle" onchange="renderJobs()">
+
+        <option value="10">Car</option>
+
+        <option value="20">Estate</option>
+
+        <option value="30">Van</option>
+
+        <option value="40">Pickup / Trailer</option>
+
+      </select>
+
+
+
+      <div id="driverStatusBox"></div>
+
+
+
+      <div class="kpis">
+
+        <div class="kpi">
+
+          <small>Driver earnings</small>
+
+          <strong id="earnings">£0</strong>
+
+        </div>
+
+        <div class="kpi">
+
+          <small>Completed jobs</small>
+
+          <strong id="completedCount">0</strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h3>Available Jobs</h3>
+
+      <div id="jobs"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="verify" class="screen">
+
+    <div class="card">
+
+      <h2>Driver Verification</h2>
+
+      <div id="verificationBadge" class="badge pending">Not submitted</div>
+
+
+
+      <label>Driving licence uploaded</label>
+
+      <select id="licenceCheck">
+
+        <option>No</option>
+
+        <option>Yes</option>
+
+      </select>
+
+
+
+      <label>Insurance uploaded</label>
+
+      <select id="insuranceCheck">
+
+        <option>No</option>
+
+        <option>Yes</option>
+
+      </select>
+
+
+
+      <label>Passport / ID uploaded</label>
+
+      <select id="idCheck">
+
+        <option>No</option>
+
+        <option>Yes</option>
+
+      </select>
+
+
+
+      <label>Vehicle registration</label>
+
+      <input id="vehicleReg" placeholder="e.g. AB12 CDE">
+
+
+
+      <label>Extra notes</label>
+
+      <textarea id="verifyNotes" placeholder="Anything else about the driver or vehicle"></textarea>
+
+
+
+      <button onclick="submitVerification()">Submit Verification</button>
+
+      <button class="soft" onclick="approveDriver()">Simulate Approval</button>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="tradepro" class="screen">
+
+    <div class="card">
+
+      <h2>Trade Pro</h2>
+
+      <div class="badge tradepro">Subscription</div>
+
+      <p>Priority matching, cheaper deliveries, better rates for repeat trade customers.</p>
+
+
+
+      <div class="kpis">
+
+        <div class="kpi">
+
+          <small>Monthly price</small>
+
+          <strong>£9.99</strong>
+
+        </div>
+
+        <div class="kpi">
+
+          <small>Per-job saving</small>
+
+          <strong>£8</strong>
+
+        </div>
+
+      </div>
+
+
+
+      <button class="success" onclick="activateTradePro()">Activate Trade Pro</button>
+
+      <div id="tradeProMessage" class="small" style="margin-top:10px;"></div>
+
+    </div>
+
+  </div>
+
+
 
 </div>
 
@@ -316,93 +870,545 @@ input, select {
 
 <script>
 
+let currentUser = "";
 
+let currentRole = "Customer";
 
-// Splash screen
+let jobs = [];
 
-setTimeout(() => {
+let completedJobs = [];
 
-    document.getElementById("splash").style.display = "none";
+let driverEarnings = 0;
 
-    document.getElementById("app").style.display = "block";
+let quoteTotal = 0;
 
-}, 2000);
+let orderCounter = 1000;
 
+let verificationStatus = "Not submitted";
 
-
-// Role switch
-
-function setRole(role) {
-
-    document.querySelectorAll(".role-btn").forEach(btn => btn.classList.remove("active"));
+let tradeProActive = false;
 
 
 
-    if(role === "customer"){
+function showScreen(id, el){
 
-        document.getElementById("customerSection").style.display = "block";
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("show"));
 
-        document.getElementById("driverSection").style.display = "none";
+  document.getElementById(id).classList.add("show");
 
-        document.querySelectorAll(".role-btn")[0].classList.add("active");
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
 
-    } else {
-
-        document.getElementById("customerSection").style.display = "none";
-
-        document.getElementById("driverSection").style.display = "block";
-
-        document.querySelectorAll(".role-btn")[1].classList.add("active");
-
-    }
+  el.classList.add("active");
 
 }
 
 
 
-// Pricing
+function setRole(role){
+
+  currentRole = role;
+
+  document.getElementById("roleCustomer").classList.remove("activeRole");
+
+  document.getElementById("roleTrade").classList.remove("activeRole");
+
+  document.getElementById("roleDriver").classList.remove("activeRole");
+
+
+
+  if(role === "Customer") document.getElementById("roleCustomer").classList.add("activeRole");
+
+  if(role === "Trade") document.getElementById("roleTrade").classList.add("activeRole");
+
+  if(role === "Driver") document.getElementById("roleDriver").classList.add("activeRole");
+
+
+
+  document.getElementById("currentRoleText").innerText = role;
+
+}
+
+
+
+function login(){
+
+  currentUser = document.getElementById("name").value || "Guest";
+
+
+
+  document.getElementById("userBox").innerHTML =
+
+    "<div class='badge'>" + currentRole + "</div><br>Logged in as <strong>" + currentUser + "</strong>";
+
+
+
+  if(currentRole === "Trade"){
+
+    document.getElementById("customerType").value = "Trade";
+
+    document.getElementById("plan").value = tradeProActive ? "-8" : "0";
+
+  } else {
+
+    document.getElementById("customerType").value = "Customer";
+
+    document.getElementById("plan").value = "0";
+
+  }
+
+
+
+  updateVerificationUI();
+
+}
+
+
+
+function getDistanceCharge(drop){
+
+  drop = (drop || "").toUpperCase();
+
+
+
+  if(drop.startsWith("LS")) return 10;
+
+  if(drop.startsWith("WF") || drop.startsWith("BD") || drop.startsWith("HD") || drop.startsWith("YO")) return 18;
+
+  if(drop.startsWith("M") || drop.startsWith("L") || drop.startsWith("B")) return 28;
+
+  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return 40;
+
+
+
+  return 15;
+
+}
+
+
 
 function getQuote(){
 
-    let price = Math.floor(Math.random() * 30) + 10;
+  let base = 12;
 
-    document.getElementById("price").innerText = "£" + price;
+  let distance = getDistanceCharge(document.getElementById("drop").value);
+
+  let vehicle = Number(document.getElementById("vehicle").value);
+
+  let weight = Number(document.getElementById("weight").value);
+
+  let length = Number(document.getElementById("length").value);
+
+  let priority = Number(document.getElementById("priority").value);
+
+  let plan = Number(document.getElementById("plan").value);
+
+
+
+  quoteTotal = base + distance + vehicle + weight + length + priority + plan;
+
+  if(quoteTotal < 15) quoteTotal = 15;
+
+
+
+  document.getElementById("quoteBox").classList.remove("hidden");
+
+  document.getElementById("price").innerText = "£" + quoteTotal;
+
+  document.getElementById("planBadge").innerText = plan < 0 ? "Trade Pro" : "Standard";
+
+  document.getElementById("planBadge").className = plan < 0 ? "badge tradepro" : "badge";
+
+  document.getElementById("quoteText").innerText =
+
+    plan < 0
+
+      ? "Trade Pro discount applied. Priority trade pricing included."
+
+      : "Standard price based on vehicle, load and distance feel.";
 
 }
 
 
-
-// Book job
 
 function bookJob(){
 
-    alert("Job booked! Driver will be assigned.");
+  let pickup = document.getElementById("pickup").value;
+
+  let drop = document.getElementById("drop").value;
+
+
+
+  if(!pickup || !drop){
+
+    alert("Please fill in pickup and drop.");
+
+    return;
+
+  }
+
+
+
+  let job = {
+
+    id: orderCounter++,
+
+    orderId: "TR-" + orderCounter,
+
+    customer: currentUser || "Guest",
+
+    pickup,
+
+    drop,
+
+    price: quoteTotal,
+
+    status: "Open",
+
+    vehicleNeed: Number(document.getElementById("vehicle").value),
+
+    counted:false
+
+  };
+
+
+
+  jobs.unshift(job);
+
+  updateTracking(job);
+
+  renderJobs();
 
 }
 
 
 
-// Driver jobs
+function updateTracking(job){
 
-function loadJobs(){
+  document.getElementById("trackText").innerText =
 
-    document.getElementById("jobs").innerHTML = `
+    job.pickup + " → " + job.drop + " | £" + job.price + " | " + job.status;
 
-    <div class="card">
 
-    LS15 → WF3<br>
 
-    £26<br>
+  document.querySelectorAll(".timeline li").forEach(li => li.classList.remove("on"));
 
-    <button>Accept Job</button>
 
-    </div>
+
+  if(job.status === "Open") document.getElementById("step1").classList.add("on");
+
+  if(job.status === "Accepted") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+  }
+
+  if(job.status === "On the way to pickup") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+  }
+
+  if(job.status === "Picked up") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+    document.getElementById("step4").classList.add("on");
+
+  }
+
+  if(job.status === "On the way to customer") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+    document.getElementById("step4").classList.add("on");
+
+    document.getElementById("step5").classList.add("on");
+
+  }
+
+  if(job.status === "Delivered") {
+
+    document.getElementById("step1").classList.add("on");
+
+    document.getElementById("step2").classList.add("on");
+
+    document.getElementById("step3").classList.add("on");
+
+    document.getElementById("step4").classList.add("on");
+
+    document.getElementById("step5").classList.add("on");
+
+    document.getElementById("step6").classList.add("on");
+
+  }
+
+}
+
+
+
+function nextStatus(i){
+
+  let steps = ["Open","Accepted","On the way to pickup","Picked up","On the way to customer","Delivered"];
+
+  let current = jobs[i].status;
+
+  let index = steps.indexOf(current);
+
+
+
+  if(index < steps.length - 1){
+
+    jobs[i].status = steps[index + 1];
+
+  }
+
+
+
+  if(jobs[i].status === "Delivered" && !jobs[i].counted){
+
+    jobs[i].counted = true;
+
+    driverEarnings += Number(jobs[i].price);
+
+    completedJobs.unshift(jobs[i]);
+
+  }
+
+
+
+  renderJobs();
+
+  renderStats();
+
+  updateTracking(jobs[i]);
+
+}
+
+
+
+function renderJobs(){
+
+  let box = document.getElementById("jobs");
+
+  box.innerHTML = "";
+
+
+
+  let driverVehicle = Number(document.getElementById("driverVehicle").value);
+
+
+
+  if(currentRole !== "Driver"){
+
+    box.innerHTML = "<div class='small'>Sign in as Driver to manage jobs.</div>";
+
+    return;
+
+  }
+
+
+
+  if(verificationStatus !== "Approved"){
+
+    box.innerHTML = "<div class='small'>Driver must be approved before accepting jobs.</div>";
+
+    return;
+
+  }
+
+
+
+  jobs.forEach((job,i) => {
+
+    let suitable = driverVehicle >= job.vehicleNeed;
+
+
+
+    box.innerHTML += `
+
+      <div class="job">
+
+        <div class="badge">${job.status}</div><br>
+
+        <strong>${job.orderId}</strong><br>
+
+        ${job.pickup} → ${job.drop}<br>
+
+        £${job.price}<br>
+
+        ${ suitable ? '<span class="good">Suitable vehicle</span>' : '<span class="bad">Vehicle too small</span>' }<br>
+
+        ${
+
+          job.status !== "Delivered"
+
+            ? `<button onclick="nextStatus(${i})" ${!suitable ? "disabled" : ""}>Next Step</button>`
+
+            : `<button class="secondary" disabled>Completed</button>`
+
+        }
+
+      </div>
 
     `;
 
+  });
+
+
+
+  if(jobs.length === 0){
+
+    box.innerHTML = "<div class='small'>No jobs available.</div>";
+
+  }
+
 }
 
 
+
+function renderStats(){
+
+  document.getElementById("earnings").innerText = "£" + driverEarnings;
+
+  document.getElementById("completedCount").innerText = completedJobs.length;
+
+}
+
+
+
+function submitVerification(){
+
+  const licence = document.getElementById("licenceCheck").value;
+
+  const insurance = document.getElementById("insuranceCheck").value;
+
+  const id = document.getElementById("idCheck").value;
+
+  const reg = document.getElementById("vehicleReg").value.trim();
+
+
+
+  if(licence === "Yes" && insurance === "Yes" && id === "Yes" && reg){
+
+    verificationStatus = "Pending review";
+
+  } else {
+
+    alert("Complete all driver verification fields first.");
+
+    return;
+
+  }
+
+
+
+  updateVerificationUI();
+
+}
+
+
+
+function approveDriver(){
+
+  verificationStatus = "Approved";
+
+  updateVerificationUI();
+
+  renderJobs();
+
+}
+
+
+
+function updateVerificationUI(){
+
+  const badge = document.getElementById("verificationBadge");
+
+  const homeText = document.getElementById("homeVerificationText");
+
+  const driverBox = document.getElementById("driverStatusBox");
+
+
+
+  badge.className = "badge pending";
+
+  if(verificationStatus === "Not submitted"){
+
+    badge.innerText = "Not submitted";
+
+    badge.className = "badge pending";
+
+  }
+
+  if(verificationStatus === "Pending review"){
+
+    badge.innerText = "Pending review";
+
+    badge.className = "badge pending";
+
+  }
+
+  if(verificationStatus === "Approved"){
+
+    badge.innerText = "Approved";
+
+    badge.className = "badge approved";
+
+  }
+
+  if(verificationStatus === "Rejected"){
+
+    badge.innerText = "Rejected";
+
+    badge.className = "badge rejected";
+
+  }
+
+
+
+  homeText.innerText = verificationStatus;
+
+  driverBox.innerHTML = "<div class='badge " + (verificationStatus === "Approved" ? "approved" : "pending") + "'>" + verificationStatus + "</div>";
+
+}
+
+
+
+function activateTradePro(){
+
+  tradeProActive = true;
+
+  document.getElementById("tradeProMessage").innerText = "Trade Pro activated for this demo account.";
+
+  if(currentRole === "Trade"){
+
+    document.getElementById("plan").value = "-8";
+
+  }
+
+}
+
+
+
+renderJobs();
+
+renderStats();
+
+updateVerificationUI();
 
 </script>
 
@@ -411,4 +1417,3 @@ function loadJobs(){
 </body>
 
 </html>
-
