@@ -4,611 +4,701 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-<title>TradeRunners V6</title>
+  <meta name="theme-color" content="#0f172a" />
 
+  <title>TradeRunners V7</title>
 
+  <style>
 
-<style>
+    :root{
 
-body{
+      --bg:#f4f7fb;
 
-  margin:0;
+      --card:#ffffff;
 
-  font-family:Arial,sans-serif;
+      --text:#0f172a;
 
-  background:#f4f7fb;
+      --muted:#64748b;
 
-  color:#0f172a;
+      --line:#dbe4f0;
 
-}
+      --brand:#2563eb;
 
-.header{
+      --brand-dark:#1d4ed8;
 
-  background:linear-gradient(135deg,#0f172a,#2563eb);
+      --dark:#0f172a;
 
-  color:white;
+      --success:#16a34a;
 
-  padding:20px;
+      --warning:#f59e0b;
 
-  border-bottom-left-radius:20px;
+      --danger:#dc2626;
 
-  border-bottom-right-radius:20px;
+      --soft:#eff6ff;
 
-}
+      --purple:#7c3aed;
 
-.header h1{margin:0}
+    }
 
-.slogan{
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
-  margin-top:10px;
+    body{
 
-  background:rgba(255,255,255,0.1);
+      margin:0;
 
-  padding:10px 12px;
+      font-family:Arial,sans-serif;
 
-  border-radius:20px;
+      background:linear-gradient(180deg,#eef4ff 0%,#f8fbff 100%);
 
-  display:inline-block;
+      color:var(--text);
 
-  font-size:13px;
+    }
 
-  font-weight:bold;
+    .app{
 
-}
+      max-width:520px;
 
-.container{
+      margin:0 auto;
 
-  padding:15px;
+      min-height:100vh;
 
-  max-width:520px;
+      padding-bottom:24px;
 
-  margin:auto;
+    }
 
-}
+    .hero{
 
-.card{
+      background:linear-gradient(135deg,var(--dark),var(--brand-dark));
 
-  background:white;
+      color:#fff;
 
-  padding:15px;
+      padding:22px 18px 18px;
 
-  border-radius:15px;
+      border-bottom-left-radius:24px;
 
-  margin-bottom:15px;
+      border-bottom-right-radius:24px;
 
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      box-shadow:0 10px 30px rgba(15,23,42,.1);
 
-}
+    }
 
-input, select, textarea{
+    .hero-row{
 
-  width:100%;
+      display:flex;
 
-  padding:12px;
+      align-items:center;
 
-  margin:6px 0;
+      gap:12px;
 
-  border-radius:10px;
+    }
 
-  border:1px solid #ccc;
+    .logo{
 
-  box-sizing:border-box;
+      width:54px;
 
-}
+      height:54px;
 
-textarea{
+      border-radius:16px;
 
-  min-height:70px;
+      background:rgba(255,255,255,.12);
 
-  resize:vertical;
+      border:1px solid rgba(255,255,255,.18);
 
-}
+      display:flex;
 
-button{
+      align-items:center;
 
-  width:100%;
+      justify-content:center;
 
-  padding:14px;
+      font-size:28px;
 
-  border:none;
+    }
 
-  border-radius:10px;
+    .hero h1{margin:0;font-size:30px}
 
-  background:#2563eb;
+    .hero p{margin:8px 0 0;font-size:14px;opacity:.94}
 
-  color:white;
+    .slogan{
 
-  font-weight:bold;
+      margin-top:14px;
 
-  margin-top:10px;
+      display:inline-block;
 
-  cursor:pointer;
+      background:rgba(255,255,255,.12);
 
-}
+      border:1px solid rgba(255,255,255,.18);
 
-button.secondary{background:#111827}
+      padding:10px 12px;
 
-button.success{background:#16a34a}
+      border-radius:999px;
 
-button.warning{background:#f59e0b}
+      font-size:13px;
 
-button.soft{
+      font-weight:bold;
 
-  background:#eff6ff;
+    }
 
-  color:#2563eb;
+    .wrap{padding:14px}
 
-  border:1px solid #bfdbfe;
+    .tabs{
 
-}
+      display:grid;
 
-.tabs{
+      grid-template-columns:repeat(5,1fr);
 
-  display:grid;
+      gap:6px;
 
-  grid-template-columns:repeat(5,1fr);
+      margin-bottom:15px;
 
-  gap:6px;
+      background:rgba(255,255,255,.85);
 
-  margin-bottom:15px;
+      border:1px solid #d8e5ff;
 
-}
+      padding:8px;
 
-.tab{
+      border-radius:18px;
 
-  padding:10px;
+    }
 
-  border-radius:10px;
+    .tab{
 
-  background:#e2e8f0;
+      padding:10px;
 
-  text-align:center;
+      border-radius:10px;
 
-  font-weight:bold;
+      background:transparent;
 
-  cursor:pointer;
+      text-align:center;
 
-  font-size:12px;
+      font-weight:bold;
 
-}
+      cursor:pointer;
 
-.active{
+      font-size:12px;
 
-  background:#2563eb;
+      color:#334155;
 
-  color:white;
+      border:none;
 
-}
+    }
 
-.screen{
+    .tab.active{
 
-  display:none;
+      background:#2563eb;
 
-}
+      color:white;
 
-.show{
+      box-shadow:0 8px 16px rgba(37,99,235,.12);
 
-  display:block;
+    }
 
-}
+    .screen{display:none}
 
-.map{
+    .show{display:block}
 
-  height:200px;
+    .card{
 
-  background:
+      background:white;
 
-    linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px),
+      padding:15px;
 
-    linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+      border-radius:18px;
 
-    linear-gradient(135deg,#dbeafe,#f8fbff);
+      margin-bottom:15px;
 
-  background-size:40px 40px,40px 40px,cover;
+      border:1px solid var(--line);
 
-  border-radius:15px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
 
-  border:1px solid #cfe0ff;
+    }
 
-  display:flex;
+    input, select, textarea{
 
-  align-items:center;
+      width:100%;
 
-  justify-content:center;
+      padding:12px;
 
-  font-weight:bold;
+      margin:6px 0;
 
-  color:#2563eb;
+      border-radius:12px;
 
-}
+      border:1px solid #ccc;
 
-.job{
+      font-size:14px;
 
-  border:1px solid #ddd;
+    }
 
-  padding:12px;
+    input[readonly]{background:#f8fafc}
 
-  border-radius:12px;
+    textarea{
 
-  margin-top:10px;
+      min-height:70px;
 
-}
+      resize:vertical;
 
-.badge{
+    }
 
-  display:inline-block;
+    button{
 
-  padding:6px 10px;
+      width:100%;
 
-  border-radius:999px;
+      padding:14px;
 
-  background:#eff6ff;
+      border:none;
 
-  color:#2563eb;
+      border-radius:12px;
 
-  font-size:12px;
+      background:#2563eb;
 
-  font-weight:bold;
+      color:white;
 
-  margin-bottom:8px;
+      font-weight:bold;
 
-}
+      margin-top:10px;
 
-.tradepro{
+      cursor:pointer;
 
-  background:#ede9fe;
+      font-size:14px;
 
-  color:#6d28d9;
+    }
 
-}
+    button.secondary{background:#111827}
 
-.price{
+    button.success{background:#16a34a}
 
-  font-size:30px;
+    button.warning{background:#f59e0b}
 
-  font-weight:bold;
+    button.soft{
 
-  color:#2563eb;
+      background:#eff6ff;
 
-  margin:6px 0;
+      color:#2563eb;
 
-}
+      border:1px solid #bfdbfe;
 
-.grid2{
+    }
 
-  display:grid;
+    .badge{
 
-  grid-template-columns:1fr 1fr;
+      display:inline-block;
 
-  gap:10px;
+      padding:6px 10px;
 
-}
+      border-radius:999px;
 
-.kpis{
+      background:#eff6ff;
 
-  display:grid;
+      color:#2563eb;
 
-  grid-template-columns:1fr 1fr;
+      font-size:12px;
 
-  gap:10px;
+      font-weight:bold;
 
-}
+      margin-bottom:8px;
 
-.kpi{
+    }
 
-  background:#f8fafc;
+    .tradepro{
 
-  border:1px solid #e2e8f0;
+      background:#ede9fe;
 
-  border-radius:12px;
+      color:#6d28d9;
 
-  padding:14px;
+    }
 
-  text-align:center;
+    .price{
 
-}
+      font-size:30px;
 
-.kpi small{
+      font-weight:bold;
 
-  display:block;
+      color:#2563eb;
 
-  color:#64748b;
+      margin:6px 0;
 
-  margin-bottom:6px;
+    }
 
-}
+    .grid2{
 
-.kpi strong{
+      display:grid;
 
-  font-size:22px;
+      grid-template-columns:1fr 1fr;
 
-  color:#2563eb;
+      gap:10px;
 
-}
+    }
 
-.timeline{
+    .roles{
 
-  padding-left:0;
+      display:grid;
 
-  margin:10px 0 0;
+      grid-template-columns:repeat(3,1fr);
 
-}
+      gap:8px;
 
-.timeline li{
+    }
 
-  list-style:none;
+    .roles button{
 
-  padding:10px;
+      margin-top:0;
 
-  border:1px solid #e2e8f0;
+      background:#eff6ff;
 
-  border-radius:10px;
+      color:#2563eb;
 
-  margin-bottom:8px;
+      border:1px solid #bfdbfe;
 
-  background:#fafcff;
+    }
 
-}
+    .roles button.activeRole{
 
-.timeline li.on{
+      background:#2563eb;
 
-  background:#eff6ff;
+      color:#fff;
 
-  border-color:#bfdbfe;
+      border-color:#2563eb;
 
-  color:#2563eb;
+    }
 
-  font-weight:bold;
+    .kpis{
 
-}
+      display:grid;
 
-.small{
+      grid-template-columns:1fr 1fr;
 
-  font-size:12px;
+      gap:10px;
 
-  color:#64748b;
+    }
 
-}
+    .kpi{
 
-</style>
+      background:#f8fafc;
+
+      border:1px solid #e2e8f0;
+
+      border-radius:12px;
+
+      padding:14px;
+
+      text-align:center;
+
+    }
+
+    .kpi small{
+
+      display:block;
+
+      color:#64748b;
+
+      margin-bottom:6px;
+
+    }
+
+    .kpi strong{
+
+      font-size:22px;
+
+      color:#2563eb;
+
+    }
+
+    .timeline{
+
+      padding-left:0;
+
+      margin:10px 0 0;
+
+    }
+
+    .timeline li{
+
+      list-style:none;
+
+      padding:10px;
+
+      border:1px solid #e2e8f0;
+
+      border-radius:10px;
+
+      margin-bottom:8px;
+
+      background:#fafcff;
+
+    }
+
+    .timeline li.on{
+
+      background:#eff6ff;
+
+      border-color:#bfdbfe;
+
+      color:#2563eb;
+
+      font-weight:bold;
+
+    }
+
+    .job{
+
+      border:1px solid #ddd;
+
+      padding:12px;
+
+      border-radius:12px;
+
+      margin-top:10px;
+
+      background:#fff;
+
+    }
+
+    .good{color:#16a34a;font-weight:bold}
+
+    .bad{color:#dc2626;font-weight:bold}
+
+    .small{font-size:12px;color:#64748b}
+
+    .map{
+
+      height:220px;
+
+      border-radius:15px;
+
+      border:1px solid #cfe0ff;
+
+      background:
+
+        linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px),
+
+        linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+
+        linear-gradient(135deg,#dbeafe,#f8fbff);
+
+      background-size:40px 40px,40px 40px,cover;
+
+      position:relative;
+
+      overflow:hidden;
+
+    }
+
+    .road{
+
+      position:absolute;
+
+      background:rgba(37,99,235,.12);
+
+      border-radius:999px;
+
+    }
+
+    .road.one{width:280px;height:10px;top:70px;left:28px;transform:rotate(18deg)}
+
+    .road.two{width:190px;height:10px;top:145px;left:140px;transform:rotate(-18deg)}
+
+    .road.three{width:10px;height:170px;top:30px;left:185px}
+
+    .route{
+
+      position:absolute;
+
+      top:96px;
+
+      left:90px;
+
+      width:205px;
+
+      border-top:4px dashed #2563eb;
+
+      transform:rotate(18deg);
+
+    }
+
+    .pin{
+
+      position:absolute;
+
+      width:24px;
+
+      height:24px;
+
+      border-radius:50%;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      color:#fff;
+
+      font-size:12px;
+
+      font-weight:bold;
+
+    }
+
+    .pickup-pin{background:#16a34a;top:74px;left:76px}
+
+    .drop-pin{background:#dc2626;top:145px;left:286px}
+
+    .pin-label{
+
+      position:absolute;
+
+      background:#fff;
+
+      border:1px solid #dbe7ff;
+
+      border-radius:999px;
+
+      padding:6px 10px;
+
+      font-size:12px;
+
+      max-width:130px;
+
+      white-space:nowrap;
+
+      overflow:hidden;
+
+      text-overflow:ellipsis;
+
+    }
+
+    .pickup-label{top:40px;left:20px}
+
+    .drop-label{top:172px;left:238px}
+
+    .supplier-results{
+
+      border:1px solid #dbe4f0;
+
+      border-radius:12px;
+
+      overflow:hidden;
+
+      margin-top:4px;
+
+      background:#fff;
+
+    }
+
+    .supplier-item{
+
+      padding:10px 12px;
+
+      border-bottom:1px solid #eef2f7;
+
+      cursor:pointer;
+
+      font-size:14px;
+
+    }
+
+    .supplier-item:last-child{border-bottom:none}
+
+    .supplier-item:hover{background:#f8fbff}
+
+    .hidden{display:none!important}
+
+  </style>
 
 </head>
-
-
 
 <body>
 
 
 
-<div class="header">
+<div class="app">
 
-  <h1>🚐 TradeRunners</h1>
+  <div class="hero">
 
-  <div>Trade delivery made simple</div>
+    <div class="hero-row">
 
-  <div class="slogan">Saving you time and money on every delivery</div>
+      <div class="logo">🚐</div>
 
-</div>
+      <div>
 
+        <h1>TradeRunners</h1>
 
+        <div>Trade delivery made simple</div>
 
-<div class="container">
+      </div>
 
+    </div>
 
-
-  <div class="tabs">
-
-    <div class="tab active" onclick="showScreen('home',this)">Home</div>
-
-    <div class="tab" onclick="showScreen('book',this)">Book</div>
-
-    <div class="tab" onclick="showScreen('track',this)">Track</div>
-
-    <div class="tab" onclick="showScreen('driver',this)">Driver</div>
-
-    <div class="tab" onclick="showScreen('history',this)">History</div>
+    <div class="slogan">Saving you time and money on every delivery</div>
 
   </div>
 
 
 
-  <div id="home" class="screen show">
-
-    <div class="card">
-
-      <h2>Login</h2>
+  <div class="wrap">
 
 
 
-      <select id="role">
+    <div class="tabs">
 
-        <option>Customer</option>
+      <button class="tab active" onclick="showScreen('home',this)">Home</button>
 
-        <option>Trade</option>
+      <button class="tab" onclick="showScreen('book',this)">Book</button>
 
-        <option>Driver</option>
+      <button class="tab" onclick="showScreen('track',this)">Track</button>
 
-      </select>
+      <button class="tab" onclick="showScreen('driver',this)">Driver</button>
 
-
-
-      <input id="name" placeholder="Your name">
-
-
-
-      <button onclick="login()">Enter App</button>
-
-
-
-      <div id="userBox" style="margin-top:12px;"></div>
+      <button class="tab" onclick="showScreen('history',this)">History</button>
 
     </div>
 
 
 
-    <div class="card">
+    <div id="home" class="screen show">
 
-      <h3>Trade Pro</h3>
+      <div class="card">
 
-      <div class="badge tradepro">Subscription</div>
-
-      <p>Priority matching, cheaper deliveries, better rates for repeat trade customers.</p>
-
-    </div>
-
-  </div>
+        <h2>Login</h2>
 
 
 
-  <div id="book" class="screen">
+        <div class="roles">
 
-    <div class="card">
+          <button id="roleCustomer" class="activeRole" onclick="setRole('Customer')">Customer</button>
 
-      <h2>Book Job</h2>
+          <button id="roleTrade" onclick="setRole('Trade')">Trade</button>
 
-
-
-      <div class="grid2">
-
-        <div>
-
-          <label>Customer type</label>
-
-          <select id="customerType">
-
-            <option value="Customer">Customer</option>
-
-            <option value="Trade">Trade</option>
-
-          </select>
+          <button id="roleDriver" onclick="setRole('Driver')">Driver</button>
 
         </div>
 
-        <div>
 
-          <label>Plan</label>
 
-          <select id="plan">
+        <input id="name" placeholder="Your name">
 
-            <option value="0">Standard</option>
 
-            <option value="-8">Trade Pro</option>
 
-          </select>
+        <button onclick="login()">Enter App</button>
 
-        </div>
+
+
+        <div id="userBox" style="margin-top:12px;"></div>
 
       </div>
 
 
 
-      <input id="pickup" placeholder="Pickup (e.g. B&Q Leeds)">
+      <div class="card">
 
-      <input id="drop" placeholder="Drop (postcode or area)">
+        <h3>Trade Pro</h3>
 
+        <div class="badge tradepro">Subscription</div>
 
-
-      <div class="grid2">
-
-        <div>
-
-          <label>Vehicle needed</label>
-
-          <select id="vehicle">
-
-            <option value="10">Car</option>
-
-            <option value="20">Estate</option>
-
-            <option value="30">Van</option>
-
-            <option value="40">Pickup / Trailer</option>
-
-          </select>
-
-        </div>
-
-        <div>
-
-          <label>Weight</label>
-
-          <select id="weight">
-
-            <option value="0">Light</option>
-
-            <option value="10">Medium</option>
-
-            <option value="20">Heavy</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="grid2">
-
-        <div>
-
-          <label>Length</label>
-
-          <select id="length">
-
-            <option value="0">Under 1m</option>
-
-            <option value="5">1m - 2.4m</option>
-
-            <option value="10">2.4m - 3.6m</option>
-
-            <option value="15">Over 3.6m</option>
-
-          </select>
-
-        </div>
-
-        <div>
-
-          <label>Priority</label>
-
-          <select id="priority">
-
-            <option value="0">Standard</option>
-
-            <option value="8">Priority</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-
-
-      <textarea id="notes" placeholder="Notes"></textarea>
-
-
-
-      <button onclick="getQuote()">Get Quote</button>
-
-
-
-      <div id="quoteBox" class="card" style="display:none; margin-top:12px; background:#f8fbff;">
-
-        <div id="planBadge" class="badge">Standard</div>
-
-        <div id="price" class="price">£0</div>
-
-        <div id="quoteText" class="small"></div>
-
-        <button class="success" onclick="bookJob()">Book Job</button>
-
-        <button class="soft" onclick="openMaps()">Open in Google Maps</button>
+        <p>Priority matching, lower delivery costs and better rates for repeat trade customers.</p>
 
       </div>
 
@@ -616,87 +706,243 @@ button.soft{
 
 
 
-    <div class="card">
+    <div id="book" class="screen">
 
-      <h3>Route Preview</h3>
+      <div class="card">
 
-      <div class="map">Map Preview</div>
-
-    </div>
-
-  </div>
+        <h2>Book Job</h2>
 
 
 
-  <div id="track" class="screen">
+        <div class="grid2">
 
-    <div class="card">
+          <div>
 
-      <h2>Tracking</h2>
+            <label>Customer type</label>
 
-      <p id="trackText">No job yet</p>
+            <select id="customerType">
 
-      <ul class="timeline">
+              <option value="Customer">Customer</option>
 
-        <li id="step1">Job created</li>
+              <option value="Trade">Trade</option>
 
-        <li id="step2">Accepted</li>
+            </select>
 
-        <li id="step3">On the way to pickup</li>
+          </div>
 
-        <li id="step4">Picked up</li>
+          <div>
 
-        <li id="step5">On the way to customer</li>
+            <label>Plan</label>
 
-        <li id="step6">Delivered</li>
+            <select id="plan">
 
-      </ul>
+              <option value="0">Standard</option>
 
-    </div>
+              <option value="-8">Trade Pro</option>
 
-  </div>
+            </select>
 
-
-
-  <div id="driver" class="screen">
-
-    <div class="card">
-
-      <h2>Driver Dashboard</h2>
-
-
-
-      <label>Your vehicle</label>
-
-      <select id="driverVehicle" onchange="renderJobs()">
-
-        <option value="10">Car</option>
-
-        <option value="20">Estate</option>
-
-        <option value="30">Van</option>
-
-        <option value="40">Pickup / Trailer</option>
-
-      </select>
-
-
-
-      <div class="kpis">
-
-        <div class="kpi">
-
-          <small>Driver earnings</small>
-
-          <strong id="earnings">£0</strong>
+          </div>
 
         </div>
 
-        <div class="kpi">
 
-          <small>Completed jobs</small>
 
-          <strong id="completedCount">0</strong>
+        <label>Supplier search</label>
+
+        <input id="supplierSearch" placeholder="Search supplier e.g. B&Q, Wickes, Eurocell" oninput="filterSuppliers()">
+
+        <div id="supplierResults" class="supplier-results hidden"></div>
+
+
+
+        <label>Selected supplier</label>
+
+        <input id="pickup" readonly placeholder="Choose supplier from search">
+
+
+
+        <label>Drop-off postcode</label>
+
+        <input id="drop" placeholder="Drop postcode e.g. LS15 9DD" oninput="updateAreaAndMap()">
+
+
+
+        <div class="grid2">
+
+          <div>
+
+            <label>Matched area</label>
+
+            <input id="matchedArea" readonly placeholder="Auto area">
+
+          </div>
+
+          <div>
+
+            <label>Vehicle needed</label>
+
+            <select id="vehicle">
+
+              <option value="10">Car</option>
+
+              <option value="20">Estate</option>
+
+              <option value="30">Van</option>
+
+              <option value="40">Pickup / Trailer</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="grid2">
+
+          <div>
+
+            <label>Weight</label>
+
+            <select id="weight">
+
+              <option value="0">Light</option>
+
+              <option value="10">Medium</option>
+
+              <option value="20">Heavy</option>
+
+            </select>
+
+          </div>
+
+          <div>
+
+            <label>Length</label>
+
+            <select id="length">
+
+              <option value="0">Under 1m</option>
+
+              <option value="5">1m - 2.4m</option>
+
+              <option value="10">2.4m - 3.6m</option>
+
+              <option value="15">Over 3.6m</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="grid2">
+
+          <div>
+
+            <label>Priority</label>
+
+            <select id="priority">
+
+              <option value="0">Standard</option>
+
+              <option value="8">Priority</option>
+
+            </select>
+
+          </div>
+
+          <div>
+
+            <label>Loading help</label>
+
+            <select id="help">
+
+              <option value="0">Driver only</option>
+
+              <option value="10">Help on site</option>
+
+              <option value="18">2-man lift</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+
+        <textarea id="notes" placeholder="Notes"></textarea>
+
+
+
+        <button onclick="getQuote()">Get Quote</button>
+
+
+
+        <div id="quoteBox" class="card hidden" style="margin-top:12px;background:#f8fbff;">
+
+          <div id="planBadge" class="badge">Standard</div>
+
+          <div id="price" class="price">£0</div>
+
+          <div id="quoteText" class="small"></div>
+
+
+
+          <div class="small" style="margin-top:10px;">
+
+            <strong>Summary:</strong><br>
+
+            Base: <span id="sumBase">£0</span><br>
+
+            Distance: <span id="sumDistance">£0</span><br>
+
+            Vehicle/Load: <span id="sumLoad">£0</span><br>
+
+            Priority: <span id="sumPriority">£0</span><br>
+
+            Discount: <span id="sumDiscount">£0</span>
+
+          </div>
+
+
+
+          <button class="success" onclick="bookJob()">Book Job</button>
+
+          <button class="soft" onclick="openMaps()">Open in Google Maps</button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card">
+
+        <h3>Map Preview</h3>
+
+        <div class="map">
+
+          <div class="road one"></div>
+
+          <div class="road two"></div>
+
+          <div class="road three"></div>
+
+          <div class="route"></div>
+
+          <div class="pin pickup-pin">A</div>
+
+          <div class="pin drop-pin">B</div>
+
+          <div id="pickupMapLabel" class="pin-label pickup-label">Pickup</div>
+
+          <div id="dropMapLabel" class="pin-label drop-label">Drop-off</div>
 
         </div>
 
@@ -706,31 +952,111 @@ button.soft{
 
 
 
-    <div class="card">
+    <div id="track" class="screen">
 
-      <h3>Available Jobs</h3>
+      <div class="card">
 
-      <div id="jobs"></div>
+        <h2>Tracking</h2>
+
+        <p id="trackText">No job yet</p>
+
+        <ul class="timeline">
+
+          <li id="step1">Job created</li>
+
+          <li id="step2">Accepted</li>
+
+          <li id="step3">On the way to pickup</li>
+
+          <li id="step4">Picked up</li>
+
+          <li id="step5">On the way to customer</li>
+
+          <li id="step6">Delivered</li>
+
+        </ul>
+
+      </div>
 
     </div>
 
-  </div>
+
+
+    <div id="driver" class="screen">
+
+      <div class="card">
+
+        <h2>Driver Dashboard</h2>
 
 
 
-  <div id="history" class="screen">
+        <label>Your vehicle</label>
 
-    <div class="card">
+        <select id="driverVehicle" onchange="renderJobs()">
 
-      <h2>Job History</h2>
+          <option value="10">Car</option>
 
-      <div id="historyList"></div>
+          <option value="20">Estate</option>
+
+          <option value="30">Van</option>
+
+          <option value="40">Pickup / Trailer</option>
+
+        </select>
+
+
+
+        <div class="kpis">
+
+          <div class="kpi">
+
+            <small>Driver earnings</small>
+
+            <strong id="earnings">£0</strong>
+
+          </div>
+
+          <div class="kpi">
+
+            <small>Completed jobs</small>
+
+            <strong id="completedCount">0</strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card">
+
+        <h3>Available Jobs</h3>
+
+        <div id="jobs"></div>
+
+      </div>
 
     </div>
 
+
+
+    <div id="history" class="screen">
+
+      <div class="card">
+
+        <h2>Job History</h2>
+
+        <div id="historyList"></div>
+
+      </div>
+
+    </div>
+
+
+
   </div>
-
-
 
 </div>
 
@@ -752,6 +1078,34 @@ let quoteTotal = 0;
 
 let orderCounter = 1000;
 
+let selectedSupplier = null;
+
+
+
+const suppliers = [
+
+  {name:"B&Q Leeds", query:"B&Q Leeds LS14 2HS UK"},
+
+  {name:"Wickes Leeds", query:"Wickes Leeds LS10 1SE UK"},
+
+  {name:"Screwfix Leeds", query:"Screwfix Leeds LS12 6LP UK"},
+
+  {name:"Toolstation Leeds", query:"Toolstation Leeds LS12 6LT UK"},
+
+  {name:"Eurocell Leeds", query:"Eurocell Leeds LS12 6AB UK"},
+
+  {name:"GAP Leeds", query:"GAP Leeds LS10 2RJ UK"},
+
+  {name:"Travis Perkins Leeds", query:"Travis Perkins Leeds LS12 2QQ UK"},
+
+  {name:"Jewson Leeds", query:"Jewson Leeds LS11 5JL UK"},
+
+  {name:"Howdens Leeds", query:"Howdens Leeds LS10 1NE UK"},
+
+  {name:"Northern Building Plastics Leeds", query:"Northern Building Plastics Leeds LS9 7TU UK"}
+
+];
+
 
 
 function showScreen(id, el){
@@ -759,8 +1113,6 @@ function showScreen(id, el){
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("show"));
 
   document.getElementById(id).classList.add("show");
-
-
 
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
 
@@ -770,11 +1122,31 @@ function showScreen(id, el){
 
 
 
+function setRole(role){
+
+  currentRole = role;
+
+  document.getElementById("roleCustomer").classList.remove("activeRole");
+
+  document.getElementById("roleTrade").classList.remove("activeRole");
+
+  document.getElementById("roleDriver").classList.remove("activeRole");
+
+
+
+  if(role === "Customer") document.getElementById("roleCustomer").classList.add("activeRole");
+
+  if(role === "Trade") document.getElementById("roleTrade").classList.add("activeRole");
+
+  if(role === "Driver") document.getElementById("roleDriver").classList.add("activeRole");
+
+}
+
+
+
 function login(){
 
   currentUser = document.getElementById("name").value || "Guest";
-
-  currentRole = document.getElementById("role").value;
 
 
 
@@ -790,7 +1162,91 @@ function login(){
 
     document.getElementById("plan").value = "-8";
 
+  } else {
+
+    document.getElementById("customerType").value = "Customer";
+
+    document.getElementById("plan").value = "0";
+
   }
+
+}
+
+
+
+function filterSuppliers(){
+
+  const query = document.getElementById("supplierSearch").value.trim().toLowerCase();
+
+  const box = document.getElementById("supplierResults");
+
+  box.innerHTML = "";
+
+
+
+  if(!query){
+
+    box.classList.add("hidden");
+
+    return;
+
+  }
+
+
+
+  const results = suppliers.filter(s => s.name.toLowerCase().includes(query));
+
+
+
+  if(results.length === 0){
+
+    box.innerHTML = "<div class='supplier-item'>No suppliers found</div>";
+
+    box.classList.remove("hidden");
+
+    return;
+
+  }
+
+
+
+  results.forEach(s => {
+
+    const item = document.createElement("div");
+
+    item.className = "supplier-item";
+
+    item.textContent = s.name;
+
+    item.onclick = function(){
+
+      selectSupplier(s);
+
+    };
+
+    box.appendChild(item);
+
+  });
+
+
+
+  box.classList.remove("hidden");
+
+}
+
+
+
+function selectSupplier(supplier){
+
+  selectedSupplier = supplier;
+
+  document.getElementById("pickup").value = supplier.name;
+
+  document.getElementById("supplierSearch").value = supplier.name;
+
+  document.getElementById("supplierResults").classList.add("hidden");
+
+  updateMapLabels();
 
 }
 
@@ -818,11 +1274,77 @@ function getDistanceCharge(drop){
 
 
 
+function getArea(drop){
+
+  drop = (drop || "").toUpperCase();
+
+  if(drop.startsWith("LS")) return "Leeds";
+
+  if(drop.startsWith("WF")) return "Wakefield";
+
+  if(drop.startsWith("BD")) return "Bradford";
+
+  if(drop.startsWith("HD")) return "Huddersfield";
+
+  if(drop.startsWith("YO")) return "York";
+
+  if(drop.startsWith("M")) return "Manchester";
+
+  if(drop.startsWith("L")) return "Liverpool";
+
+  if(drop.startsWith("B")) return "Birmingham";
+
+  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return "London";
+
+  return "Custom area";
+
+}
+
+
+
+function updateAreaAndMap(){
+
+  const drop = document.getElementById("drop").value;
+
+  document.getElementById("matchedArea").value = getArea(drop);
+
+  updateMapLabels();
+
+}
+
+
+
+function updateMapLabels(){
+
+  document.getElementById("pickupMapLabel").innerText = document.getElementById("pickup").value || "Pickup";
+
+  document.getElementById("dropMapLabel").innerText = document.getElementById("drop").value || "Drop-off";
+
+}
+
+
+
 function getQuote(){
+
+  const pickup = document.getElementById("pickup").value;
+
+  const drop = document.getElementById("drop").value;
+
+
+
+  if(!pickup || !drop){
+
+    alert("Please choose supplier and enter drop.");
+
+    return;
+
+  }
+
+
 
   let base = 12;
 
-  let distance = getDistanceCharge(document.getElementById("drop").value);
+  let distance = getDistanceCharge(drop);
 
   let vehicle = Number(document.getElementById("vehicle").value);
 
@@ -832,17 +1354,21 @@ function getQuote(){
 
   let priority = Number(document.getElementById("priority").value);
 
+  let help = Number(document.getElementById("help").value);
+
   let plan = Number(document.getElementById("plan").value);
 
 
 
-  quoteTotal = base + distance + vehicle + weight + length + priority + plan;
+  let loadTotal = vehicle + weight + length + help;
+
+  quoteTotal = base + distance + loadTotal + priority + plan;
 
   if(quoteTotal < 15) quoteTotal = 15;
 
 
 
-  document.getElementById("quoteBox").style.display = "block";
+  document.getElementById("quoteBox").classList.remove("hidden");
 
   document.getElementById("price").innerText = "£" + quoteTotal;
 
@@ -856,7 +1382,19 @@ function getQuote(){
 
       ? "Trade Pro discount applied. Priority trade pricing included."
 
-      : "Standard price based on vehicle, load and distance feel.";
+      : "Standard price based on vehicle, load and distance.";
+
+
+
+  document.getElementById("sumBase").innerText = "£" + base;
+
+  document.getElementById("sumDistance").innerText = "£" + distance;
+
+  document.getElementById("sumLoad").innerText = "£" + loadTotal;
+
+  document.getElementById("sumPriority").innerText = "£" + priority;
+
+  document.getElementById("sumDiscount").innerText = plan < 0 ? "-£8" : "£0";
 
 }
 
@@ -886,7 +1424,7 @@ function bookJob(){
 
     orderId: "TR-" + orderCounter,
 
-    customer: currentUser,
+    customer: currentUser || "Guest",
 
     pickup,
 
@@ -894,9 +1432,11 @@ function bookJob(){
 
     price: quoteTotal,
 
-    status: "Open",
+    status:"Open",
 
-    vehicleNeed: Number(document.getElementById("vehicle").value)
+    vehicleNeed: Number(document.getElementById("vehicle").value),
+
+    counted:false
 
   };
 
@@ -1138,19 +1678,11 @@ function renderStats(){
 
 function openMaps(){
 
-  let p = encodeURIComponent(document.getElementById("pickup").value);
+  const destination = encodeURIComponent(document.getElementById("drop").value);
 
-  let d = encodeURIComponent(document.getElementById("drop").value);
+  const origin = encodeURIComponent(selectedSupplier ? selectedSupplier.query : (document.getElementById("pickup").value + " UK"));
 
-
-
-  window.open(
-
-    "https://www.google.com/maps/dir/?api=1&origin=" + p + "&destination=" + d,
-
-    "_blank"
-
-  );
+  window.open("https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" + destination, "_blank");
 
 }
 
