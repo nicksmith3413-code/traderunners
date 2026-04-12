@@ -162,7 +162,7 @@ button.soft{
 
   display:grid;
 
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(7,1fr);
 
   gap:6px;
 
@@ -249,14 +249,6 @@ button.soft{
   background:#dcfce7;
 
   color:#166534;
-
-}
-
-.rejected{
-
-  background:#fee2e2;
-
-  color:#991b1b;
 
 }
 
@@ -374,41 +366,33 @@ button.soft{
 
 }
 
-.good{color:#16a34a;font-weight:bold}
-
-.bad{color:#dc2626;font-weight:bold}
-
 .small{font-size:12px;color:#64748b}
 
-.roles{
+.summaryRow{
 
-  display:grid;
+  display:flex;
 
-  grid-template-columns:repeat(3,1fr);
+  justify-content:space-between;
 
-  gap:8px;
+  margin:8px 0;
 
-}
-
-.roles button{
-
-  margin-top:0;
-
-  background:#eff6ff;
-
-  color:#2563eb;
-
-  border:1px solid #bfdbfe;
+  font-size:14px;
 
 }
 
-.roles button.activeRole{
+.totalRow{
 
-  background:#2563eb;
+  display:flex;
 
-  color:#fff;
+  justify-content:space-between;
 
-  border-color:#2563eb;
+  margin-top:12px;
+
+  padding-top:12px;
+
+  border-top:1px solid #e2e8f0;
+
+  font-weight:bold;
 
 }
 
@@ -452,7 +436,9 @@ button.soft{
 
     <div class="tab" onclick="showScreen('verify',this)">Verify</div>
 
-    <div class="tab" onclick="showScreen('tradepro',this)">Pro</div>
+    <div class="tab" onclick="showScreen('pro',this)">Pro</div>
+
+    <div class="tab" onclick="showScreen('pay',this)">Pay</div>
 
   </div>
 
@@ -466,21 +452,19 @@ button.soft{
 
 
 
-      <div class="roles">
+      <div class="grid2">
 
-        <button id="roleCustomer" class="activeRole" onclick="setRole('Customer')">Customer</button>
+        <button id="roleCustomer" class="soft" onclick="setRole('Customer')">Customer</button>
 
-        <button id="roleTrade" onclick="setRole('Trade')">Trade</button>
-
-        <button id="roleDriver" onclick="setRole('Driver')">Driver</button>
+        <button id="roleTrade" class="soft" onclick="setRole('Trade')">Trade</button>
 
       </div>
+
+      <button id="roleDriver" class="soft" onclick="setRole('Driver')">Driver</button>
 
 
 
       <input id="name" placeholder="Your name">
-
-
 
       <button onclick="login()">Enter App</button>
 
@@ -499,6 +483,8 @@ button.soft{
       <p><strong>Current role:</strong> <span id="currentRoleText">Customer</span></p>
 
       <p><strong>Verification:</strong> <span id="homeVerificationText">Not submitted</span></p>
+
+      <p><strong>Trade Pro:</strong> <span id="homeTradeProText">Inactive</span></p>
 
     </div>
 
@@ -536,9 +522,9 @@ button.soft{
 
           <select id="plan">
 
-            <option value="0">Standard</option>
+            <option value="standard">Standard</option>
 
-            <option value="-8">Trade Pro</option>
+            <option value="tradepro">Trade Pro</option>
 
           </select>
 
@@ -647,6 +633,18 @@ button.soft{
         <div id="price" class="price">£0</div>
 
         <div id="quoteText" class="small"></div>
+
+
+
+        <div class="summaryRow"><span>Customer pays</span><strong id="customerPays">£0</strong></div>
+
+        <div class="summaryRow"><span>Platform fee</span><strong id="platformFee">£0</strong></div>
+
+        <div class="summaryRow"><span>Driver payout</span><strong id="driverPayout">£0</strong></div>
+
+        <div class="summaryRow"><span>Trade Pro saving</span><strong id="tradeSaving">£0</strong></div>
+
+
 
         <button class="success" onclick="bookJob()">Book Job</button>
 
@@ -804,12 +802,6 @@ button.soft{
 
 
 
-      <label>Extra notes</label>
-
-      <textarea id="verifyNotes" placeholder="Anything else about the driver or vehicle"></textarea>
-
-
-
       <button onclick="submitVerification()">Submit Verification</button>
 
       <button class="soft" onclick="approveDriver()">Simulate Approval</button>
@@ -820,33 +812,73 @@ button.soft{
 
 
 
-  <div id="tradepro" class="screen">
+  <div id="pro" class="screen">
 
     <div class="card">
 
-      <h2>Trade Pro</h2>
+      <h2>Trade Pro Subscription</h2>
 
-      <div class="badge tradepro">Subscription</div>
+      <div class="badge tradepro">£9.99 / month</div>
 
       <p>Priority matching, cheaper deliveries, better rates for repeat trade customers.</p>
 
 
 
-      <div class="kpis">
+      <div class="summaryRow"><span>Monthly price</span><strong>£9.99</strong></div>
 
-        <div class="kpi">
+      <div class="summaryRow"><span>Per job discount</span><strong>£8 off</strong></div>
 
-          <small>Monthly price</small>
+      <div class="summaryRow"><span>Priority matching</span><strong>Included</strong></div>
 
-          <strong>£9.99</strong>
+
+
+      <button class="success" onclick="activateTradePro()">Activate Trade Pro</button>
+
+      <div id="tradeProMessage" class="small" style="margin-top:10px;"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="pay" class="screen">
+
+    <div class="card">
+
+      <h2>Payment Screen</h2>
+
+      <div class="badge">Demo checkout</div>
+
+
+
+      <label>Name on card</label>
+
+      <input id="cardName" placeholder="e.g. Nick Smith">
+
+
+
+      <label>Card number</label>
+
+      <input id="cardNumber" placeholder="4242 4242 4242 4242">
+
+
+
+      <div class="grid2">
+
+        <div>
+
+          <label>Expiry</label>
+
+          <input id="cardExpiry" placeholder="12/28">
 
         </div>
 
-        <div class="kpi">
+        <div>
 
-          <small>Per-job saving</small>
+          <label>CVC</label>
 
-          <strong>£8</strong>
+          <input id="cardCvc" placeholder="123">
 
         </div>
 
@@ -854,9 +886,25 @@ button.soft{
 
 
 
-      <button class="success" onclick="activateTradePro()">Activate Trade Pro</button>
+      <div class="card" style="background:#f8fbff;">
 
-      <div id="tradeProMessage" class="small" style="margin-top:10px;"></div>
+        <h3 style="margin-top:0;">Latest quote summary</h3>
+
+        <div class="summaryRow"><span>Customer pays</span><strong id="payCustomerTotal">£0</strong></div>
+
+        <div class="summaryRow"><span>Platform fee</span><strong id="payPlatformFee">£0</strong></div>
+
+        <div class="summaryRow"><span>Driver payout</span><strong id="payDriverPayout">£0</strong></div>
+
+        <div class="totalRow"><span>Total charge</span><strong id="payTotal">£0</strong></div>
+
+      </div>
+
+
+
+      <button class="success" onclick="processDemoPayment()">Pay Now</button>
+
+      <div id="paymentMessage" class="small" style="margin-top:10px;"></div>
 
     </div>
 
@@ -890,6 +938,14 @@ let tradeProActive = false;
 
 
 
+let latestPlatformFee = 0;
+
+let latestDriverPayout = 0;
+
+let latestTradeSaving = 0;
+
+
+
 function showScreen(id, el){
 
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("show"));
@@ -908,23 +964,23 @@ function setRole(role){
 
   currentRole = role;
 
-  document.getElementById("roleCustomer").classList.remove("activeRole");
-
-  document.getElementById("roleTrade").classList.remove("activeRole");
-
-  document.getElementById("roleDriver").classList.remove("activeRole");
-
-
-
-  if(role === "Customer") document.getElementById("roleCustomer").classList.add("activeRole");
-
-  if(role === "Trade") document.getElementById("roleTrade").classList.add("activeRole");
-
-  if(role === "Driver") document.getElementById("roleDriver").classList.add("activeRole");
-
-
-
   document.getElementById("currentRoleText").innerText = role;
+
+
+
+  document.getElementById("roleCustomer").classList.remove("active");
+
+  document.getElementById("roleTrade").classList.remove("active");
+
+  document.getElementById("roleDriver").classList.remove("active");
+
+
+
+  if(role === "Customer") document.getElementById("roleCustomer").classList.add("active");
+
+  if(role === "Trade") document.getElementById("roleTrade").classList.add("active");
+
+  if(role === "Driver") document.getElementById("roleDriver").classList.add("active");
 
 }
 
@@ -946,19 +1002,21 @@ function login(){
 
     document.getElementById("customerType").value = "Trade";
 
-    document.getElementById("plan").value = tradeProActive ? "-8" : "0";
+    document.getElementById("plan").value = tradeProActive ? "tradepro" : "standard";
 
   } else {
 
     document.getElementById("customerType").value = "Customer";
 
-    document.getElementById("plan").value = "0";
+    document.getElementById("plan").value = "standard";
 
   }
 
 
 
   updateVerificationUI();
+
+  updateTradeProUI();
 
 }
 
@@ -1000,13 +1058,33 @@ function getQuote(){
 
   let priority = Number(document.getElementById("priority").value);
 
-  let plan = Number(document.getElementById("plan").value);
+
+
+  let subTotal = base + distance + vehicle + weight + length + priority;
+
+  let plan = document.getElementById("plan").value;
 
 
 
-  quoteTotal = base + distance + vehicle + weight + length + priority + plan;
+  latestTradeSaving = 0;
+
+  if(plan === "tradepro"){
+
+    latestTradeSaving = 8;
+
+  }
+
+
+
+  quoteTotal = subTotal - latestTradeSaving;
 
   if(quoteTotal < 15) quoteTotal = 15;
+
+
+
+  latestPlatformFee = Math.max(3, Math.round(quoteTotal * 0.15));
+
+  latestDriverPayout = quoteTotal - latestPlatformFee;
 
 
 
@@ -1014,17 +1092,37 @@ function getQuote(){
 
   document.getElementById("price").innerText = "£" + quoteTotal;
 
-  document.getElementById("planBadge").innerText = plan < 0 ? "Trade Pro" : "Standard";
+  document.getElementById("planBadge").innerText = plan === "tradepro" ? "Trade Pro" : "Standard";
 
-  document.getElementById("planBadge").className = plan < 0 ? "badge tradepro" : "badge";
+  document.getElementById("planBadge").className = plan === "tradepro" ? "badge tradepro" : "badge";
 
   document.getElementById("quoteText").innerText =
 
-    plan < 0
+    plan === "tradepro"
 
-      ? "Trade Pro discount applied. Priority trade pricing included."
+      ? "Trade Pro discount applied. Subscription savings included."
 
-      : "Standard price based on vehicle, load and distance feel.";
+      : "Standard pricing applied.";
+
+
+
+  document.getElementById("customerPays").innerText = "£" + quoteTotal;
+
+  document.getElementById("platformFee").innerText = "£" + latestPlatformFee;
+
+  document.getElementById("driverPayout").innerText = "£" + latestDriverPayout;
+
+  document.getElementById("tradeSaving").innerText = latestTradeSaving > 0 ? "-£" + latestTradeSaving : "£0";
+
+
+
+  document.getElementById("payCustomerTotal").innerText = "£" + quoteTotal;
+
+  document.getElementById("payPlatformFee").innerText = "£" + latestPlatformFee;
+
+  document.getElementById("payDriverPayout").innerText = "£" + latestDriverPayout;
+
+  document.getElementById("payTotal").innerText = "£" + quoteTotal;
 
 }
 
@@ -1061,6 +1159,10 @@ function bookJob(){
     drop,
 
     price: quoteTotal,
+
+    platformFee: latestPlatformFee,
+
+    driverPayout: latestDriverPayout,
 
     status: "Open",
 
@@ -1182,7 +1284,7 @@ function nextStatus(i){
 
     jobs[i].counted = true;
 
-    driverEarnings += Number(jobs[i].price);
+    driverEarnings += Number(jobs[i].driverPayout);
 
     completedJobs.unshift(jobs[i]);
 
@@ -1248,9 +1350,13 @@ function renderJobs(){
 
         ${job.pickup} → ${job.drop}<br>
 
-        £${job.price}<br>
+        Customer paid £${job.price}<br>
 
-        ${ suitable ? '<span class="good">Suitable vehicle</span>' : '<span class="bad">Vehicle too small</span>' }<br>
+        Driver payout £${job.driverPayout}<br>
+
+        Platform fee £${job.platformFee}<br>
+
+        ${ suitable ? '<span style="color:#16a34a;font-weight:bold">Suitable vehicle</span>' : '<span style="color:#dc2626;font-weight:bold">Vehicle too small</span>' }<br>
 
         ${
 
@@ -1344,8 +1450,6 @@ function updateVerificationUI(){
 
 
 
-  badge.className = "badge pending";
-
   if(verificationStatus === "Not submitted"){
 
     badge.innerText = "Not submitted";
@@ -1370,14 +1474,6 @@ function updateVerificationUI(){
 
   }
 
-  if(verificationStatus === "Rejected"){
-
-    badge.innerText = "Rejected";
-
-    badge.className = "badge rejected";
-
-  }
-
 
 
   homeText.innerText = verificationStatus;
@@ -1394,11 +1490,51 @@ function activateTradePro(){
 
   document.getElementById("tradeProMessage").innerText = "Trade Pro activated for this demo account.";
 
+  updateTradeProUI();
+
+
+
   if(currentRole === "Trade"){
 
-    document.getElementById("plan").value = "-8";
+    document.getElementById("plan").value = "tradepro";
 
   }
+
+}
+
+
+
+function updateTradeProUI(){
+
+  document.getElementById("homeTradeProText").innerText = tradeProActive ? "Active" : "Inactive";
+
+}
+
+
+
+function processDemoPayment(){
+
+  const name = document.getElementById("cardName").value.trim();
+
+  const number = document.getElementById("cardNumber").value.trim();
+
+  const expiry = document.getElementById("cardExpiry").value.trim();
+
+  const cvc = document.getElementById("cardCvc").value.trim();
+
+
+
+  if(!name || !number || !expiry || !cvc){
+
+    alert("Please fill in all payment fields.");
+
+    return;
+
+  }
+
+
+
+  document.getElementById("paymentMessage").innerText = "Demo payment successful. Real payments would be connected with Stripe.";
 
 }
 
@@ -1410,6 +1546,8 @@ renderStats();
 
 updateVerificationUI();
 
+updateTradeProUI();
+
 </script>
 
 
@@ -1417,3 +1555,4 @@ updateVerificationUI();
 </body>
 
 </html>
+
