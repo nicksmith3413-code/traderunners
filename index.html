@@ -4,1059 +4,311 @@
 
 <head>
 
-  <meta charset="UTF-8" />
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#0f172a" />
 
-  <title>TradeRunners V7</title>
 
-  <style>
+<title>TradeRunners</title>
 
-    :root{
 
-      --bg:#f4f7fb;
 
-      --card:#ffffff;
+<link rel="apple-touch-icon" href="icon.png">
 
-      --text:#0f172a;
+<link rel="icon" href="icon.png">
 
-      --muted:#64748b;
 
-      --line:#dbe4f0;
 
-      --brand:#2563eb;
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-      --brand-dark:#1d4ed8;
+<meta name="apple-mobile-web-app-title" content="TradeRunners">
 
-      --dark:#0f172a;
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-      --success:#16a34a;
 
-      --warning:#f59e0b;
 
-      --danger:#dc2626;
+<style>
 
-      --soft:#eff6ff;
+body {
 
-      --purple:#7c3aed;
+    margin: 0;
 
-    }
+    font-family: Arial, sans-serif;
 
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    background: #f4f6f9;
 
-    body{
+}
 
-      margin:0;
 
-      font-family:Arial,sans-serif;
 
-      background:linear-gradient(180deg,#eef4ff 0%,#f8fbff 100%);
+/* SPLASH SCREEN */
 
-      color:var(--text);
+#splash {
 
-    }
+    position: fixed;
 
-    .app{
+    width: 100%;
 
-      max-width:520px;
+    height: 100%;
 
-      margin:0 auto;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
 
-      min-height:100vh;
+    color: white;
 
-      padding-bottom:24px;
+    display: flex;
 
-    }
+    align-items: center;
 
-    .hero{
+    justify-content: center;
 
-      background:linear-gradient(135deg,var(--dark),var(--brand-dark));
+    flex-direction: column;
 
-      color:#fff;
+    z-index: 9999;
 
-      padding:22px 18px 18px;
+}
 
-      border-bottom-left-radius:24px;
 
-      border-bottom-right-radius:24px;
 
-      box-shadow:0 10px 30px rgba(15,23,42,.1);
+#splash h1 {
 
-    }
+    font-size: 28px;
 
-    .hero-row{
+    margin-top: 10px;
 
-      display:flex;
+}
 
-      align-items:center;
 
-      gap:12px;
 
-    }
+/* MAIN APP */
 
-    .logo{
+#app {
 
-      width:54px;
+    display: none;
 
-      height:54px;
+}
 
-      border-radius:16px;
 
-      background:rgba(255,255,255,.12);
 
-      border:1px solid rgba(255,255,255,.18);
+.header {
 
-      display:flex;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
 
-      align-items:center;
+    color: white;
 
-      justify-content:center;
+    padding: 20px;
 
-      font-size:28px;
+    border-bottom-left-radius: 20px;
 
-    }
+    border-bottom-right-radius: 20px;
 
-    .hero h1{margin:0;font-size:30px}
+}
 
-    .hero p{margin:8px 0 0;font-size:14px;opacity:.94}
 
-    .slogan{
 
-      margin-top:14px;
+.container {
 
-      display:inline-block;
+    padding: 20px;
 
-      background:rgba(255,255,255,.12);
+}
 
-      border:1px solid rgba(255,255,255,.18);
 
-      padding:10px 12px;
 
-      border-radius:999px;
+.card {
 
-      font-size:13px;
+    background: white;
 
-      font-weight:bold;
+    padding: 15px;
 
-    }
+    border-radius: 15px;
 
-    .wrap{padding:14px}
+    margin-bottom: 15px;
 
-    .tabs{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
-      display:grid;
+}
 
-      grid-template-columns:repeat(5,1fr);
 
-      gap:6px;
 
-      margin-bottom:15px;
+button {
 
-      background:rgba(255,255,255,.85);
+    width: 100%;
 
-      border:1px solid #d8e5ff;
+    padding: 15px;
 
-      padding:8px;
+    border-radius: 10px;
 
-      border-radius:18px;
+    border: none;
 
-    }
+    background: #2a5298;
 
-    .tab{
+    color: white;
 
-      padding:10px;
+    font-weight: bold;
 
-      border-radius:10px;
+    margin-top: 10px;
 
-      background:transparent;
+}
 
-      text-align:center;
 
-      font-weight:bold;
 
-      cursor:pointer;
+input, select {
 
-      font-size:12px;
+    width: 100%;
 
-      color:#334155;
+    padding: 10px;
 
-      border:none;
+    margin-top: 10px;
 
-    }
+    border-radius: 8px;
 
-    .tab.active{
+    border: 1px solid #ccc;
 
-      background:#2563eb;
+}
 
-      color:white;
 
-      box-shadow:0 8px 16px rgba(37,99,235,.12);
 
-    }
+.role-btn {
 
-    .screen{display:none}
+    background: #eaeaea;
 
-    .show{display:block}
+    color: #333;
 
-    .card{
+}
 
-      background:white;
 
-      padding:15px;
 
-      border-radius:18px;
+.active {
 
-      margin-bottom:15px;
+    background: #2a5298;
 
-      border:1px solid var(--line);
+    color: white;
 
-      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
 
-    }
-
-    input, select, textarea{
-
-      width:100%;
-
-      padding:12px;
-
-      margin:6px 0;
-
-      border-radius:12px;
-
-      border:1px solid #ccc;
-
-      font-size:14px;
-
-    }
-
-    input[readonly]{background:#f8fafc}
-
-    textarea{
-
-      min-height:70px;
-
-      resize:vertical;
-
-    }
-
-    button{
-
-      width:100%;
-
-      padding:14px;
-
-      border:none;
-
-      border-radius:12px;
-
-      background:#2563eb;
-
-      color:white;
-
-      font-weight:bold;
-
-      margin-top:10px;
-
-      cursor:pointer;
-
-      font-size:14px;
-
-    }
-
-    button.secondary{background:#111827}
-
-    button.success{background:#16a34a}
-
-    button.warning{background:#f59e0b}
-
-    button.soft{
-
-      background:#eff6ff;
-
-      color:#2563eb;
-
-      border:1px solid #bfdbfe;
-
-    }
-
-    .badge{
-
-      display:inline-block;
-
-      padding:6px 10px;
-
-      border-radius:999px;
-
-      background:#eff6ff;
-
-      color:#2563eb;
-
-      font-size:12px;
-
-      font-weight:bold;
-
-      margin-bottom:8px;
-
-    }
-
-    .tradepro{
-
-      background:#ede9fe;
-
-      color:#6d28d9;
-
-    }
-
-    .price{
-
-      font-size:30px;
-
-      font-weight:bold;
-
-      color:#2563eb;
-
-      margin:6px 0;
-
-    }
-
-    .grid2{
-
-      display:grid;
-
-      grid-template-columns:1fr 1fr;
-
-      gap:10px;
-
-    }
-
-    .roles{
-
-      display:grid;
-
-      grid-template-columns:repeat(3,1fr);
-
-      gap:8px;
-
-    }
-
-    .roles button{
-
-      margin-top:0;
-
-      background:#eff6ff;
-
-      color:#2563eb;
-
-      border:1px solid #bfdbfe;
-
-    }
-
-    .roles button.activeRole{
-
-      background:#2563eb;
-
-      color:#fff;
-
-      border-color:#2563eb;
-
-    }
-
-    .kpis{
-
-      display:grid;
-
-      grid-template-columns:1fr 1fr;
-
-      gap:10px;
-
-    }
-
-    .kpi{
-
-      background:#f8fafc;
-
-      border:1px solid #e2e8f0;
-
-      border-radius:12px;
-
-      padding:14px;
-
-      text-align:center;
-
-    }
-
-    .kpi small{
-
-      display:block;
-
-      color:#64748b;
-
-      margin-bottom:6px;
-
-    }
-
-    .kpi strong{
-
-      font-size:22px;
-
-      color:#2563eb;
-
-    }
-
-    .timeline{
-
-      padding-left:0;
-
-      margin:10px 0 0;
-
-    }
-
-    .timeline li{
-
-      list-style:none;
-
-      padding:10px;
-
-      border:1px solid #e2e8f0;
-
-      border-radius:10px;
-
-      margin-bottom:8px;
-
-      background:#fafcff;
-
-    }
-
-    .timeline li.on{
-
-      background:#eff6ff;
-
-      border-color:#bfdbfe;
-
-      color:#2563eb;
-
-      font-weight:bold;
-
-    }
-
-    .job{
-
-      border:1px solid #ddd;
-
-      padding:12px;
-
-      border-radius:12px;
-
-      margin-top:10px;
-
-      background:#fff;
-
-    }
-
-    .good{color:#16a34a;font-weight:bold}
-
-    .bad{color:#dc2626;font-weight:bold}
-
-    .small{font-size:12px;color:#64748b}
-
-    .map{
-
-      height:220px;
-
-      border-radius:15px;
-
-      border:1px solid #cfe0ff;
-
-      background:
-
-        linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px),
-
-        linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
-
-        linear-gradient(135deg,#dbeafe,#f8fbff);
-
-      background-size:40px 40px,40px 40px,cover;
-
-      position:relative;
-
-      overflow:hidden;
-
-    }
-
-    .road{
-
-      position:absolute;
-
-      background:rgba(37,99,235,.12);
-
-      border-radius:999px;
-
-    }
-
-    .road.one{width:280px;height:10px;top:70px;left:28px;transform:rotate(18deg)}
-
-    .road.two{width:190px;height:10px;top:145px;left:140px;transform:rotate(-18deg)}
-
-    .road.three{width:10px;height:170px;top:30px;left:185px}
-
-    .route{
-
-      position:absolute;
-
-      top:96px;
-
-      left:90px;
-
-      width:205px;
-
-      border-top:4px dashed #2563eb;
-
-      transform:rotate(18deg);
-
-    }
-
-    .pin{
-
-      position:absolute;
-
-      width:24px;
-
-      height:24px;
-
-      border-radius:50%;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      color:#fff;
-
-      font-size:12px;
-
-      font-weight:bold;
-
-    }
-
-    .pickup-pin{background:#16a34a;top:74px;left:76px}
-
-    .drop-pin{background:#dc2626;top:145px;left:286px}
-
-    .pin-label{
-
-      position:absolute;
-
-      background:#fff;
-
-      border:1px solid #dbe7ff;
-
-      border-radius:999px;
-
-      padding:6px 10px;
-
-      font-size:12px;
-
-      max-width:130px;
-
-      white-space:nowrap;
-
-      overflow:hidden;
-
-      text-overflow:ellipsis;
-
-    }
-
-    .pickup-label{top:40px;left:20px}
-
-    .drop-label{top:172px;left:238px}
-
-    .supplier-results{
-
-      border:1px solid #dbe4f0;
-
-      border-radius:12px;
-
-      overflow:hidden;
-
-      margin-top:4px;
-
-      background:#fff;
-
-    }
-
-    .supplier-item{
-
-      padding:10px 12px;
-
-      border-bottom:1px solid #eef2f7;
-
-      cursor:pointer;
-
-      font-size:14px;
-
-    }
-
-    .supplier-item:last-child{border-bottom:none}
-
-    .supplier-item:hover{background:#f8fbff}
-
-    .hidden{display:none!important}
-
-  </style>
+</style>
 
 </head>
+
+
 
 <body>
 
 
 
-<div class="app">
+<!-- SPLASH -->
 
-  <div class="hero">
+<div id="splash">
 
-    <div class="hero-row">
+    <img src="icon.png" width="80">
 
-      <div class="logo">🚐</div>
+    <h1>TradeRunners</h1>
 
-      <div>
+    <p>Loading...</p>
 
-        <h1>TradeRunners</h1>
+</div>
 
-        <div>Trade delivery made simple</div>
 
-      </div>
 
-    </div>
+<!-- APP -->
 
-    <div class="slogan">Saving you time and money on every delivery</div>
+<div id="app">
 
-  </div>
 
 
+<div class="header">
 
-  <div class="wrap">
+    <h2>🚐 TradeRunners</h2>
 
+    <p>Saving you time and money on every delivery</p>
 
+</div>
 
-    <div class="tabs">
 
-      <button class="tab active" onclick="showScreen('home',this)">Home</button>
 
-      <button class="tab" onclick="showScreen('book',this)">Book</button>
+<div class="container">
 
-      <button class="tab" onclick="showScreen('track',this)">Track</button>
 
-      <button class="tab" onclick="showScreen('driver',this)">Driver</button>
 
-      <button class="tab" onclick="showScreen('history',this)">History</button>
+<div class="card">
 
-    </div>
+<h3>Select Role</h3>
 
+<button class="role-btn active" onclick="setRole('customer')">Customer</button>
 
+<button class="role-btn" onclick="setRole('driver')">Driver</button>
 
-    <div id="home" class="screen show">
+</div>
 
-      <div class="card">
 
-        <h2>Login</h2>
 
+<div id="customerSection" class="card">
 
+<h3>Book Delivery</h3>
 
-        <div class="roles">
 
-          <button id="roleCustomer" class="activeRole" onclick="setRole('Customer')">Customer</button>
 
-          <button id="roleTrade" onclick="setRole('Trade')">Trade</button>
+<input id="pickup" placeholder="Pickup postcode">
 
-          <button id="roleDriver" onclick="setRole('Driver')">Driver</button>
+<input id="dropoff" placeholder="Dropoff postcode">
 
-        </div>
 
 
+<select id="size">
 
-        <input id="name" placeholder="Your name">
+<option>Small Items</option>
 
+<option>Medium Items</option>
 
+<option>Large Items</option>
 
-        <button onclick="login()">Enter App</button>
+</select>
 
 
 
-        <div id="userBox" style="margin-top:12px;"></div>
+<button onclick="getQuote()">Get Quote</button>
 
-      </div>
 
 
+<h2 id="price"></h2>
 
-      <div class="card">
 
-        <h3>Trade Pro</h3>
 
-        <div class="badge tradepro">Subscription</div>
+<button onclick="bookJob()">Book Job</button>
 
-        <p>Priority matching, lower delivery costs and better rates for repeat trade customers.</p>
+</div>
 
-      </div>
 
-    </div>
 
+<div id="driverSection" class="card" style="display:none;">
 
+<h3>Driver Dashboard</h3>
 
-    <div id="book" class="screen">
 
-      <div class="card">
 
-        <h2>Book Job</h2>
+<select>
 
+<option>Car</option>
 
+<option>Van</option>
 
-        <div class="grid2">
+<option>Trailer</option>
 
-          <div>
+</select>
 
-            <label>Customer type</label>
 
-            <select id="customerType">
 
-              <option value="Customer">Customer</option>
+<button onclick="loadJobs()">Load Jobs</button>
 
-              <option value="Trade">Trade</option>
 
-            </select>
 
-          </div>
+<div id="jobs"></div>
 
-          <div>
+</div>
 
-            <label>Plan</label>
 
-            <select id="plan">
 
-              <option value="0">Standard</option>
-
-              <option value="-8">Trade Pro</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <label>Supplier search</label>
-
-        <input id="supplierSearch" placeholder="Search supplier e.g. B&Q, Wickes, Eurocell" oninput="filterSuppliers()">
-
-        <div id="supplierResults" class="supplier-results hidden"></div>
-
-
-
-        <label>Selected supplier</label>
-
-        <input id="pickup" readonly placeholder="Choose supplier from search">
-
-
-
-        <label>Drop-off postcode</label>
-
-        <input id="drop" placeholder="Drop postcode e.g. LS15 9DD" oninput="updateAreaAndMap()">
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Matched area</label>
-
-            <input id="matchedArea" readonly placeholder="Auto area">
-
-          </div>
-
-          <div>
-
-            <label>Vehicle needed</label>
-
-            <select id="vehicle">
-
-              <option value="10">Car</option>
-
-              <option value="20">Estate</option>
-
-              <option value="30">Van</option>
-
-              <option value="40">Pickup / Trailer</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Weight</label>
-
-            <select id="weight">
-
-              <option value="0">Light</option>
-
-              <option value="10">Medium</option>
-
-              <option value="20">Heavy</option>
-
-            </select>
-
-          </div>
-
-          <div>
-
-            <label>Length</label>
-
-            <select id="length">
-
-              <option value="0">Under 1m</option>
-
-              <option value="5">1m - 2.4m</option>
-
-              <option value="10">2.4m - 3.6m</option>
-
-              <option value="15">Over 3.6m</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Priority</label>
-
-            <select id="priority">
-
-              <option value="0">Standard</option>
-
-              <option value="8">Priority</option>
-
-            </select>
-
-          </div>
-
-          <div>
-
-            <label>Loading help</label>
-
-            <select id="help">
-
-              <option value="0">Driver only</option>
-
-              <option value="10">Help on site</option>
-
-              <option value="18">2-man lift</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <textarea id="notes" placeholder="Notes"></textarea>
-
-
-
-        <button onclick="getQuote()">Get Quote</button>
-
-
-
-        <div id="quoteBox" class="card hidden" style="margin-top:12px;background:#f8fbff;">
-
-          <div id="planBadge" class="badge">Standard</div>
-
-          <div id="price" class="price">£0</div>
-
-          <div id="quoteText" class="small"></div>
-
-
-
-          <div class="small" style="margin-top:10px;">
-
-            <strong>Summary:</strong><br>
-
-            Base: <span id="sumBase">£0</span><br>
-
-            Distance: <span id="sumDistance">£0</span><br>
-
-            Vehicle/Load: <span id="sumLoad">£0</span><br>
-
-            Priority: <span id="sumPriority">£0</span><br>
-
-            Discount: <span id="sumDiscount">£0</span>
-
-          </div>
-
-
-
-          <button class="success" onclick="bookJob()">Book Job</button>
-
-          <button class="soft" onclick="openMaps()">Open in Google Maps</button>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Map Preview</h3>
-
-        <div class="map">
-
-          <div class="road one"></div>
-
-          <div class="road two"></div>
-
-          <div class="road three"></div>
-
-          <div class="route"></div>
-
-          <div class="pin pickup-pin">A</div>
-
-          <div class="pin drop-pin">B</div>
-
-          <div id="pickupMapLabel" class="pin-label pickup-label">Pickup</div>
-
-          <div id="dropMapLabel" class="pin-label drop-label">Drop-off</div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="track" class="screen">
-
-      <div class="card">
-
-        <h2>Tracking</h2>
-
-        <p id="trackText">No job yet</p>
-
-        <ul class="timeline">
-
-          <li id="step1">Job created</li>
-
-          <li id="step2">Accepted</li>
-
-          <li id="step3">On the way to pickup</li>
-
-          <li id="step4">Picked up</li>
-
-          <li id="step5">On the way to customer</li>
-
-          <li id="step6">Delivered</li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="driver" class="screen">
-
-      <div class="card">
-
-        <h2>Driver Dashboard</h2>
-
-
-
-        <label>Your vehicle</label>
-
-        <select id="driverVehicle" onchange="renderJobs()">
-
-          <option value="10">Car</option>
-
-          <option value="20">Estate</option>
-
-          <option value="30">Van</option>
-
-          <option value="40">Pickup / Trailer</option>
-
-        </select>
-
-
-
-        <div class="kpis">
-
-          <div class="kpi">
-
-            <small>Driver earnings</small>
-
-            <strong id="earnings">£0</strong>
-
-          </div>
-
-          <div class="kpi">
-
-            <small>Completed jobs</small>
-
-            <strong id="completedCount">0</strong>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Available Jobs</h3>
-
-        <div id="jobs"></div>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="history" class="screen">
-
-      <div class="card">
-
-        <h2>Job History</h2>
-
-        <div id="historyList"></div>
-
-      </div>
-
-    </div>
-
-
-
-  </div>
+</div>
 
 </div>
 
@@ -1064,635 +316,93 @@
 
 <script>
 
-let currentUser = "";
 
-let currentRole = "Customer";
 
-let jobs = [];
+// Splash screen
 
-let completedJobs = [];
+setTimeout(() => {
 
-let driverEarnings = 0;
+    document.getElementById("splash").style.display = "none";
 
-let quoteTotal = 0;
+    document.getElementById("app").style.display = "block";
 
-let orderCounter = 1000;
-
-let selectedSupplier = null;
+}, 2000);
 
 
 
-const suppliers = [
+// Role switch
 
-  {name:"B&Q Leeds", query:"B&Q Leeds LS14 2HS UK"},
+function setRole(role) {
 
-  {name:"Wickes Leeds", query:"Wickes Leeds LS10 1SE UK"},
-
-  {name:"Screwfix Leeds", query:"Screwfix Leeds LS12 6LP UK"},
-
-  {name:"Toolstation Leeds", query:"Toolstation Leeds LS12 6LT UK"},
-
-  {name:"Eurocell Leeds", query:"Eurocell Leeds LS12 6AB UK"},
-
-  {name:"GAP Leeds", query:"GAP Leeds LS10 2RJ UK"},
-
-  {name:"Travis Perkins Leeds", query:"Travis Perkins Leeds LS12 2QQ UK"},
-
-  {name:"Jewson Leeds", query:"Jewson Leeds LS11 5JL UK"},
-
-  {name:"Howdens Leeds", query:"Howdens Leeds LS10 1NE UK"},
-
-  {name:"Northern Building Plastics Leeds", query:"Northern Building Plastics Leeds LS9 7TU UK"}
-
-];
+    document.querySelectorAll(".role-btn").forEach(btn => btn.classList.remove("active"));
 
 
 
-function showScreen(id, el){
+    if(role === "customer"){
 
-  document.querySelectorAll(".screen").forEach(s => s.classList.remove("show"));
+        document.getElementById("customerSection").style.display = "block";
 
-  document.getElementById(id).classList.add("show");
+        document.getElementById("driverSection").style.display = "none";
 
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".role-btn")[0].classList.add("active");
 
-  el.classList.add("active");
+    } else {
+
+        document.getElementById("customerSection").style.display = "none";
+
+        document.getElementById("driverSection").style.display = "block";
+
+        document.querySelectorAll(".role-btn")[1].classList.add("active");
+
+    }
 
 }
 
 
 
-function setRole(role){
-
-  currentRole = role;
-
-  document.getElementById("roleCustomer").classList.remove("activeRole");
-
-  document.getElementById("roleTrade").classList.remove("activeRole");
-
-  document.getElementById("roleDriver").classList.remove("activeRole");
-
-
-
-  if(role === "Customer") document.getElementById("roleCustomer").classList.add("activeRole");
-
-  if(role === "Trade") document.getElementById("roleTrade").classList.add("activeRole");
-
-  if(role === "Driver") document.getElementById("roleDriver").classList.add("activeRole");
-
-}
-
-
-
-function login(){
-
-  currentUser = document.getElementById("name").value || "Guest";
-
-
-
-  document.getElementById("userBox").innerHTML =
-
-    "<div class='badge'>" + currentRole + "</div><br>Logged in as <strong>" + currentUser + "</strong>";
-
-
-
-  if(currentRole === "Trade"){
-
-    document.getElementById("customerType").value = "Trade";
-
-    document.getElementById("plan").value = "-8";
-
-  } else {
-
-    document.getElementById("customerType").value = "Customer";
-
-    document.getElementById("plan").value = "0";
-
-  }
-
-}
-
-
-
-function filterSuppliers(){
-
-  const query = document.getElementById("supplierSearch").value.trim().toLowerCase();
-
-  const box = document.getElementById("supplierResults");
-
-  box.innerHTML = "";
-
-
-
-  if(!query){
-
-    box.classList.add("hidden");
-
-    return;
-
-  }
-
-
-
-  const results = suppliers.filter(s => s.name.toLowerCase().includes(query));
-
-
-
-  if(results.length === 0){
-
-    box.innerHTML = "<div class='supplier-item'>No suppliers found</div>";
-
-    box.classList.remove("hidden");
-
-    return;
-
-  }
-
-
-
-  results.forEach(s => {
-
-    const item = document.createElement("div");
-
-    item.className = "supplier-item";
-
-    item.textContent = s.name;
-
-    item.onclick = function(){
-
-      selectSupplier(s);
-
-    };
-
-    box.appendChild(item);
-
-  });
-
-
-
-  box.classList.remove("hidden");
-
-}
-
-
-
-function selectSupplier(supplier){
-
-  selectedSupplier = supplier;
-
-  document.getElementById("pickup").value = supplier.name;
-
-  document.getElementById("supplierSearch").value = supplier.name;
-
-  document.getElementById("supplierResults").classList.add("hidden");
-
-  updateMapLabels();
-
-}
-
-
-
-function getDistanceCharge(drop){
-
-  drop = (drop || "").toUpperCase();
-
-
-
-  if(drop.startsWith("LS")) return 10;
-
-  if(drop.startsWith("WF") || drop.startsWith("BD") || drop.startsWith("HD") || drop.startsWith("YO")) return 18;
-
-  if(drop.startsWith("M") || drop.startsWith("L") || drop.startsWith("B")) return 28;
-
-  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return 40;
-
-
-
-  return 15;
-
-}
-
-
-
-function getArea(drop){
-
-  drop = (drop || "").toUpperCase();
-
-  if(drop.startsWith("LS")) return "Leeds";
-
-  if(drop.startsWith("WF")) return "Wakefield";
-
-  if(drop.startsWith("BD")) return "Bradford";
-
-  if(drop.startsWith("HD")) return "Huddersfield";
-
-  if(drop.startsWith("YO")) return "York";
-
-  if(drop.startsWith("M")) return "Manchester";
-
-  if(drop.startsWith("L")) return "Liverpool";
-
-  if(drop.startsWith("B")) return "Birmingham";
-
-  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return "London";
-
-  return "Custom area";
-
-}
-
-
-
-function updateAreaAndMap(){
-
-  const drop = document.getElementById("drop").value;
-
-  document.getElementById("matchedArea").value = getArea(drop);
-
-  updateMapLabels();
-
-}
-
-
-
-function updateMapLabels(){
-
-  document.getElementById("pickupMapLabel").innerText = document.getElementById("pickup").value || "Pickup";
-
-  document.getElementById("dropMapLabel").innerText = document.getElementById("drop").value || "Drop-off";
-
-}
-
-
+// Pricing
 
 function getQuote(){
 
-  const pickup = document.getElementById("pickup").value;
+    let price = Math.floor(Math.random() * 30) + 10;
 
-  const drop = document.getElementById("drop").value;
-
-
-
-  if(!pickup || !drop){
-
-    alert("Please choose supplier and enter drop.");
-
-    return;
-
-  }
-
-
-
-  let base = 12;
-
-  let distance = getDistanceCharge(drop);
-
-  let vehicle = Number(document.getElementById("vehicle").value);
-
-  let weight = Number(document.getElementById("weight").value);
-
-  let length = Number(document.getElementById("length").value);
-
-  let priority = Number(document.getElementById("priority").value);
-
-  let help = Number(document.getElementById("help").value);
-
-  let plan = Number(document.getElementById("plan").value);
-
-
-
-  let loadTotal = vehicle + weight + length + help;
-
-  quoteTotal = base + distance + loadTotal + priority + plan;
-
-  if(quoteTotal < 15) quoteTotal = 15;
-
-
-
-  document.getElementById("quoteBox").classList.remove("hidden");
-
-  document.getElementById("price").innerText = "£" + quoteTotal;
-
-  document.getElementById("planBadge").innerText = plan < 0 ? "Trade Pro" : "Standard";
-
-  document.getElementById("planBadge").className = plan < 0 ? "badge tradepro" : "badge";
-
-  document.getElementById("quoteText").innerText =
-
-    plan < 0
-
-      ? "Trade Pro discount applied. Priority trade pricing included."
-
-      : "Standard price based on vehicle, load and distance.";
-
-
-
-  document.getElementById("sumBase").innerText = "£" + base;
-
-  document.getElementById("sumDistance").innerText = "£" + distance;
-
-  document.getElementById("sumLoad").innerText = "£" + loadTotal;
-
-  document.getElementById("sumPriority").innerText = "£" + priority;
-
-  document.getElementById("sumDiscount").innerText = plan < 0 ? "-£8" : "£0";
+    document.getElementById("price").innerText = "£" + price;
 
 }
 
 
+
+// Book job
 
 function bookJob(){
 
-  let pickup = document.getElementById("pickup").value;
-
-  let drop = document.getElementById("drop").value;
-
-
-
-  if(!pickup || !drop){
-
-    alert("Please fill in pickup and drop.");
-
-    return;
-
-  }
-
-
-
-  let job = {
-
-    id: orderCounter++,
-
-    orderId: "TR-" + orderCounter,
-
-    customer: currentUser || "Guest",
-
-    pickup,
-
-    drop,
-
-    price: quoteTotal,
-
-    status:"Open",
-
-    vehicleNeed: Number(document.getElementById("vehicle").value),
-
-    counted:false
-
-  };
-
-
-
-  jobs.unshift(job);
-
-  updateTracking(job);
-
-  renderJobs();
+    alert("Job booked! Driver will be assigned.");
 
 }
 
 
 
-function updateTracking(job){
+// Driver jobs
 
-  document.getElementById("trackText").innerText =
+function loadJobs(){
 
-    job.pickup + " → " + job.drop + " | £" + job.price + " | " + job.status;
+    document.getElementById("jobs").innerHTML = `
 
+    <div class="card">
 
+    LS15 → WF3<br>
 
-  document.querySelectorAll(".timeline li").forEach(li => li.classList.remove("on"));
+    £26<br>
 
+    <button>Accept Job</button>
 
-
-  if(job.status === "Open") document.getElementById("step1").classList.add("on");
-
-  if(job.status === "Accepted") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-  }
-
-  if(job.status === "On the way to pickup") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-  }
-
-  if(job.status === "Picked up") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-    document.getElementById("step4").classList.add("on");
-
-  }
-
-  if(job.status === "On the way to customer") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-    document.getElementById("step4").classList.add("on");
-
-    document.getElementById("step5").classList.add("on");
-
-  }
-
-  if(job.status === "Delivered") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-    document.getElementById("step4").classList.add("on");
-
-    document.getElementById("step5").classList.add("on");
-
-    document.getElementById("step6").classList.add("on");
-
-  }
-
-}
-
-
-
-function nextStatus(i){
-
-  let steps = ["Open","Accepted","On the way to pickup","Picked up","On the way to customer","Delivered"];
-
-  let current = jobs[i].status;
-
-  let index = steps.indexOf(current);
-
-
-
-  if(index < steps.length - 1){
-
-    jobs[i].status = steps[index + 1];
-
-  }
-
-
-
-  if(jobs[i].status === "Delivered" && !jobs[i].counted){
-
-    jobs[i].counted = true;
-
-    driverEarnings += Number(jobs[i].price);
-
-    completedJobs.unshift(jobs[i]);
-
-  }
-
-
-
-  renderJobs();
-
-  renderHistory();
-
-  renderStats();
-
-  updateTracking(jobs[i]);
-
-}
-
-
-
-function renderJobs(){
-
-  let box = document.getElementById("jobs");
-
-  box.innerHTML = "";
-
-
-
-  let driverVehicle = Number(document.getElementById("driverVehicle").value);
-
-
-
-  jobs.forEach((job,i) => {
-
-    let suitable = driverVehicle >= job.vehicleNeed;
-
-
-
-    box.innerHTML += `
-
-      <div class="job">
-
-        <div class="badge">${job.status}</div><br>
-
-        <strong>${job.orderId}</strong><br>
-
-        ${job.pickup} → ${job.drop}<br>
-
-        £${job.price}<br>
-
-        ${ suitable ? '<span class="good">Suitable vehicle</span>' : '<span class="bad">Vehicle too small</span>' }<br>
-
-        ${
-
-          job.status !== "Delivered"
-
-            ? `<button onclick="nextStatus(${i})" ${!suitable ? "disabled" : ""}>Next Step</button>`
-
-            : `<button class="secondary" disabled>Completed</button>`
-
-        }
-
-      </div>
+    </div>
 
     `;
 
-  });
-
 }
 
 
-
-function renderHistory(){
-
-  let box = document.getElementById("historyList");
-
-  box.innerHTML = "";
-
-
-
-  if(completedJobs.length === 0){
-
-    box.innerHTML = "<div class='small'>No completed jobs yet.</div>";
-
-    return;
-
-  }
-
-
-
-  completedJobs.forEach(job => {
-
-    box.innerHTML += `
-
-      <div class="job">
-
-        <div class="badge">Delivered</div><br>
-
-        <strong>${job.orderId}</strong><br>
-
-        ${job.pickup} → ${job.drop}<br>
-
-        Earned £${job.price}
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-
-
-function renderStats(){
-
-  document.getElementById("earnings").innerText = "£" + driverEarnings;
-
-  document.getElementById("completedCount").innerText = completedJobs.length;
-
-}
-
-
-
-function openMaps(){
-
-  const destination = encodeURIComponent(document.getElementById("drop").value);
-
-  const origin = encodeURIComponent(selectedSupplier ? selectedSupplier.query : (document.getElementById("pickup").value + " UK"));
-
-  window.open("https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" + destination, "_blank");
-
-}
-
-
-
-renderJobs();
-
-renderHistory();
-
-renderStats();
 
 </script>
 
