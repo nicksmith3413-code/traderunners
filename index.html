@@ -2244,6 +2244,36 @@ updateMapLabels();
 
 </script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  doc,
+  updateDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBS5MtYKvhc3CyfyEYLKUWmWUCWtm5_-vM",
+  authDomain: "traderunners-8dad0.firebaseapp.com",
+  projectId: "traderunners-8dad0",
+  storageBucket: "traderunners-8dad0.firebasestorage.app",
+  messagingSenderId: "1099460116957",
+  appId: "1:1099460116957:web:2aa8bf9d555e1966e0b634"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.db = db;
+window.fb = { collection, addDoc, onSnapshot, doc, updateDoc, serverTimestamp };
+</script>
+
+</body>
+</html>
 
 
 </body>
