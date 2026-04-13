@@ -4,2277 +4,2095 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-<title>TradeRunners</title>
+  <meta name="theme-color" content="#111827" />
 
+  <title>Traderunner</title>
 
+  <style>
 
-<link rel="apple-touch-icon" href="icon.png">
+    :root{
 
-<link rel="icon" href="icon.png">
+      --bg:#f3f6fb;
 
-<meta name="apple-mobile-web-app-capable" content="yes">
+      --card:#ffffff;
 
-<meta name="apple-mobile-web-app-title" content="TradeRunners">
+      --text:#101828;
 
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      --muted:#667085;
 
-<meta name="theme-color" content="#0f172a">
+      --line:#e4e7ec;
 
+      --brand:#2563eb;
 
+      --brand-dark:#1d4ed8;
 
-<style>
+      --dark:#111827;
 
-:root{
+      --success:#16a34a;
 
-  --bg:#f4f7fb;
+      --warning:#f59e0b;
 
-  --card:#ffffff;
+      --danger:#dc2626;
 
-  --text:#0f172a;
+      --soft:#eff6ff;
 
-  --muted:#64748b;
+      --radius:18px;
 
-  --line:#dbe4f0;
+      --shadow:0 14px 30px rgba(16,24,40,.08);
 
-  --brand:#2563eb;
+    }
 
-  --brand-dark:#1d4ed8;
 
-  --dark:#0f172a;
 
-  --success:#16a34a;
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
-  --warning:#f59e0b;
+    html,body{
 
-  --danger:#dc2626;
+      margin:0;
 
-  --soft:#eff6ff;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 
-  --purple:#7c3aed;
+      background:linear-gradient(180deg,#eef4ff 0%, #f8fbff 100%);
 
-}
+      color:var(--text);
 
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    }
 
-body{
 
-  margin:0;
 
-  font-family:Arial,sans-serif;
+    .app{
 
-  background:linear-gradient(180deg,#eef4ff 0%,#f8fbff 100%);
+      max-width:520px;
 
-  color:var(--text);
+      margin:0 auto;
 
-}
+      min-height:100vh;
 
-.app{
+      padding-bottom:28px;
 
-  max-width:520px;
+    }
 
-  margin:0 auto;
 
-  min-height:100vh;
 
-  padding-bottom:24px;
+    .hero{
 
-}
+      background:linear-gradient(135deg,var(--dark),var(--brand-dark));
 
-#splash{
+      color:#fff;
 
-  position:fixed;
+      padding:22px 18px 18px;
 
-  inset:0;
+      border-bottom-left-radius:26px;
 
-  background:linear-gradient(135deg,#0f172a,#2563eb);
+      border-bottom-right-radius:26px;
 
-  color:#fff;
+      box-shadow:var(--shadow);
 
-  display:flex;
+    }
 
-  align-items:center;
 
-  justify-content:center;
 
-  flex-direction:column;
+    .brand{
 
-  z-index:9999;
+      display:flex;
 
-}
+      align-items:center;
 
-#splash img{
+      gap:12px;
 
-  width:92px;
+    }
 
-  height:92px;
 
-  border-radius:22px;
 
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+    .logo{
 
-}
+      width:54px;
 
-#splash h1{
+      height:54px;
 
-  margin:18px 0 8px;
+      border-radius:16px;
 
-  font-size:32px;
+      background:rgba(255,255,255,.12);
 
-}
+      display:flex;
 
-#splash p{
+      align-items:center;
 
-  margin:0;
+      justify-content:center;
 
-  opacity:.9;
+      border:1px solid rgba(255,255,255,.15);
 
-}
+      font-size:26px;
 
-.header{
+    }
 
-  background:linear-gradient(135deg,#0f172a,#2563eb);
 
-  color:white;
 
-  padding:20px;
+    .brand h1{
 
-  border-bottom-left-radius:20px;
+      margin:0;
 
-  border-bottom-right-radius:20px;
+      font-size:30px;
 
-}
+      line-height:1;
 
-.header h1{margin:0}
+    }
 
-.slogan{
 
-  margin-top:10px;
 
-  background:rgba(255,255,255,0.1);
+    .brand p{
 
-  padding:10px 12px;
+      margin:7px 0 0;
 
-  border-radius:20px;
+      font-size:13px;
 
-  display:inline-block;
+      opacity:.92;
 
-  font-size:13px;
+    }
 
-  font-weight:bold;
 
-}
 
-.container{
+    .hero-badge{
 
-  padding:15px;
+      margin-top:14px;
 
-  max-width:520px;
+      display:inline-block;
 
-  margin:auto;
+      background:rgba(255,255,255,.12);
 
-}
+      border:1px solid rgba(255,255,255,.16);
 
-.card{
+      padding:10px 12px;
 
-  background:white;
+      border-radius:999px;
 
-  padding:15px;
+      font-size:13px;
 
-  border-radius:15px;
+      font-weight:700;
 
-  margin-bottom:15px;
+    }
 
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 
-  border:1px solid var(--line);
 
-}
+    .wrap{padding:14px}
 
-input, select, textarea{
 
-  width:100%;
 
-  padding:12px;
+    .tabs{
 
-  margin:6px 0;
+      display:grid;
 
-  border-radius:10px;
+      grid-template-columns:repeat(5,1fr);
 
-  border:1px solid #ccc;
+      gap:8px;
 
-  box-sizing:border-box;
+      background:rgba(255,255,255,.85);
 
-  font-size:14px;
+      border:1px solid #dbe7ff;
 
-}
+      padding:8px;
 
-input[readonly]{background:#f8fafc}
+      border-radius:18px;
 
-textarea{
+      margin-bottom:14px;
 
-  min-height:70px;
+    }
 
-  resize:vertical;
 
-}
 
-button{
+    .tab{
 
-  width:100%;
+      border:none;
 
-  padding:14px;
+      background:transparent;
 
-  border:none;
+      padding:11px 8px;
 
-  border-radius:10px;
+      border-radius:12px;
 
-  background:#2563eb;
+      font-weight:800;
 
-  color:white;
+      color:#344054;
 
-  font-weight:bold;
+      cursor:pointer;
 
-  margin-top:10px;
+      font-size:12px;
 
-  cursor:pointer;
+    }
 
-  font-size:14px;
 
-}
 
-button.secondary{background:#111827}
+    .tab.active{
 
-button.success{background:#16a34a}
+      background:#fff;
 
-button.warning{background:#f59e0b}
+      color:var(--brand);
 
-button.soft{
+      box-shadow:0 8px 16px rgba(37,99,235,.12);
 
-  background:#eff6ff;
+    }
 
-  color:#2563eb;
 
-  border:1px solid #bfdbfe;
 
-}
+    .screen{display:none}
 
-.tabs{
+    .screen.active{display:block}
 
-  display:grid;
 
-  grid-template-columns:repeat(7,1fr);
 
-  gap:6px;
+    .card{
 
-  margin-bottom:15px;
+      background:var(--card);
 
-}
+      border:1px solid var(--line);
 
-.tab{
+      border-radius:var(--radius);
 
-  padding:10px;
+      box-shadow:0 8px 22px rgba(16,24,40,.04);
 
-  border-radius:10px;
+      padding:16px;
 
-  background:#e2e8f0;
+      margin-bottom:14px;
 
-  text-align:center;
+    }
 
-  font-weight:bold;
 
-  cursor:pointer;
 
-  font-size:12px;
+    .card h2,.card h3{
 
-}
+      margin:0 0 10px;
 
-.tab.active{
+    }
 
-  background:#2563eb;
 
-  color:white;
 
-}
+    .sub{
 
-.screen{display:none}
+      color:var(--muted);
 
-.screen.show{display:block}
+      font-size:13px;
 
-.badge{
+      margin:0 0 10px;
 
-  display:inline-block;
+    }
 
-  padding:6px 10px;
 
-  border-radius:999px;
 
-  background:#eff6ff;
+    .section{
 
-  color:#2563eb;
+      margin:18px 0 10px;
 
-  font-size:12px;
+      font-size:12px;
 
-  font-weight:bold;
+      color:var(--brand);
 
-  margin-bottom:8px;
+      font-weight:900;
 
-}
+      letter-spacing:.8px;
 
-.tradepro{
+      text-transform:uppercase;
 
-  background:#ede9fe;
+    }
 
-  color:#6d28d9;
 
-}
 
-.pending{
+    label{
 
-  background:#fef3c7;
+      display:block;
 
-  color:#92400e;
+      margin:10px 0 6px;
 
-}
+      font-size:13px;
 
-.approved{
+      font-weight:800;
 
-  background:#dcfce7;
+    }
 
-  color:#166534;
 
-}
 
-.price{
+    input,select,textarea{
 
-  font-size:30px;
+      width:100%;
 
-  font-weight:bold;
+      padding:13px 14px;
 
-  color:#2563eb;
+      border:1px solid #d0d5dd;
 
-  margin:6px 0;
+      border-radius:14px;
 
-}
+      font-size:14px;
 
-.grid2{
+      background:#fff;
 
-  display:grid;
+      outline:none;
 
-  grid-template-columns:1fr 1fr;
+    }
 
-  gap:10px;
 
-}
 
-.kpis{
+    input:focus,select:focus,textarea:focus{
 
-  display:grid;
+      border-color:#93c5fd;
 
-  grid-template-columns:1fr 1fr;
+      box-shadow:0 0 0 4px rgba(37,99,235,.10);
 
-  gap:10px;
+    }
 
-}
 
-.kpi{
 
-  background:#f8fafc;
+    input[readonly]{
 
-  border:1px solid #e2e8f0;
+      background:#f8fafc;
 
-  border-radius:12px;
+      color:#475467;
 
-  padding:14px;
+    }
 
-  text-align:center;
 
-}
 
-.kpi small{
+    textarea{
 
-  display:block;
+      min-height:86px;
 
-  color:#64748b;
+      resize:vertical;
 
-  margin-bottom:6px;
+    }
 
-}
 
-.kpi strong{
 
-  font-size:22px;
+    .grid-2{
 
-  color:#2563eb;
+      display:grid;
 
-}
+      grid-template-columns:1fr 1fr;
 
-.timeline{
+      gap:10px;
 
-  padding-left:0;
+    }
 
-  margin:10px 0 0;
 
-}
 
-.timeline li{
+    .roles{
 
-  list-style:none;
+      display:grid;
 
-  padding:10px;
+      grid-template-columns:repeat(3,1fr);
 
-  border:1px solid #e2e8f0;
+      gap:8px;
 
-  border-radius:10px;
+    }
 
-  margin-bottom:8px;
 
-  background:#fafcff;
 
-}
+    .roles button{
 
-.timeline li.on{
+      margin-top:0;
 
-  background:#eff6ff;
+      background:var(--soft);
 
-  border-color:#bfdbfe;
+      color:var(--brand);
 
-  color:#2563eb;
+      border:1px solid #cfe0ff;
 
-  font-weight:bold;
+    }
 
-}
 
-.job{
 
-  border:1px solid #ddd;
+    .roles button.activeRole{
 
-  padding:12px;
+      background:var(--brand);
 
-  border-radius:12px;
+      color:#fff;
 
-  margin-top:10px;
+      border-color:var(--brand);
 
-  background:#fff;
+    }
 
-}
 
-.good{color:#16a34a;font-weight:bold}
 
-.bad{color:#dc2626;font-weight:bold}
+    button{
 
-.small{font-size:12px;color:#64748b}
+      width:100%;
 
-.roles{
+      border:none;
 
-  display:grid;
+      border-radius:14px;
 
-  grid-template-columns:repeat(3,1fr);
+      padding:14px;
 
-  gap:8px;
+      background:var(--brand);
 
-}
+      color:#fff;
 
-.roles button{
+      font-weight:800;
 
-  margin-top:0;
+      cursor:pointer;
 
-  background:#eff6ff;
+      margin-top:12px;
 
-  color:#2563eb;
+      font-size:14px;
 
-  border:1px solid #bfdbfe;
+    }
 
-}
 
-.roles button.activeRole{
 
-  background:#2563eb;
+    button.secondary{background:var(--dark)}
 
-  color:#fff;
+    button.success{background:var(--success)}
 
-  border-color:#2563eb;
+    button.warning{background:var(--warning)}
 
-}
+    button.soft{
 
-.hidden{display:none!important}
+      background:var(--soft);
 
-.map{
+      color:var(--brand);
 
-  height:220px;
+      border:1px solid #cfe0ff;
 
-  border-radius:15px;
+    }
 
-  border:1px solid #cfe0ff;
+    button.danger{background:var(--danger)}
 
-  background:
 
-    linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px),
 
-    linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+    .quote{
 
-    linear-gradient(135deg,#dbeafe,#f8fbff);
+      margin-top:14px;
 
-  background-size:40px 40px,40px 40px,cover;
+      background:linear-gradient(180deg,#f5f9ff 0%, #eef5ff 100%);
 
-  position:relative;
+      border:1px solid #cfe0ff;
 
-  overflow:hidden;
+      border-radius:16px;
 
-}
+      padding:14px;
 
-.road{
+    }
 
-  position:absolute;
 
-  background:rgba(37,99,235,.12);
 
-  border-radius:999px;
+    .price{
 
-}
+      font-size:34px;
 
-.road.one{width:280px;height:10px;top:70px;left:28px;transform:rotate(18deg)}
+      font-weight:900;
 
-.road.two{width:190px;height:10px;top:145px;left:140px;transform:rotate(-18deg)}
+      color:var(--brand);
 
-.road.three{width:10px;height:170px;top:30px;left:185px}
+      margin:4px 0 6px;
 
-.route{
+    }
 
-  position:absolute;
 
-  top:96px;
 
-  left:90px;
+    .pill{
 
-  width:205px;
+      display:inline-flex;
 
-  border-top:4px dashed #2563eb;
+      align-items:center;
 
-  transform:rotate(18deg);
+      gap:6px;
 
-}
+      padding:6px 10px;
 
-.pin{
+      border-radius:999px;
 
-  position:absolute;
+      background:var(--soft);
 
-  width:24px;
+      color:var(--brand);
 
-  height:24px;
+      font-size:12px;
 
-  border-radius:50%;
+      font-weight:800;
 
-  display:flex;
+      margin-bottom:8px;
 
-  align-items:center;
+    }
 
-  justify-content:center;
 
-  color:#fff;
 
-  font-size:12px;
+    .trade-pro{
 
-  font-weight:bold;
+      background:#ede9fe;
 
-}
+      color:#6d28d9;
 
-.pickup-pin{background:#16a34a;top:74px;left:76px}
+    }
 
-.drop-pin{background:#dc2626;top:145px;left:286px}
 
-.pin-label{
 
-  position:absolute;
+    .job{
 
-  background:#fff;
+      border:1px solid var(--line);
 
-  border:1px solid #dbe7ff;
+      border-radius:16px;
 
-  border-radius:999px;
+      padding:14px;
 
-  padding:6px 10px;
+      margin-bottom:12px;
 
-  font-size:12px;
+      background:#fff;
 
-  max-width:130px;
+    }
 
-  white-space:nowrap;
 
-  overflow:hidden;
 
-  text-overflow:ellipsis;
+    .job h4{
 
-}
+      margin:0 0 8px;
 
-.pickup-label{top:40px;left:20px}
+      font-size:16px;
 
-.drop-label{top:172px;left:238px}
+    }
 
-.supplier-results{
 
-  border:1px solid #dbe4f0;
 
-  border-radius:12px;
+    .job p{
 
-  overflow:hidden;
+      margin:6px 0;
 
-  margin-top:4px;
+      font-size:14px;
 
-  background:#fff;
+    }
 
-}
 
-.supplier-item{
 
-  padding:10px 12px;
+    .timeline{
 
-  border-bottom:1px solid #eef2f7;
+      padding:0;
 
-  cursor:pointer;
+      margin:12px 0 0;
 
-  font-size:14px;
+    }
 
-}
 
-.supplier-item:last-child{border-bottom:none}
 
-.supplier-item:hover{background:#f8fbff}
+    .timeline li{
 
-.summaryRow{
+      list-style:none;
 
-  display:flex;
+      padding:11px 12px;
 
-  justify-content:space-between;
+      border-radius:14px;
 
-  margin:8px 0;
+      border:1px solid var(--line);
 
-  font-size:14px;
+      margin-bottom:8px;
 
-}
+      background:#fafcff;
 
-.totalRow{
+      font-size:14px;
 
-  display:flex;
+      color:#344054;
 
-  justify-content:space-between;
+    }
 
-  margin-top:12px;
 
-  padding-top:12px;
 
-  border-top:1px solid #e2e8f0;
+    .timeline li.active{
 
-  font-weight:bold;
+      background:#edf4ff;
 
-}
+      border-color:#cfe0ff;
 
-@media (max-width:420px){
+      color:var(--brand);
 
-  .tabs{grid-template-columns:repeat(4,1fr)}
+      font-weight:800;
 
-  .grid2,.kpis,.roles{grid-template-columns:1fr}
+    }
 
-}
 
-</style>
+
+    .kpis{
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:10px;
+
+    }
+
+
+
+    .kpi{
+
+      padding:14px;
+
+      border-radius:16px;
+
+      border:1px solid var(--line);
+
+      background:#fbfdff;
+
+      text-align:center;
+
+    }
+
+
+
+    .kpi small{
+
+      display:block;
+
+      color:var(--muted);
+
+      margin-bottom:6px;
+
+      font-weight:700;
+
+    }
+
+
+
+    .kpi strong{
+
+      font-size:24px;
+
+      color:var(--brand);
+
+    }
+
+
+
+    .hidden{display:none !important}
+
+    .muted{color:var(--muted);font-size:13px}
+
+    .footer{
+
+      text-align:center;
+
+      font-size:12px;
+
+      color:var(--muted);
+
+      padding:0 16px 8px;
+
+    }
+
+
+
+    @media (max-width:420px){
+
+      .tabs,.roles,.grid-2,.kpis{grid-template-columns:1fr 1fr}
+
+      .roles{grid-template-columns:1fr}
+
+    }
+
+  </style>
 
 </head>
 
 <body>
 
+  <div class="app">
+
+    <div class="hero">
+
+      <div class="brand">
+
+        <div class="logo">🚐</div>
+
+        <div>
+
+          <h1>Traderunner</h1>
+
+          <p>Trade delivery made simple</p>
+
+        </div>
+
+      </div>
+
+      <div class="hero-badge">Saving you time and money on every delivery</div>
+
+    </div>
 
 
-<div id="splash">
 
-  <img src="icon.png" alt="TradeRunners icon">
+    <div class="wrap">
 
-  <h1>TradeRunners</h1>
+      <div class="tabs">
 
-  <p>Loading your app...</p>
+        <button class="tab active" onclick="showTab('auth', this)">Login</button>
 
-</div>
+        <button class="tab" onclick="showTab('booking', this)">Book</button>
+
+        <button class="tab" onclick="showTab('tracking', this)">Track</button>
+
+        <button class="tab" onclick="showTab('driver', this)">Driver</button>
+
+        <button class="tab" onclick="showTab('admin', this)">Admin</button>
+
+      </div>
 
 
 
-<div id="app" class="app hidden">
+      <div id="auth" class="screen active">
 
-  <div class="header">
+        <div class="card">
 
-    <h1>🚐 TradeRunners</h1>
+          <h2>Account access</h2>
 
-    <div>Trade delivery made simple</div>
+          <p class="sub">Create an account or sign in with Firebase.</p>
 
-    <div class="slogan">Saving you time and money on every delivery</div>
+
+
+          <div class="roles">
+
+            <button id="roleConsumer" class="activeRole" onclick="setRole('consumer')">Consumer</button>
+
+            <button id="roleTrade" onclick="setRole('trade')">Trade</button>
+
+            <button id="roleDriver" onclick="setRole('driver')">Driver</button>
+
+          </div>
+
+
+
+          <div class="grid-2">
+
+            <div>
+
+              <label>Full name</label>
+
+              <input id="fullName" placeholder="Enter full name" />
+
+            </div>
+
+            <div>
+
+              <label>Phone</label>
+
+              <input id="phone" placeholder="Enter phone number" />
+
+            </div>
+
+          </div>
+
+
+
+          <label>Email</label>
+
+          <input id="email" type="email" placeholder="Enter email" />
+
+
+
+          <label>Password</label>
+
+          <input id="password" type="password" placeholder="Enter password" />
+
+
+
+          <div id="tradeFields" class="hidden">
+
+            <label>Business name</label>
+
+            <input id="businessName" placeholder="Enter business name" />
+
+          </div>
+
+
+
+          <div id="driverFields" class="hidden">
+
+            <div class="grid-2">
+
+              <div>
+
+                <label>Vehicle type</label>
+
+                <select id="vehicleType">
+
+                  <option>Car</option>
+
+                  <option>Estate</option>
+
+                  <option>Van</option>
+
+                  <option>Pickup</option>
+
+                  <option>Trailer</option>
+
+                </select>
+
+              </div>
+
+              <div>
+
+                <label>Service area</label>
+
+                <input id="serviceArea" placeholder="e.g. Leeds / Yorkshire" />
+
+              </div>
+
+            </div>
+
+
+
+            <div class="grid-2">
+
+              <div>
+
+                <label>Driving licence</label>
+
+                <select id="licenceStatus">
+
+                  <option value="pending">Pending</option>
+
+                  <option value="checked">Checked</option>
+
+                </select>
+
+              </div>
+
+              <div>
+
+                <label>Insurance</label>
+
+                <select id="insuranceStatus">
+
+                  <option value="pending">Pending</option>
+
+                  <option value="checked">Checked</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+
+            <label>Passport / ID</label>
+
+            <select id="passportStatus">
+
+              <option value="pending">Pending</option>
+
+              <option value="checked">Checked</option>
+
+            </select>
+
+          </div>
+
+
+
+          <button onclick="signUp()">Create account</button>
+
+          <button class="secondary" onclick="signIn()">Sign in</button>
+
+          <button class="danger hidden" id="logoutBtn" onclick="logout()">Log out</button>
+
+
+
+          <div id="authBox" class="quote hidden"></div>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>Session</h3>
+
+          <div><strong>User:</strong> <span id="sessionUser">Not signed in</span></div>
+
+          <div style="margin-top:8px;"><strong>Role:</strong> <span id="sessionRole">None</span></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div id="booking" class="screen">
+
+        <div class="card">
+
+          <h2>Book a delivery</h2>
+
+          <p class="sub">Consumer and trade booking flow.</p>
+
+
+
+          <div class="grid-2">
+
+            <div>
+
+              <label>Customer type</label>
+
+              <select id="customerType">
+
+                <option value="consumer">Consumer</option>
+
+                <option value="trade">Trade customer</option>
+
+              </select>
+
+            </div>
+
+            <div>
+
+              <label>Plan</label>
+
+              <select id="plan">
+
+                <option value="standard">Standard</option>
+
+                <option value="trade_pro">Trade Pro</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+
+          <label>Supplier</label>
+
+          <select id="pickup">
+
+            <option value="">Select supplier</option>
+
+            <option>B&Q Leeds</option>
+
+            <option>Wickes Leeds</option>
+
+            <option>Screwfix Leeds</option>
+
+            <option>Toolstation Leeds</option>
+
+            <option>Eurocell Leeds</option>
+
+            <option>GAP Leeds</option>
+
+            <option>Travis Perkins Leeds</option>
+
+          </select>
+
+
+
+          <label>Drop-off postcode</label>
+
+          <input id="dropoffPostcode" placeholder="e.g. LS1 4DY" oninput="fillArea()" />
+
+
+
+          <label>Matched area</label>
+
+          <input id="dropoffArea" readonly placeholder="Auto-filled from postcode" />
+
+
+
+          <div class="section">Load setup</div>
+
+
+
+          <div class="grid-2">
+
+            <div>
+
+              <label>Vehicle needed</label>
+
+              <select id="van">
+
+                <option value="10">Small Van</option>
+
+                <option value="20">Medium Van</option>
+
+                <option value="30">Large Van</option>
+
+                <option value="40">Luton Van</option>
+
+              </select>
+
+            </div>
+
+            <div>
+
+              <label>Item type</label>
+
+              <select id="itemType">
+
+                <option value="10">Small materials</option>
+
+                <option value="20">Heavy materials</option>
+
+                <option value="30">Bulky items</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="grid-2">
+
+            <div>
+
+              <label>Length</label>
+
+              <select id="length">
+
+                <option value="0">Under 1m</option>
+
+                <option value="5">1m–2.4m</option>
+
+                <option value="10">2.4m–3.6m</option>
+
+                <option value="15">3.6m–5m</option>
+
+                <option value="25">Over 5m</option>
+
+              </select>
+
+            </div>
+
+            <div>
+
+              <label>Weight</label>
+
+              <select id="weight">
+
+                <option value="0">Light</option>
+
+                <option value="8">Medium</option>
+
+                <option value="16">Heavy</option>
+
+                <option value="24">Very heavy</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="grid-2">
+
+            <div>
+
+              <label>Loading help</label>
+
+              <select id="help">
+
+                <option value="0">Driver only</option>
+
+                <option value="0">Help on site</option>
+
+                <option value="18">2-man lift</option>
+
+              </select>
+
+            </div>
+
+            <div>
+
+              <label>Priority</label>
+
+              <select id="priority">
+
+                <option value="0">Standard</option>
+
+                <option value="8">Priority</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+
+          <label>Notes</label>
+
+          <textarea id="notes" placeholder="e.g. 20 timber lengths, collect from trade counter"></textarea>
+
+
+
+          <button onclick="getQuote()">Get Quote</button>
+
+
+
+          <div id="quoteBox" class="quote hidden">
+
+            <div id="planBadge" class="pill">Standard</div>
+
+            <div class="price" id="price">£0</div>
+
+            <div class="muted" id="quoteText">Quote details will appear here.</div>
+
+            <button class="success" onclick="bookJob()">Book Job</button>
+
+          </div>
+
+
+
+          <div id="bookedBox" class="quote hidden"></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div id="tracking" class="screen">
+
+        <div class="card">
+
+          <h2>Track latest order</h2>
+
+          <p class="sub">Live status from Firestore.</p>
+
+
+
+          <div><strong>Order:</strong> <span id="trackOrder">No order yet</span></div>
+
+          <div style="margin-top:8px;"><strong>Route:</strong> <span id="trackRoute">Not available</span></div>
+
+          <div style="margin-top:8px;"><strong>Status:</strong> <span id="trackStatus">Not available</span></div>
+
+
+
+          <ul class="timeline">
+
+            <li id="t1">1. Job created</li>
+
+            <li id="t2">2. Driver accepted</li>
+
+            <li id="t3">3. On the way to pickup</li>
+
+            <li id="t4">4. Picked up</li>
+
+            <li id="t5">5. On the way to customer</li>
+
+            <li id="t6">6. Delivered</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div id="driver" class="screen">
+
+        <div class="card">
+
+          <h2>Driver dashboard</h2>
+
+          <p class="sub">Drivers can manage live jobs here.</p>
+
+
+
+          <div id="driverGate" class="quote"></div>
+
+          <div id="driverJobs"></div>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>Driver earnings</h3>
+
+          <div class="kpis">
+
+            <div class="kpi">
+
+              <small>Delivered jobs</small>
+
+              <strong id="kpiDelivered">0</strong>
+
+            </div>
+
+            <div class="kpi">
+
+              <small>Total earnings</small>
+
+              <strong id="kpiEarnings">£0</strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div id="admin" class="screen">
+
+        <div class="card">
+
+          <h2>Admin snapshot</h2>
+
+          <div class="kpis">
+
+            <div class="kpi">
+
+              <small>Total jobs</small>
+
+              <strong id="kpiJobs">0</strong>
+
+            </div>
+
+            <div class="kpi">
+
+              <small>Revenue</small>
+
+              <strong id="kpiRevenue">£0</strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>All jobs</h3>
+
+          <div id="adminJobs"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer">GitHub Pages + Firebase version</div>
 
   </div>
 
 
 
-  <div class="container">
+  <script type="module">
 
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
 
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
 
-    <div class="tabs">
+    import {
 
-      <div class="tab active" onclick="showScreen('home',this)">Home</div>
+      getAuth,
 
-      <div class="tab" onclick="showScreen('book',this)">Book</div>
+      createUserWithEmailAndPassword,
 
-      <div class="tab" onclick="showScreen('track',this)">Track</div>
+      signInWithEmailAndPassword,
 
-      <div class="tab" onclick="showScreen('driver',this)">Driver</div>
+      onAuthStateChanged,
 
-      <div class="tab" onclick="showScreen('verify',this)">Verify</div>
+      signOut
 
-      <div class="tab" onclick="showScreen('pro',this)">Pro</div>
+    } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
 
-      <div class="tab" onclick="showScreen('pay',this)">Pay</div>
+    import {
 
-    </div>
+      getFirestore,
 
+      doc,
 
+      setDoc,
 
-    <div id="home" class="screen show">
+      getDoc,
 
-      <div class="card">
+      addDoc,
 
-        <h2>Login</h2>
+      updateDoc,
 
+      collection,
 
+      query,
 
-        <div class="roles">
+      orderBy,
 
-          <button id="roleCustomer" class="activeRole" onclick="setRole('Customer')">Customer</button>
+      onSnapshot,
 
-          <button id="roleTrade" onclick="setRole('Trade')">Trade</button>
+      serverTimestamp
 
-          <button id="roleDriver" onclick="setRole('Driver')">Driver</button>
+    } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
-        </div>
 
 
+    const firebaseConfig = {
 
-        <input id="name" placeholder="Your name">
+      apiKey: "AIzaSyBS5MtYKvhc3CyfyEYLKUWmWUCWtm5_-vM",
 
-        <button onclick="login()">Enter App</button>
+      authDomain: "traderunners-8dad0.firebaseapp.com",
 
+      projectId: "traderunners-8dad0",
 
+      storageBucket: "traderunners-8dad0.firebasestorage.app",
 
-        <div id="userBox" style="margin-top:12px;"></div>
+      messagingSenderId: "1099460116957",
 
-      </div>
+      appId: "1:1099460116957:web:9a6602ec9f27b124e0b634",
 
+      measurementId: "G-9XTHQMJDHT"
 
+    };
 
-      <div class="card">
 
-        <h3>Account status</h3>
 
-        <p><strong>Current role:</strong> <span id="currentRoleText">Customer</span></p>
+    const app = initializeApp(firebaseConfig);
 
-        <p><strong>Verification:</strong> <span id="homeVerificationText">Not submitted</span></p>
+    getAnalytics(app);
 
-        <p><strong>Trade Pro:</strong> <span id="homeTradeProText">Inactive</span></p>
+    const auth = getAuth(app);
 
-      </div>
+    const db = getFirestore(app);
 
-    </div>
 
 
+    let currentRole = "consumer";
 
-    <div id="book" class="screen">
+    let currentUserProfile = null;
 
-      <div class="card">
+    let currentQuote = 0;
 
-        <h2>Book Job</h2>
+    let jobs = [];
 
 
 
-        <div class="grid2">
+    function setRole(role){
 
-          <div>
+      currentRole = role;
 
-            <label>Customer type</label>
+      document.getElementById("roleConsumer").classList.remove("activeRole");
 
-            <select id="customerType">
+      document.getElementById("roleTrade").classList.remove("activeRole");
 
-              <option value="Customer">Customer</option>
+      document.getElementById("roleDriver").classList.remove("activeRole");
 
-              <option value="Trade">Trade</option>
 
-            </select>
 
-          </div>
+      if(role === "consumer") document.getElementById("roleConsumer").classList.add("activeRole");
 
-          <div>
+      if(role === "trade") document.getElementById("roleTrade").classList.add("activeRole");
 
-            <label>Plan</label>
+      if(role === "driver") document.getElementById("roleDriver").classList.add("activeRole");
 
-            <select id="plan">
 
-              <option value="standard">Standard</option>
 
-              <option value="tradepro">Trade Pro</option>
+      document.getElementById("tradeFields").classList.toggle("hidden", role !== "trade");
 
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <label>Supplier search</label>
-
-        <input id="supplierSearch" placeholder="Search supplier e.g. B&Q, Wickes, Eurocell" oninput="filterSuppliers()">
-
-        <div id="supplierResults" class="supplier-results hidden"></div>
-
-
-
-        <label>Selected supplier</label>
-
-        <input id="pickup" readonly placeholder="Choose supplier from search">
-
-
-
-        <input id="drop" placeholder="Drop (postcode or area)" oninput="updateAreaAndMap()">
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Matched area</label>
-
-            <input id="matchedArea" readonly placeholder="Auto area">
-
-          </div>
-
-          <div>
-
-            <label>Vehicle needed</label>
-
-            <select id="vehicle">
-
-              <option value="10">Car</option>
-
-              <option value="20">Estate</option>
-
-              <option value="30">Van</option>
-
-              <option value="40">Pickup / Trailer</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Weight</label>
-
-            <select id="weight">
-
-              <option value="0">Light</option>
-
-              <option value="10">Medium</option>
-
-              <option value="20">Heavy</option>
-
-            </select>
-
-          </div>
-
-          <div>
-
-            <label>Length</label>
-
-            <select id="length">
-
-              <option value="0">Under 1m</option>
-
-              <option value="5">1m - 2.4m</option>
-
-              <option value="10">2.4m - 3.6m</option>
-
-              <option value="15">Over 3.6m</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Priority</label>
-
-            <select id="priority">
-
-              <option value="0">Standard</option>
-
-              <option value="8">Priority</option>
-
-            </select>
-
-          </div>
-
-          <div>
-
-            <label>Loading help</label>
-
-            <select id="help">
-
-              <option value="0">Driver only</option>
-
-              <option value="10">Help on site</option>
-
-              <option value="18">2-man lift</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-
-        <textarea id="notes" placeholder="Notes"></textarea>
-
-
-
-        <button onclick="getQuote()">Get Quote</button>
-
-
-
-        <div id="quoteBox" class="card hidden" style="margin-top:12px; background:#f8fbff;">
-
-          <div id="planBadge" class="badge">Standard</div>
-
-          <div id="price" class="price">£0</div>
-
-          <div id="quoteText" class="small"></div>
-
-
-
-          <div class="summaryRow"><span>Customer pays</span><strong id="customerPays">£0</strong></div>
-
-          <div class="summaryRow"><span>Platform fee</span><strong id="platformFee">£0</strong></div>
-
-          <div class="summaryRow"><span>Driver payout</span><strong id="driverPayout">£0</strong></div>
-
-          <div class="summaryRow"><span>Trade Pro saving</span><strong id="tradeSaving">£0</strong></div>
-
-
-
-          <button class="success" onclick="bookJob()">Book Job</button>
-
-          <button class="soft" onclick="openMaps()">Open in Google Maps</button>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Map Preview</h3>
-
-        <div class="map">
-
-          <div class="road one"></div>
-
-          <div class="road two"></div>
-
-          <div class="road three"></div>
-
-          <div class="route"></div>
-
-          <div class="pin pickup-pin">A</div>
-
-          <div class="pin drop-pin">B</div>
-
-          <div id="pickupMapLabel" class="pin-label pickup-label">Pickup</div>
-
-          <div id="dropMapLabel" class="pin-label drop-label">Drop-off</div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="track" class="screen">
-
-      <div class="card">
-
-        <h2>Tracking</h2>
-
-        <p id="trackText">No job yet</p>
-
-        <ul class="timeline">
-
-          <li id="step1">Job created</li>
-
-          <li id="step2">Accepted</li>
-
-          <li id="step3">On the way to pickup</li>
-
-          <li id="step4">Picked up</li>
-
-          <li id="step5">On the way to customer</li>
-
-          <li id="step6">Delivered</li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="driver" class="screen">
-
-      <div class="card">
-
-        <h2>Driver Dashboard</h2>
-
-
-
-        <label>Your vehicle</label>
-
-        <select id="driverVehicle" onchange="renderJobs()">
-
-          <option value="10">Car</option>
-
-          <option value="20">Estate</option>
-
-          <option value="30">Van</option>
-
-          <option value="40">Pickup / Trailer</option>
-
-        </select>
-
-
-
-        <div id="driverStatusBox"></div>
-
-
-
-        <div class="kpis">
-
-          <div class="kpi">
-
-            <small>Driver earnings</small>
-
-            <strong id="earnings">£0</strong>
-
-          </div>
-
-          <div class="kpi">
-
-            <small>Completed jobs</small>
-
-            <strong id="completedCount">0</strong>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Available Jobs</h3>
-
-        <div id="jobs"></div>
-
-      </div>
-
-    </div>
-
-<div id="verify" class="screen">
-
-      <div class="card">
-
-        <h2>Driver Verification</h2>
-
-        <div id="verificationBadge" class="badge pending">Not submitted</div>
-
-
-
-        <label>Driving licence uploaded</label>
-
-        <select id="licenceCheck">
-
-          <option>No</option>
-
-          <option>Yes</option>
-
-        </select>
-
-
-
-        <label>Insurance uploaded</label>
-
-        <select id="insuranceCheck">
-
-          <option>No</option>
-
-          <option>Yes</option>
-
-        </select>
-
-
-
-        <label>Passport / ID uploaded</label>
-
-        <select id="idCheck">
-
-          <option>No</option>
-
-          <option>Yes</option>
-
-        </select>
-
-
-
-        <label>Vehicle registration</label>
-
-        <input id="vehicleReg" placeholder="e.g. AB12 CDE">
-
-
-
-        <button onclick="submitVerification()">Submit Verification</button>
-
-        <button class="soft" onclick="approveDriver()">Simulate Approval</button>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="pro" class="screen">
-
-      <div class="card">
-
-        <h2>Trade Pro Subscription</h2>
-
-        <div class="badge tradepro">£9.99 / month</div>
-
-        <p>Priority matching, cheaper deliveries, better rates for repeat trade customers.</p>
-
-
-
-        <div class="summaryRow"><span>Monthly price</span><strong>£9.99</strong></div>
-
-        <div class="summaryRow"><span>Per job discount</span><strong>£8 off</strong></div>
-
-        <div class="summaryRow"><span>Priority matching</span><strong>Included</strong></div>
-
-
-
-        <button class="success" onclick="activateTradePro()">Activate Trade Pro</button>
-
-        <div id="tradeProMessage" class="small" style="margin-top:10px;"></div>
-
-      </div>
-
-    </div>
-
-
-
-    <div id="pay" class="screen">
-
-      <div class="card">
-
-        <h2>Payment Screen</h2>
-
-        <div class="badge">Demo checkout</div>
-
-
-
-        <label>Name on card</label>
-
-        <input id="cardName" placeholder="e.g. Nick Smith">
-
-
-
-        <label>Card number</label>
-
-        <input id="cardNumber" placeholder="4242 4242 4242 4242">
-
-
-
-        <div class="grid2">
-
-          <div>
-
-            <label>Expiry</label>
-
-            <input id="cardExpiry" placeholder="12/28">
-
-          </div>
-
-          <div>
-
-            <label>CVC</label>
-
-            <input id="cardCvc" placeholder="123">
-
-          </div>
-
-        </div>
-
-
-
-        <div class="card" style="background:#f8fbff;">
-
-          <h3 style="margin-top:0;">Latest quote summary</h3>
-
-          <div class="summaryRow"><span>Customer pays</span><strong id="payCustomerTotal">£0</strong></div>
-
-          <div class="summaryRow"><span>Platform fee</span><strong id="payPlatformFee">£0</strong></div>
-
-          <div class="summaryRow"><span>Driver payout</span><strong id="payDriverPayout">£0</strong></div>
-
-          <div class="totalRow"><span>Total charge</span><strong id="payTotal">£0</strong></div>
-
-        </div>
-
-
-
-        <button class="success" onclick="processDemoPayment()">Pay Now</button>
-
-        <div id="paymentMessage" class="small" style="margin-top:10px;"></div>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Live-style tracking</h3>
-
-        <p class="small">Uber-style demo tracking with ETA, miles away, and moving driver marker.</p>
-
-
-
-        <div class="map">
-
-          <div class="road one"></div>
-
-          <div class="road two"></div>
-
-          <div class="road three"></div>
-
-          <div class="route"></div>
-
-
-
-          <div id="uberCustomerPin" class="pin drop-pin" style="top:150px; left:292px;">C</div>
-
-          <div id="uberDriverPin" class="pin pickup-pin" style="top:76px; left:78px;">D</div>
-
-
-
-          <div id="uberDriverLabel" class="pin-label pickup-label">Driver</div>
-
-          <div id="uberCustomerLabel" class="pin-label drop-label">Customer</div>
-
-        </div>
-
-
-
-        <div class="summaryRow"><span>Status</span><strong id="uberStatus">Waiting</strong></div>
-
-        <div class="summaryRow"><span>Distance away</span><strong id="uberDistance">0.0 miles</strong></div>
-
-        <div class="summaryRow"><span>ETA</span><strong id="uberEta">0 mins</strong></div>
-
-
-
-        <button class="soft" onclick="startUberTracking()">Start Uber-style Tracking</button>
-
-      </div>
-
-    </div>
-
-
-
-  </div>
-
-</div>
-
-
-
-<script>
-
-let currentUser = "";
-
-let currentRole = "Customer";
-
-let jobs = [];
-
-let completedJobs = [];
-
-let driverEarnings = 0;
-
-let quoteTotal = 0;
-
-let orderCounter = 1000;
-
-let verificationStatus = "Not submitted";
-
-let tradeProActive = false;
-
-let latestPlatformFee = 0;
-
-let latestDriverPayout = 0;
-
-let latestTradeSaving = 0;
-
-let selectedSupplier = null;
-
-let uberTrackingTimer = null;
-
-let uberStep = 0;
-
-
-
-const suppliers = [
-
-  {name:"B&Q Leeds", query:"B&Q Leeds LS14 2HS UK"},
-
-  {name:"Wickes Leeds", query:"Wickes Leeds LS10 1SE UK"},
-
-  {name:"Screwfix Leeds", query:"Screwfix Leeds LS12 6LP UK"},
-
-  {name:"Toolstation Leeds", query:"Toolstation Leeds LS12 6LT UK"},
-
-  {name:"Eurocell Leeds", query:"Eurocell Leeds LS12 6AB UK"},
-
-  {name:"GAP Leeds", query:"GAP Leeds LS10 2RJ UK"},
-
-  {name:"Travis Perkins Leeds", query:"Travis Perkins Leeds LS12 2QQ UK"},
-
-  {name:"Jewson Leeds", query:"Jewson Leeds LS11 5JL UK"},
-
-  {name:"Howdens Leeds", query:"Howdens Leeds LS10 1NE UK"},
-
-  {name:"Northern Building Plastics Leeds", query:"Northern Building Plastics Leeds LS9 7TU UK"}
-
-];
-
-
-
-// Splash
-
-setTimeout(() => {
-
-  document.getElementById("splash").style.display = "none";
-
-  document.getElementById("app").classList.remove("hidden");
-
-}, 1400);
-
-
-
-function showScreen(id, el){
-
-  document.querySelectorAll(".screen").forEach(s => s.classList.remove("show"));
-
-  document.getElementById(id).classList.add("show");
-
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-
-  el.classList.add("active");
-
-}
-
-
-
-function setRole(role){
-
-  currentRole = role;
-
-  document.getElementById("currentRoleText").innerText = role;
-
-
-
-  document.getElementById("roleCustomer").classList.remove("activeRole");
-
-  document.getElementById("roleTrade").classList.remove("activeRole");
-
-  document.getElementById("roleDriver").classList.remove("activeRole");
-
-
-
-  if(role === "Customer") document.getElementById("roleCustomer").classList.add("activeRole");
-
-  if(role === "Trade") document.getElementById("roleTrade").classList.add("activeRole");
-
-  if(role === "Driver") document.getElementById("roleDriver").classList.add("activeRole");
-
-}
-
-
-
-function login(){
-
-  currentUser = document.getElementById("name").value || "Guest";
-
-
-
-  document.getElementById("userBox").innerHTML =
-
-    "<div class='badge'>" + currentRole + "</div><br>Logged in as <strong>" + currentUser + "</strong>";
-
-
-
-  if(currentRole === "Trade"){
-
-    document.getElementById("customerType").value = "Trade";
-
-    document.getElementById("plan").value = tradeProActive ? "tradepro" : "standard";
-
-  } else {
-
-    document.getElementById("customerType").value = "Customer";
-
-    document.getElementById("plan").value = "standard";
-
-  }
-
-
-
-  updateVerificationUI();
-
-  updateTradeProUI();
-
-}
-
-
-
-function filterSuppliers(){
-
-  const query = document.getElementById("supplierSearch").value.trim().toLowerCase();
-
-  const box = document.getElementById("supplierResults");
-
-  box.innerHTML = "";
-
-
-
-  if(!query){
-
-    box.classList.add("hidden");
-
-    return;
-
-  }
-
-
-
-  const results = suppliers.filter(s => s.name.toLowerCase().includes(query));
-
-
-
-  if(results.length === 0){
-
-    box.innerHTML = "<div class='supplier-item'>No suppliers found</div>";
-
-    box.classList.remove("hidden");
-
-    return;
-
-  }
-
-
-
-  results.forEach(s => {
-
-    const item = document.createElement("div");
-
-    item.className = "supplier-item";
-
-    item.textContent = s.name;
-
-    item.onclick = function(){ selectSupplier(s); };
-
-    box.appendChild(item);
-
-  });
-
-
-
-  box.classList.remove("hidden");
-
-}
-
-
-
-function selectSupplier(supplier){
-
-  selectedSupplier = supplier;
-
-  document.getElementById("pickup").value = supplier.name;
-
-  document.getElementById("supplierSearch").value = supplier.name;
-
-  document.getElementById("supplierResults").classList.add("hidden");
-
-  updateMapLabels();
-
-}
-
-
-
-function getDistanceCharge(drop){
-
-  drop = (drop || "").toUpperCase();
-
-  if(drop.startsWith("LS")) return 10;
-
-  if(drop.startsWith("WF") || drop.startsWith("BD") || drop.startsWith("HD") || drop.startsWith("YO")) return 18;
-
-  if(drop.startsWith("M") || drop.startsWith("L") || drop.startsWith("B")) return 28;
-
-  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return 40;
-
-  return 15;
-
-}
-
-
-
-function getArea(drop){
-
-  drop = (drop || "").toUpperCase();
-
-  if(drop.startsWith("LS")) return "Leeds";
-
-  if(drop.startsWith("WF")) return "Wakefield";
-
-  if(drop.startsWith("BD")) return "Bradford";
-
-  if(drop.startsWith("HD")) return "Huddersfield";
-
-  if(drop.startsWith("YO")) return "York";
-
-  if(drop.startsWith("M")) return "Manchester";
-
-  if(drop.startsWith("L")) return "Liverpool";
-
-  if(drop.startsWith("B")) return "Birmingham";
-
-  if(drop.startsWith("E") || drop.startsWith("N") || drop.startsWith("SE") || drop.startsWith("SW") || drop.startsWith("W")) return "London";
-
-  return "Custom area";
-
-}
-
-
-
-function updateAreaAndMap(){
-
-  const drop = document.getElementById("drop").value;
-
-  document.getElementById("matchedArea").value = getArea(drop);
-
-  updateMapLabels();
-
-}
-
-
-
-function updateMapLabels(){
-
-  const pickupText = document.getElementById("pickup").value || "Pickup";
-
-  const dropText = document.getElementById("drop").value || "Drop-off";
-
-
-
-  document.getElementById("pickupMapLabel").innerText = pickupText;
-
-  document.getElementById("dropMapLabel").innerText = dropText;
-
-  document.getElementById("uberDriverLabel").innerText = "Driver";
-
-  document.getElementById("uberCustomerLabel").innerText = currentUser || "Customer";
-
-}
-
-
-
-function getQuote(){
-
-  let base = 12;
-
-  let distance = getDistanceCharge(document.getElementById("drop").value);
-
-  let vehicle = Number(document.getElementById("vehicle").value);
-
-  let weight = Number(document.getElementById("weight").value);
-
-  let length = Number(document.getElementById("length").value);
-
-  let priority = Number(document.getElementById("priority").value);
-
-  let help = Number(document.getElementById("help").value);
-
-
-
-  let subTotal = base + distance + vehicle + weight + length + priority + help;
-
-  let plan = document.getElementById("plan").value;
-
-
-
-  latestTradeSaving = 0;
-
-  if(plan === "tradepro"){
-
-    latestTradeSaving = 8;
-
-  }
-
-
-
-  quoteTotal = subTotal - latestTradeSaving;
-
-  if(quoteTotal < 15) quoteTotal = 15;
-
-
-
-  latestPlatformFee = Math.max(3, Math.round(quoteTotal * 0.15));
-
-  latestDriverPayout = quoteTotal - latestPlatformFee;
-
-
-
-  document.getElementById("quoteBox").classList.remove("hidden");
-
-  document.getElementById("price").innerText = "£" + quoteTotal;
-
-  document.getElementById("planBadge").innerText = plan === "tradepro" ? "Trade Pro" : "Standard";
-
-  document.getElementById("planBadge").className = plan === "tradepro" ? "badge tradepro" : "badge";
-
-  document.getElementById("quoteText").innerText =
-
-    plan === "tradepro"
-
-      ? "Trade Pro discount applied. Subscription savings included."
-
-      : "Standard pricing applied.";
-
-
-
-  document.getElementById("customerPays").innerText = "£" + quoteTotal;
-
-  document.getElementById("platformFee").innerText = "£" + latestPlatformFee;
-
-  document.getElementById("driverPayout").innerText = "£" + latestDriverPayout;
-
-  document.getElementById("tradeSaving").innerText = latestTradeSaving > 0 ? "-£" + latestTradeSaving : "£0";
-
-
-
-  document.getElementById("payCustomerTotal").innerText = "£" + quoteTotal;
-
-  document.getElementById("payPlatformFee").innerText = "£" + latestPlatformFee;
-
-  document.getElementById("payDriverPayout").innerText = "£" + latestDriverPayout;
-
-  document.getElementById("payTotal").innerText = "£" + quoteTotal;
-
-}
-
-
-
-function bookJob(){
-
-  let pickup = document.getElementById("pickup").value;
-
-  let drop = document.getElementById("drop").value;
-
-
-
-  if(!pickup || !drop){
-
-    alert("Please fill in pickup and drop.");
-
-    return;
-
-  }
-
-
-
-  let job = {
-
-    id: orderCounter++,
-
-    orderId: "TR-" + orderCounter,
-
-    customer: currentUser || "Guest",
-
-    pickup,
-
-    drop,
-
-    price: quoteTotal,
-
-    platformFee: latestPlatformFee,
-
-    driverPayout: latestDriverPayout,
-
-    status: "Open",
-
-    vehicleNeed: Number(document.getElementById("vehicle").value),
-
-    counted:false
-
-  };
-
-
-
-  jobs.unshift(job);
-
-  updateTracking(job);
-
-  renderJobs();
-
-  updateMapLabels();
-
-}
-
-
-
-function updateTracking(job){
-
-  document.getElementById("trackText").innerText =
-
-    job.pickup + " → " + job.drop + " | £" + job.price + " | " + job.status;
-
-
-
-  document.querySelectorAll(".timeline li").forEach(li => li.classList.remove("on"));
-
-
-
-  if(job.status === "Open") document.getElementById("step1").classList.add("on");
-
-  if(job.status === "Accepted") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-  }
-
-  if(job.status === "On the way to pickup") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-  }
-
-  if(job.status === "Picked up") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-    document.getElementById("step4").classList.add("on");
-
-  }
-
-  if(job.status === "On the way to customer") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-    document.getElementById("step4").classList.add("on");
-
-    document.getElementById("step5").classList.add("on");
-
-  }
-
-  if(job.status === "Delivered") {
-
-    document.getElementById("step1").classList.add("on");
-
-    document.getElementById("step2").classList.add("on");
-
-    document.getElementById("step3").classList.add("on");
-
-    document.getElementById("step4").classList.add("on");
-
-    document.getElementById("step5").classList.add("on");
-
-    document.getElementById("step6").classList.add("on");
-
-  }
-
-}
-
-
-
-function nextStatus(i){
-
-  let steps = ["Open","Accepted","On the way to pickup","Picked up","On the way to customer","Delivered"];
-
-  let current = jobs[i].status;
-
-  let index = steps.indexOf(current);
-
-
-
-  if(index < steps.length - 1){
-
-    jobs[i].status = steps[index + 1];
-
-  }
-
-
-
-  if(jobs[i].status === "Delivered" && !jobs[i].counted){
-
-    jobs[i].counted = true;
-
-    driverEarnings += Number(jobs[i].driverPayout);
-
-    completedJobs.unshift(jobs[i]);
-
-  }
-
-
-
-  renderJobs();
-
-  renderStats();
-
-  updateTracking(jobs[i]);
-
-}
-
-
-
-function renderJobs(){
-
-  let box = document.getElementById("jobs");
-
-  box.innerHTML = "";
-
-
-
-  let driverVehicle = Number(document.getElementById("driverVehicle").value);
-
-
-
-  if(currentRole !== "Driver"){
-
-    box.innerHTML = "<div class='small'>Sign in as Driver to manage jobs.</div>";
-
-    return;
-
-  }
-
-
-
-  if(verificationStatus !== "Approved"){
-
-    box.innerHTML = "<div class='small'>Driver must be approved before accepting jobs.</div>";
-
-    return;
-
-  }
-
-
-
-  jobs.forEach((job,i) => {
-
-    let suitable = driverVehicle >= job.vehicleNeed;
-
-
-
-    box.innerHTML += `
-
-      <div class="job">
-
-        <div class="badge">${job.status}</div><br>
-
-        <strong>${job.orderId}</strong><br>
-
-        ${job.pickup} → ${job.drop}<br>
-
-        Customer paid £${job.price}<br>
-
-        Driver payout £${job.driverPayout}<br>
-
-        Platform fee £${job.platformFee}<br>
-
-        ${ suitable ? '<span class="good">Suitable vehicle</span>' : '<span class="bad">Vehicle too small</span>' }<br>
-
-        ${
-
-          job.status !== "Delivered"
-
-            ? `<button onclick="nextStatus(${i})" ${!suitable ? "disabled" : ""}>Next Step</button>`
-
-            : `<button class="secondary" disabled>Completed</button>`
-
-        }
-
-      </div>
-
-    `;
-
-  });
-
-
-
-  if(jobs.length === 0){
-
-    box.innerHTML = "<div class='small'>No jobs available.</div>";
-
-  }
-
-}
-
-
-
-function renderStats(){
-
-  document.getElementById("earnings").innerText = "£" + driverEarnings;
-
-  document.getElementById("completedCount").innerText = completedJobs.length;
-
-}
-
-
-
-function submitVerification(){
-
-  const licence = document.getElementById("licenceCheck").value;
-
-  const insurance = document.getElementById("insuranceCheck").value;
-
-  const id = document.getElementById("idCheck").value;
-
-  const reg = document.getElementById("vehicleReg").value.trim();
-
-
-
-  if(licence === "Yes" && insurance === "Yes" && id === "Yes" && reg){
-
-    verificationStatus = "Pending review";
-
-  } else {
-
-    alert("Complete all driver verification fields first.");
-
-    return;
-
-  }
-
-
-
-  updateVerificationUI();
-
-}
-
-
-
-function approveDriver(){
-
-  verificationStatus = "Approved";
-
-  updateVerificationUI();
-
-  renderJobs();
-
-}
-
-
-
-function updateVerificationUI(){
-
-  const badge = document.getElementById("verificationBadge");
-
-  const homeText = document.getElementById("homeVerificationText");
-
-  const driverBox = document.getElementById("driverStatusBox");
-
-
-
-  if(verificationStatus === "Not submitted"){
-
-    badge.innerText = "Not submitted";
-
-    badge.className = "badge pending";
-
-  }
-
-  if(verificationStatus === "Pending review"){
-
-    badge.innerText = "Pending review";
-
-    badge.className = "badge pending";
-
-  }
-
-  if(verificationStatus === "Approved"){
-
-    badge.innerText = "Approved";
-
-    badge.className = "badge approved";
-
-  }
-
-
-
-  homeText.innerText = verificationStatus;
-
-  driverBox.innerHTML = "<div class='badge " + (verificationStatus === "Approved" ? "approved" : "pending") + "'>" + verificationStatus + "</div>";
-
-}
-
-
-
-function activateTradePro(){
-
-  tradeProActive = true;
-
-  document.getElementById("tradeProMessage").innerText = "Trade Pro activated for this demo account.";
-
-  updateTradeProUI();
-
-
-
-  if(currentRole === "Trade"){
-
-    document.getElementById("plan").value = "tradepro";
-
-  }
-
-}
-
-
-
-function updateTradeProUI(){
-
-  document.getElementById("homeTradeProText").innerText = tradeProActive ? "Active" : "Inactive";
-
-}
-
-
-
-function processDemoPayment(){
-
-  const name = document.getElementById("cardName").value.trim();
-
-  const number = document.getElementById("cardNumber").value.trim();
-
-  const expiry = document.getElementById("cardExpiry").value.trim();
-
-  const cvc = document.getElementById("cardCvc").value.trim();
-
-
-
-  if(!name || !number || !expiry || !cvc){
-
-    alert("Please fill in all payment fields.");
-
-    return;
-
-  }
-
-
-
-  document.getElementById("paymentMessage").innerText = "Demo payment successful. Real payments would be connected with Stripe.";
-
-}
-
-
-
-function openMaps(){
-
-  const destination = encodeURIComponent(document.getElementById("drop").value);
-
-  const origin = encodeURIComponent(selectedSupplier ? selectedSupplier.query : (document.getElementById("pickup").value + " UK"));
-
-  if(!origin || !destination){
-
-    alert("Please fill in pickup and drop first.");
-
-    return;
-
-  }
-
-  window.open("https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" + destination, "_blank");
-
-}
-
-
-
-// Uber-style tracking demo
-
-function startUberTracking(){
-
-  if(uberTrackingTimer) clearInterval(uberTrackingTimer);
-
-
-
-  const driverPin = document.getElementById("uberDriverPin");
-
-  const customerPin = document.getElementById("uberCustomerPin");
-
-  const status = document.getElementById("uberStatus");
-
-  const distance = document.getElementById("uberDistance");
-
-  const eta = document.getElementById("uberEta");
-
-
-
-  const steps = [
-
-    {x:78, y:76, status:"Driver assigned", distance:"6.4 miles", eta:"14 mins"},
-
-    {x:120, y:88, status:"Heading to pickup", distance:"5.1 miles", eta:"11 mins"},
-
-    {x:155, y:100, status:"At pickup", distance:"4.0 miles", eta:"9 mins"},
-
-    {x:195, y:112, status:"Picked up", distance:"2.8 miles", eta:"6 mins"},
-
-    {x:235, y:126, status:"Heading to customer", distance:"1.6 miles", eta:"4 mins"},
-
-    {x:265, y:138, status:"Almost there", distance:"0.7 miles", eta:"2 mins"},
-
-    {x:286, y:145, status:"Arrived", distance:"0.0 miles", eta:"Now"}
-
-  ];
-
-
-
-  uberStep = 0;
-
-
-
-  function move(){
-
-    const s = steps[uberStep];
-
-    driverPin.style.left = s.x + "px";
-
-    driverPin.style.top = s.y + "px";
-
-    status.innerText = s.status;
-
-    distance.innerText = s.distance;
-
-    eta.innerText = s.eta;
-
-
-
-    if(uberStep < steps.length - 1){
-
-      uberStep++;
-
-    } else {
-
-      clearInterval(uberTrackingTimer);
+      document.getElementById("driverFields").classList.toggle("hidden", role !== "driver");
 
     }
 
-  }
+
+
+    window.setRole = setRole;
 
 
 
-  move();
+    function showTab(id, btn){
 
-  uberTrackingTimer = setInterval(move, 1200);
+      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
 
-}
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+
+      document.getElementById(id).classList.add("active");
+
+      btn.classList.add("active");
+
+      renderAll();
+
+    }
 
 
 
-renderJobs();
+    window.showTab = showTab;
 
-renderStats();
 
-updateVerificationUI();
 
-updateTradeProUI();
+    function fillArea(){
 
-updateMapLabels();
+      const value = document.getElementById("dropoffPostcode").value.trim().toUpperCase();
 
-</script>
+      let area = "Custom area";
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  onSnapshot,
-  doc,
-  updateDoc,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+      if(value.startsWith("LS")) area = "Leeds";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBS5MtYKvhc3CyfyEYLKUWmWUCWtm5_-vM",
-  authDomain: "traderunners-8dad0.firebaseapp.com",
-  projectId: "traderunners-8dad0",
-  storageBucket: "traderunners-8dad0.firebasestorage.app",
-  messagingSenderId: "1099460116957",
-  appId: "1:1099460116957:web:2aa8bf9d555e1966e0b634"
-};
+      else if(value.startsWith("WF")) area = "Wakefield";
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+      else if(value.startsWith("BD")) area = "Bradford";
 
-window.db = db;
-window.fb = { collection, addDoc, onSnapshot, doc, updateDoc, serverTimestamp };
-</script>
+      else if(value.startsWith("HD")) area = "Huddersfield";
 
-</body>
-</html>
+      else if(value.startsWith("YO")) area = "York";
 
+      else if(value.startsWith("M")) area = "Manchester";
+
+      else if(value.startsWith("L")) area = "Liverpool";
+
+      else if(value.startsWith("B")) area = "Birmingham";
+
+      else if(value.startsWith("E") || value.startsWith("N") || value.startsWith("SE") || value.startsWith("SW") || value.startsWith("W")) area = "London";
+
+      document.getElementById("dropoffArea").value = value ? area : "";
+
+    }
+
+
+
+    window.fillArea = fillArea;
+
+
+
+    function getDistanceCharge(area){
+
+      if(area === "Leeds") return 12;
+
+      if(["Wakefield","Bradford","Huddersfield","York"].includes(area)) return 18;
+
+      if(["Manchester","Liverpool","Birmingham"].includes(area)) return 28;
+
+      if(area === "London") return 40;
+
+      return 20;
+
+    }
+
+
+
+    function showAuthMessage(html){
+
+      const box = document.getElementById("authBox");
+
+      box.classList.remove("hidden");
+
+      box.innerHTML = html;
+
+    }
+
+
+
+    async function signUp(){
+
+      try{
+
+        const email = document.getElementById("email").value.trim();
+
+        const password = document.getElementById("password").value;
+
+        const fullName = document.getElementById("fullName").value.trim();
+
+        const phone = document.getElementById("phone").value.trim();
+
+
+
+        if(!email || !password || !fullName){
+
+          alert("Please complete name, email and password.");
+
+          return;
+
+        }
+
+
+
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+
+
+        const profile = {
+
+          uid: cred.user.uid,
+
+          role: currentRole,
+
+          fullName,
+
+          phone,
+
+          email,
+
+          createdAt: new Date().toISOString()
+
+        };
+
+
+
+        if(currentRole === "trade"){
+
+          profile.businessName = document.getElementById("businessName").value.trim() || "";
+
+          profile.plan = "trade_pro";
+
+        }
+
+
+
+        if(currentRole === "driver"){
+
+          profile.vehicleType = document.getElementById("vehicleType").value;
+
+          profile.serviceArea = document.getElementById("serviceArea").value.trim() || "";
+
+          profile.licenceStatus = document.getElementById("licenceStatus").value;
+
+          profile.insuranceStatus = document.getElementById("insuranceStatus").value;
+
+          profile.passportStatus = document.getElementById("passportStatus").value;
+
+        }
+
+
+
+        await setDoc(doc(db, "users", cred.user.uid), profile);
+
+        showAuthMessage("<strong>Account created.</strong><br>You are signed in as " + currentRole + ".");
+
+      } catch (err){
+
+        showAuthMessage("<strong>Sign up failed:</strong><br>" + err.message);
+
+      }
+
+    }
+
+
+
+    window.signUp = signUp;
+
+
+
+    async function signIn(){
+
+      try{
+
+        const email = document.getElementById("email").value.trim();
+
+        const password = document.getElementById("password").value;
+
+        await signInWithEmailAndPassword(auth, email, password);
+
+        showAuthMessage("<strong>Signed in successfully.</strong>");
+
+      } catch (err){
+
+        showAuthMessage("<strong>Sign in failed:</strong><br>" + err.message);
+
+      }
+
+    }
+
+
+
+    window.signIn = signIn;
+
+
+
+    async function logout(){
+
+      await signOut(auth);
+
+    }
+
+
+
+    window.logout = logout;
+
+
+
+    async function loadProfile(uid){
+
+      const snap = await getDoc(doc(db, "users", uid));
+
+      currentUserProfile = snap.exists() ? snap.data() : null;
+
+      renderSession();
+
+      renderAll();
+
+    }
+
+
+
+    function renderSession(){
+
+      document.getElementById("sessionUser").innerText = currentUserProfile?.fullName || auth.currentUser?.email || "Not signed in";
+
+      document.getElementById("sessionRole").innerText = currentUserProfile?.role || "None";
+
+      document.getElementById("logoutBtn").classList.toggle("hidden", !auth.currentUser);
+
+
+
+      if(currentUserProfile?.role === "trade"){
+
+        document.getElementById("customerType").value = "trade";
+
+        document.getElementById("plan").value = "trade_pro";
+
+      } else {
+
+        document.getElementById("customerType").value = "consumer";
+
+      }
+
+    }
+
+
+
+    function getQuote(){
+
+      const pickup = document.getElementById("pickup").value;
+
+      const area = document.getElementById("dropoffArea").value;
+
+      const plan = document.getElementById("plan").value;
+
+
+
+      if(!pickup || !area){
+
+        alert("Please choose supplier and enter drop-off postcode.");
+
+        return;
+
+      }
+
+
+
+      let total = 10;
+
+      total += getDistanceCharge(area);
+
+      total += Number(document.getElementById("van").value);
+
+      total += Number(document.getElementById("itemType").value);
+
+      total += Number(document.getElementById("length").value);
+
+      total += Number(document.getElementById("weight").value);
+
+      total += Number(document.getElementById("help").value);
+
+      total += Number(document.getElementById("priority").value);
+
+
+
+      if(plan === "trade_pro") total -= 8;
+
+      if(total < 15) total = 15;
+
+
+
+      currentQuote = total;
+
+      document.getElementById("quoteBox").classList.remove("hidden");
+
+      document.getElementById("price").innerText = "£" + total;
+
+      document.getElementById("planBadge").innerText = plan === "trade_pro" ? "Trade Pro" : "Standard";
+
+      document.getElementById("planBadge").className = plan === "trade_pro" ? "pill trade-pro" : "pill";
+
+      document.getElementById("quoteText").innerText =
+
+        plan === "trade_pro"
+
+          ? "Trade Pro discount applied. Priority booking and better rates included."
+
+          : "Standard booking price based on distance, load size and urgency.";
+
+    }
+
+
+
+    window.getQuote = getQuote;
+
+
+
+    async function bookJob(){
+
+      if(!auth.currentUser || !currentUserProfile){
+
+        alert("Please sign in first.");
+
+        return;
+
+      }
+
+
+
+      if(!currentQuote){
+
+        alert("Please get a quote first.");
+
+        return;
+
+      }
+
+
+
+      const payload = {
+
+        orderId: "TR-" + Date.now(),
+
+        customerUid: auth.currentUser.uid,
+
+        customerName: currentUserProfile.fullName || auth.currentUser.email,
+
+        customerRole: currentUserProfile.role,
+
+        pickup: document.getElementById("pickup").value,
+
+        dropoff: document.getElementById("dropoffArea").value,
+
+        dropoffPostcode: document.getElementById("dropoffPostcode").value.trim(),
+
+        status: "Open",
+
+        price: currentQuote,
+
+        itemType: document.getElementById("itemType").selectedOptions[0].text,
+
+        length: document.getElementById("length").selectedOptions[0].text,
+
+        weight: document.getElementById("weight").selectedOptions[0].text,
+
+        loadingHelp: document.getElementById("help").selectedOptions[0].text,
+
+        plan: document.getElementById("plan").value,
+
+        notes: document.getElementById("notes").value.trim() || "",
+
+        createdAt: serverTimestamp(),
+
+        updatedAt: serverTimestamp()
+
+      };
+
+
+
+      await addDoc(collection(db, "jobs"), payload);
+
+
+
+      const box = document.getElementById("bookedBox");
+
+      box.classList.remove("hidden");
+
+      box.innerHTML = "<strong>Booking confirmed.</strong><br>Order sent to live database.";
+
+    }
+
+
+
+    window.bookJob = bookJob;
+
+
+
+    async function nextStatus(jobId, currentStatus){
+
+      const steps = ["Open","Accepted","On the way to pickup","Picked up","On the way to customer","Delivered"];
+
+      const next = steps[steps.indexOf(currentStatus) + 1];
+
+      if(!next) return;
+
+
+
+      const ref = doc(db, "jobs", jobId);
+
+      await updateDoc(ref, {
+
+        status: next,
+
+        updatedAt: serverTimestamp(),
+
+        driverUid: auth.currentUser?.uid || null,
+
+        driverName: currentUserProfile?.fullName || auth.currentUser?.email || null
+
+      });
+
+    }
+
+
+
+    window.nextStatus = nextStatus;
+
+
+
+    function renderDriverGate(){
+
+      const gate = document.getElementById("driverGate");
+
+      if(!auth.currentUser){
+
+        gate.innerHTML = "<strong>Driver view locked.</strong><br>Please sign in first.";
+
+        return;
+
+      }
+
+
+
+      if(currentUserProfile?.role !== "driver"){
+
+        gate.innerHTML = "<strong>Driver view read-only.</strong><br>Sign in as a driver to manage jobs.";
+
+        return;
+
+      }
+
+
+
+      gate.innerHTML =
+
+        "<strong>Driver access unlocked.</strong><br>" +
+
+        "Vehicle: " + (currentUserProfile.vehicleType || "Not set") + "<br>" +
+
+        "Area: " + (currentUserProfile.serviceArea || "Not set") + "<br>" +
+
+        "Licence: " + (currentUserProfile.licenceStatus || "pending") + " | " +
+
+        "Insurance: " + (currentUserProfile.insuranceStatus || "pending") + " | " +
+
+        "ID: " + (currentUserProfile.passportStatus || "pending");
+
+    }
+
+
+
+    function renderJobs(){
+
+      const driverJobs = document.getElementById("driverJobs");
+
+      const adminJobs = document.getElementById("adminJobs");
+
+      driverJobs.innerHTML = "";
+
+      adminJobs.innerHTML = "";
+
+
+
+      jobs.forEach(job => {
+
+        const driverCard = document.createElement("div");
+
+        driverCard.className = "job";
+
+        driverCard.innerHTML = `
+
+          <div class="pill">${job.status}</div>
+
+          <h4>${job.orderId} | ${job.pickup} → ${job.dropoff}</h4>
+
+          <p><strong>Customer:</strong> ${job.customerName}</p>
+
+          <p><strong>Load:</strong> ${job.itemType} | ${job.length} | ${job.weight}</p>
+
+          <p><strong>Price:</strong> £${job.price}</p>
+
+          ${
+
+            currentUserProfile?.role === "driver" && job.status !== "Delivered"
+
+              ? `<button class="${job.status === 'Open' ? '' : 'soft'}" onclick="nextStatus('${job.id}','${job.status.replace(/'/g, "\\'")}')">${getNextLabel(job.status)}</button>`
+
+              : job.status === "Delivered"
+
+              ? `<button class="secondary" disabled>Completed</button>`
+
+              : `<button class="secondary" disabled>Driver login needed</button>`
+
+          }
+
+        `;
+
+        driverJobs.appendChild(driverCard);
+
+
+
+        const adminCard = document.createElement("div");
+
+        adminCard.className = "job";
+
+        adminCard.innerHTML = `
+
+          <div class="pill">${job.status}</div>
+
+          <h4>${job.orderId}</h4>
+
+          <p><strong>Customer:</strong> ${job.customerName}</p>
+
+          <p><strong>Route:</strong> ${job.pickup} → ${job.dropoff}</p>
+
+          <p><strong>Price:</strong> £${job.price}</p>
+
+          <p><strong>Plan:</strong> ${job.plan === "trade_pro" ? "Trade Pro" : "Standard"}</p>
+
+          <p><strong>Driver:</strong> ${job.driverName || "Unassigned"}</p>
+
+          <p><strong>Notes:</strong> ${job.notes || "-"}</p>
+
+        `;
+
+        adminJobs.appendChild(adminCard);
+
+      });
+
+    }
+
+
+
+    function getNextLabel(status){
+
+      if(status === "Open") return "Accept job";
+
+      if(status === "Accepted") return "Drive to pickup";
+
+      if(status === "On the way to pickup") return "Mark picked up";
+
+      if(status === "Picked up") return "Drive to customer";
+
+      if(status === "On the way to customer") return "Mark delivered";
+
+      return "Completed";
+
+    }
+
+
+
+    function renderTracking(){
+
+      const latest = jobs[0];
+
+      document.getElementById("trackOrder").innerText = latest ? latest.orderId : "No order yet";
+
+      document.getElementById("trackRoute").innerText = latest ? (latest.pickup + " → " + latest.dropoff) : "Not available";
+
+      document.getElementById("trackStatus").innerText = latest ? latest.status : "Not available";
+
+
+
+      ["t1","t2","t3","t4","t5","t6"].forEach(id => {
+
+        document.getElementById(id).classList.remove("active");
+
+      });
+
+
+
+      if(!latest) return;
+
+      document.getElementById("t1").classList.add("active");
+
+      if(["Accepted","On the way to pickup","Picked up","On the way to customer","Delivered"].includes(latest.status)) document.getElementById("t2").classList.add("active");
+
+      if(["On the way to pickup","Picked up","On the way to customer","Delivered"].includes(latest.status)) document.getElementById("t3").classList.add("active");
+
+      if(["Picked up","On the way to customer","Delivered"].includes(latest.status)) document.getElementById("t4").classList.add("active");
+
+      if(["On the way to customer","Delivered"].includes(latest.status)) document.getElementById("t5").classList.add("active");
+
+      if(latest.status === "Delivered") document.getElementById("t6").classList.add("active");
+
+    }
+
+
+
+    function renderKpis(){
+
+      document.getElementById("kpiJobs").innerText = jobs.length;
+
+      document.getElementById("kpiRevenue").innerText = "£" + jobs.reduce((sum, job) => sum + Number(job.price || 0), 0);
+
+
+
+      const delivered = jobs.filter(j => j.status === "Delivered");
+
+      document.getElementById("kpiDelivered").innerText = delivered.length;
+
+      document.getElementById("kpiEarnings").innerText = "£" + delivered.reduce((sum, job) => sum + Number(job.price || 0), 0);
+
+    }
+
+
+
+    function renderAll(){
+
+      renderDriverGate();
+
+      renderJobs();
+
+      renderTracking();
+
+      renderKpis();
+
+    }
+
+
+
+    const jobsQuery = query(collection(db, "jobs"), orderBy("createdAt", "desc"));
+
+    onSnapshot(jobsQuery, snapshot => {
+
+      jobs = snapshot.docs.map(docSnap => ({
+
+        id: docSnap.id,
+
+        ...docSnap.data()
+
+      }));
+
+      renderAll();
+
+    });
+
+
+
+    onAuthStateChanged(auth, async user => {
+
+      if(user){
+
+        await loadProfile(user.uid);
+
+      } else {
+
+        currentUserProfile = null;
+
+        renderSession();
+
+        renderAll();
+
+      }
+
+    });
+
+
+
+    setRole("consumer");
+
+    renderAll();
+
+  </script>
 
 </body>
 
