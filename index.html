@@ -74,7 +74,7 @@
 
     .app{
 
-      max-width:520px;
+      max-width:560px;
 
       margin:0 auto;
 
@@ -654,12 +654,6 @@
 
     .hidden{display:none !important}
 
-    .muted{color:var(--muted);font-size:13px}
-
-    .ok{color:var(--success);font-weight:700}
-
-    .no{color:var(--danger);font-weight:700}
-
     .footer{
 
       text-align:center;
@@ -1128,7 +1122,7 @@
 
             <div class="price" id="price">£0</div>
 
-            <div class="muted" id="quoteText">Quote details will appear here.</div>
+            <div class="sub" id="quoteText">Quote details will appear here.</div>
 
             <button class="success" onclick="bookJob()">Book Job</button>
 
@@ -1558,6 +1552,12 @@
 
         await setDoc(doc(db, "users", cred.user.uid), profile);
 
+        currentUserProfile = profile;
+
+        renderSession();
+
+        renderAll();
+
         showAuthMessage("<strong>Account created.</strong><br>You are signed in as " + currentRole + ".");
 
       } catch (err){
@@ -1582,7 +1582,95 @@
 
         const password = document.getElementById("password").value.trim();
 
-        await signInWithEmailAndPassword(auth, email, password);
+
+
+        if(!email || !password){
+
+          alert("Please enter email and password.");
+
+          return;
+
+        }
+
+
+
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+
+
+
+        const userRef = doc(db, "users", cred.user.uid);
+
+        const userSnap = await getDoc(userRef);
+
+
+
+        if(!userSnap.exists()){
+
+          const fullName = document.getElementById("fullName").value.trim() || "User";
+
+          const phone = document.getElementById("phone").value.trim() || "";
+
+
+
+          const profile = {
+
+            uid: cred.user.uid,
+
+            role: currentRole,
+
+            fullName,
+
+            phone,
+
+            email,
+
+            createdAt: new Date().toISOString()
+
+          };
+
+
+
+          if(currentRole === "trade"){
+
+            profile.businessName = document.getElementById("businessName").value.trim() || "";
+
+            profile.plan = "trade_pro";
+
+          }
+
+
+
+          if(currentRole === "driver"){
+
+            profile.vehicleType = document.getElementById("vehicleType").value;
+
+            profile.serviceArea = document.getElementById("serviceArea").value.trim() || "";
+
+            profile.licenceStatus = document.getElementById("licenceStatus").value;
+
+            profile.insuranceStatus = document.getElementById("insuranceStatus").value;
+
+            profile.passportStatus = document.getElementById("passportStatus").value;
+
+          }
+
+
+
+          await setDoc(userRef, profile);
+
+          currentUserProfile = profile;
+
+        } else {
+
+          currentUserProfile = userSnap.data();
+
+        }
+
+
+
+        renderSession();
+
+        renderAll();
 
         showAuthMessage("<strong>Signed in successfully.</strong>");
 
@@ -1724,9 +1812,27 @@
 
     async function bookJob(){
 
-      if(!auth.currentUser || !currentUserProfile){
+      if(!auth.currentUser){
 
         alert("Please sign in first.");
+
+        return;
+
+      }
+
+
+
+      if(!currentUserProfile){
+
+        await loadProfile(auth.currentUser.uid);
+
+      }
+
+
+
+      if(!currentUserProfile){
+
+        alert("Your profile is missing. Please sign out and sign in again.");
 
         return;
 
@@ -1752,7 +1858,7 @@
 
         customerName: currentUserProfile.fullName || auth.currentUser.email,
 
-        customerRole: currentUserProfile.role,
+        customerRole: currentUserProfile.role || "consumer",
 
         pickup: document.getElementById("pickup").value,
 
@@ -2093,3 +2199,4 @@
 </body>
 
 </html>
+
