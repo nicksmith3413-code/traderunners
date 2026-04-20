@@ -8,8 +8,13 @@
 "orientation": "any",
 "scope": "/",
 "id": "traderunner.app",
-"description": "Traderunner connects customers, tradies with local drivers for fast, on-demand delivery of materials, tools & goods.",
+"description": "TradeRunner connects customers and drivers for shared rides.",
 "icons": [
+{
+"src": "icon.png",
+"sizes": "192x192",
+"type": "image/png"
+},
 {
 "src": "icon.png",
 "sizes": "512x512",
