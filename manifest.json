@@ -1,13 +1,19 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "nicksmith3413-code.github",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "nicksmith3413-code.github",
-  "start_url": "/",
-  "theme_color": "#2563eb",
-  "id": "traderunner.app",
-  "description": "Traderunner connects customers, tradies with local drivers for fast, on-demand delivery of matierials, tools &amp; goods."
+"name": "TradeRunner",
+"short_name": "TradeRunner",
+"start_url": "/",
+"display": "standalone",
+"background_color": "#ffffff",
+"theme_color": "#2563eb",
+"orientation": "any",
+"scope": "/",
+"id": "traderunner.app",
+"description": "Traderunner connects customers, tradies with local drivers for fast, on-demand delivery of materials, tools & goods.",
+"icons": [
+{
+"src": "icon.png",
+"sizes": "512x512",
+"type": "image/png"
+}
+]
 }
